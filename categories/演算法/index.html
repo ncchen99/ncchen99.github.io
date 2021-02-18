@@ -664,12 +664,14 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
       
         Dijkstra Note
-以走迷宮圖的最短路徑為例https://zerojudge.tw/ShowProblem?problemid=d793
+
+以走迷宮圖的最短路徑為例
+https://zerojudge.tw/ShowProblem?problemid=d793
 在 hackmd ㄉ： https://hackmd.io/@UltraGeek/Sy6vIEqvI
 #include &lt;bits/stdc++.h&gt;
 using namespace std;
 
-typedef struct Node...
+typedef struct No...
       
     
   </div>
@@ -1626,6 +1628,29 @@ var loadCSS = function( href, before, media, attributes ){
 </script>
 
 
+
+
+   <script type="text/javascript">
+  loadScript("https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js")
+  function pjax_scrollrebeal() {
+    ScrollReveal().reveal('.l_main .reveal', {
+      distance: '32px',
+      duration: '800',
+      interval: '20',
+      scale: '1',
+      easing: 'ease-out'
+    });
+  }
+  $(function () {
+  var checkScrollReveal = setInterval(function () {
+    if ($("#safearea").css("display")!="block") return
+    if (typeof ScrollReveal=="undefined") return
+    clearInterval(checkScrollReveal)
+	pjax_scrollrebeal();
+  }, 100)
+  });
+  volantis.pjax.push(pjax_scrollrebeal)
+</script>
 
 
 

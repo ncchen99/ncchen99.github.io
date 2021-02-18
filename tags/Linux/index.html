@@ -663,11 +663,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class='md'>
     
       
-        KDE neon 換主題前幾天聽到一首歌，覺得 hen 讚 :smiley_cat:是 ODESZA 的La Ciudad :bear:
+        KDE neon 換主題
+前幾天聽到一首歌，覺得 hen 讚 😺
+是 ODESZA 的La Ciudad 🐻
 
-後來發現他們的 :musical_note: 都超讚ㄉ，還有自己的 app ㄟ :pineapple: ，聽惹之後覺得又有力氣做點事情，所以決定來寫一下使用惹一陣子 KDE 的心得。
+後來發現他們的 🎵 都超讚ㄉ，還有自己的 app ㄟ 🍍 ，聽惹之後覺得又有力氣做點事情，所以決定來寫一下使用惹一陣子 KDE 的心得。
 
-上個月偶跟把拔拿惹一隻比較讚的 :computer: ，所以只好全部...
+上個月偶跟把拔拿惹一隻比較讚的 💻 ，所以只好全部砍掉重練，重裝惹一次Ubuntu的好朋友，這次偶迷有裝Kubuntu惹 🤓 ，改...
       
     
   </div>
@@ -1624,6 +1626,29 @@ var loadCSS = function( href, before, media, attributes ){
 </script>
 
 
+
+
+   <script type="text/javascript">
+  loadScript("https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js")
+  function pjax_scrollrebeal() {
+    ScrollReveal().reveal('.l_main .reveal', {
+      distance: '32px',
+      duration: '800',
+      interval: '20',
+      scale: '1',
+      easing: 'ease-out'
+    });
+  }
+  $(function () {
+  var checkScrollReveal = setInterval(function () {
+    if ($("#safearea").css("display")!="block") return
+    if (typeof ScrollReveal=="undefined") return
+    clearInterval(checkScrollReveal)
+	pjax_scrollrebeal();
+  }, 100)
+  });
+  volantis.pjax.push(pjax_scrollrebeal)
+</script>
 
 
 

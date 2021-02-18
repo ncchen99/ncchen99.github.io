@@ -702,10 +702,12 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   
   
-  <h1 id="Dijkstra-Note"><a href="#Dijkstra-Note" class="headerlink" title="Dijkstra Note"></a>Dijkstra Note</h1><hr>
-<p>以走迷宮圖的最短路徑為例<br><a target="_blank" rel="noopener" href="https://zerojudge.tw/ShowProblem?problemid=d793">https://zerojudge.tw/ShowProblem?problemid=d793</a></p>
+  <h1>Dijkstra Note</h1>
+<hr>
+<p>以走迷宮圖的最短路徑為例<br>
+<a target="_blank" rel="noopener" href="https://zerojudge.tw/ShowProblem?problemid=d793">https://zerojudge.tw/ShowProblem?problemid=d793</a></p>
 <p>在 hackmd ㄉ： <a target="_blank" rel="noopener" href="https://hackmd.io/@UltraGeek/Sy6vIEqvI">https://hackmd.io/@UltraGeek/Sy6vIEqvI</a></p>
-<pre><code class="cpp">#include &lt;bits/stdc++.h&gt;
+<pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
 using namespace std;
 
 typedef struct Node &#123;
@@ -763,7 +765,7 @@ int main() &#123;
         dispq.push(n);
 
         dijsktra();
-        cout &lt;&lt; dis[N - 1][M - 1] &lt;&lt; &#39;\n&#39;;
+        cout &lt;&lt; dis[N - 1][M - 1] &lt;&lt; '\n';
     &#125;
 &#125;
 </code></pre>
@@ -2226,15 +2228,19 @@ int main() &#123;
         <a class='prev' href='/2020/05/09/%E7%95%B6%E5%B9%B9%E9%83%A8%E7%9A%84%E5%BF%83%E5%BE%97/'>
           <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>當幹部的心得</p>
           <p class='content'>文華電研百十級社長心得
-緣起還記得去年ㄉ這個時候，我其實不太想當幹部，偶覺得感覺會有很多雜事又令人心煩，直到老師找我過去聊聊，他說：『我們還小的時候雙手伸出來拿別人付出的東西，當我們長大了有能力...</p>
+
+緣起
+還記得去年ㄉ這個時候，我其實不太想當幹部，偶覺得感覺會有很多雜事又令人心煩，直到老師找我過去聊聊，他說：『我們還小的時候雙手伸出來拿別人付出的東西，當我們長大了有...</p>
         </a>
       
       
         <a class='next' href='/2020/03/19/KDEneon%E6%8F%9B%E4%B8%BB%E9%A1%8C/'>
           <p class='title'>KDEneon換主題<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>KDE neon 換主題前幾天聽到一首歌，覺得 hen 讚 :smiley_cat:是 ODESZA 的La Ciudad :bear:
+          <p class='content'>KDE neon 換主題
+前幾天聽到一首歌，覺得 hen 讚 😺
+是 ODESZA 的La Ciudad 🐻
 
-後來發現他們的 :musical_note: 都超讚ㄉ...</p>
+後來發現他們的 🎵 都超讚ㄉ，還有自己的 app ㄟ 🍍 ，聽惹之後覺得又...</p>
         </a>
       
     </div>
@@ -3067,6 +3073,29 @@ var loadCSS = function( href, before, media, attributes ){
 </script>
 
 
+
+
+   <script type="text/javascript">
+  loadScript("https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js")
+  function pjax_scrollrebeal() {
+    ScrollReveal().reveal('.l_main .reveal', {
+      distance: '32px',
+      duration: '800',
+      interval: '20',
+      scale: '1',
+      easing: 'ease-out'
+    });
+  }
+  $(function () {
+  var checkScrollReveal = setInterval(function () {
+    if ($("#safearea").css("display")!="block") return
+    if (typeof ScrollReveal=="undefined") return
+    clearInterval(checkScrollReveal)
+	pjax_scrollrebeal();
+  }, 100)
+  });
+  volantis.pjax.push(pjax_scrollrebeal)
+</script>
 
 
 

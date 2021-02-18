@@ -688,16 +688,21 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
   
   <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="bash">$ hexo new &quot;My New Post&quot;
+<h2 id="Quick-Start">Quick Start</h2>
+<h3 id="Create-a-new-post">Create a new post</h3>
+<pre><code class="language-bash">$ hexo new &quot;My New Post&quot;
 </code></pre>
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre><code class="bash">$ hexo server
+<h3 id="Run-server">Run server</h3>
+<pre><code class="language-bash">$ hexo server
 </code></pre>
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre><code class="bash">$ hexo generate
+<h3 id="Generate-static-files">Generate static files</h3>
+<pre><code class="language-bash">$ hexo generate
 </code></pre>
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code class="bash">$ hexo deploy
+<h3 id="Deploy-to-remote-sites">Deploy to remote sites</h3>
+<pre><code class="language-bash">$ hexo deploy
 </code></pre>
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 
@@ -795,8 +800,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class='next' href='/2021/02/14/%F0%9F%98%8E%E5%BF%B5%E8%AA%A0%E3%84%8B%E3%84%9B%CB%99%E7%89%B9%E6%AE%8A%E9%81%B8%E6%9D%90%E5%BF%83%E5%BE%97/'>
           <p class='title'>😎念誠ㄋㄛ˙特殊選材心得<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>😎 念誠ㄋㄛ ˙ 特殊選材心得小弟我能力不強，也不優秀 🥺，故不放上特殊選材的結果，簡單分享一下過程中的心路歷程 😳，以及對於升學、追求目標的想法 🤫。
-🐄 一些想法在一開始要嘗試特殊...</p>
+          <p class='content'>😎 念誠ㄋㄛ ˙ 特殊選材心得
+小弟我能力不強，也不優秀 🥺，故不放上特殊選材的結果，簡單分享一下過程中的心路歷程 😳，以及對於升學、追求目標的想法 🤫。
+🐄 一些想法
+在一開始要嘗試...</p>
         </a>
       
     </div>
@@ -1629,6 +1636,29 @@ var loadCSS = function( href, before, media, attributes ){
 </script>
 
 
+
+
+   <script type="text/javascript">
+  loadScript("https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js")
+  function pjax_scrollrebeal() {
+    ScrollReveal().reveal('.l_main .reveal', {
+      distance: '32px',
+      duration: '800',
+      interval: '20',
+      scale: '1',
+      easing: 'ease-out'
+    });
+  }
+  $(function () {
+  var checkScrollReveal = setInterval(function () {
+    if ($("#safearea").css("display")!="block") return
+    if (typeof ScrollReveal=="undefined") return
+    clearInterval(checkScrollReveal)
+	pjax_scrollrebeal();
+  }, 100)
+  });
+  volantis.pjax.push(pjax_scrollrebeal)
+</script>
 
 
 

@@ -707,9 +707,11 @@ Qu...
   <div class='md'>
     
       
-        😎 念誠ㄋㄛ ˙ 特殊選材心得小弟我能力不強，也不優秀 🥺，故不放上特殊選材的結果，簡單分享一下過程中的心路歷程 😳，以及對於升學、追求目標的想法 🤫。
-🐄 一些想法在一開始要嘗試特殊選材的時候 👻，我的拔拔麻麻是很不能認同的 😞，可能是基於對於自己的孩子專業領域能力的不了解 😲，又或者是希望孩子能用一種比較有保障的方式升學(考試)😩。
-現在，我發現不能責怪父母對我的不支持...
+        😎 念誠ㄋㄛ ˙ 特殊選材心得
+小弟我能力不強，也不優秀 🥺，故不放上特殊選材的結果，簡單分享一下過程中的心路歷程 😳，以及對於升學、追求目標的想法 🤫。
+🐄 一些想法
+在一開始要嘗試特殊選材的時候 👻，我的拔拔麻麻是很不能認同的 😞，可能是基於對於自己的孩子專業領域能力的不了解 😲，又或者是希望孩子能用一種比較有保障的方式升學(考試)😩。
+現在，我發現不能責怪父母對我的不...
       
     
   </div>
@@ -1665,6 +1667,29 @@ var loadCSS = function( href, before, media, attributes ){
 </script>
 
 
+
+
+   <script type="text/javascript">
+  loadScript("https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js")
+  function pjax_scrollrebeal() {
+    ScrollReveal().reveal('.l_main .reveal', {
+      distance: '32px',
+      duration: '800',
+      interval: '20',
+      scale: '1',
+      easing: 'ease-out'
+    });
+  }
+  $(function () {
+  var checkScrollReveal = setInterval(function () {
+    if ($("#safearea").css("display")!="block") return
+    if (typeof ScrollReveal=="undefined") return
+    clearInterval(checkScrollReveal)
+	pjax_scrollrebeal();
+  }, 100)
+  });
+  volantis.pjax.push(pjax_scrollrebeal)
+</script>
 
 
 
