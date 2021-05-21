@@ -101,6 +101,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     </div>
 </noscript>
 
+
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 </head>
 
   <body>
@@ -686,14 +688,14 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <h3 id="✔-攜帶錢錢">✔ 攜帶錢錢</h3>
 <p>建議 1000 快以上(方便的話先給念誠車錢<strong>750</strong>💲)</p>
 <h3 id="💦-攜帶物品">💦 攜帶物品</h3>
-<p><input type="checkbox"  /> 小包包 👜<br>
-<input type="checkbox"  /> 錢包 💰<br>
-<input type="checkbox"  /> <span style="color :blue">悠遊卡 💳</span><br>
-<input type="checkbox"  /> <span style="color :green">學生證 🎴(或健保卡、身分證)</span><br>
-<input type="checkbox"  /> <span style="color :red">口罩幾個 😷</span><br>
-<input type="checkbox"  /> 水瓶 🍼(可選)<br>
-<input type="checkbox"  /> 雨傘 ⛱️(可選)<br>
-<input type="checkbox"  /> 房賽乳 🌞(可選)</p>
+<p><input type="checkbox"> 小包包 👜<br>
+<input type="checkbox"> 錢包 💰<br>
+<input type="checkbox"> <span style="color :blue">悠遊卡 💳</span><br>
+<input type="checkbox"> <span style="color :green">學生證 🎴(或健保卡、身分證)</span><br>
+<input type="checkbox"> <span style="color :red">口罩幾個 😷</span><br>
+<input type="checkbox"> 水瓶 🍼(可選)<br>
+<input type="checkbox"> 雨傘 ⛱️(可選)<br>
+<input type="checkbox"> 房賽乳 🌞(可選)</p>
 <h3 id="💄-歷屆試題">💄 歷屆試題</h3>
 <blockquote>
 <p>據說近年網路上可以找到的不多，不過<a target="_blank" rel="noopener" href="https://tioj.ck.tp.edu.tw/problems/tag/2018-TOI-pre">TIOJ 有 2018 的</a>，根據中一中有經驗的學長現身說法，快速冪(矩陣)、區間問題(線段樹)是相對常出現的問題 💢 念誠因為實力不足、缺乏實作經驗、欠缺熱情，所以只有練習三題歷屆試題。個人認為背一下 4 行的 Floyd-Warshall 多源最短路徑演算法，縮不定可以快速撈到一些分 💔</p>
@@ -714,27 +716,27 @@ const int p = 1e9 + 7;
 /* template &lt;typename T&gt;
 using ivec = vector&lt;T&gt;;
 */
-ivec matrixchen(ivec a, ivec b) &#123;
-  ivec tmp(&#123;((a[0] * b[0]) % p + (a[1] * b[2]) % p) % p,
+ivec matrixchen(ivec a, ivec b) {
+  ivec tmp({((a[0] * b[0]) % p + (a[1] * b[2]) % p) % p,
             ((a[0] * b[1]) % p + (a[1] * b[3]) % p) % p,
             ((a[2] * b[0]) % p + (a[3] * b[2]) % p) % p,
-            ((a[2] * b[1]) % p + (a[3] * b[3]) % p) % p&#125;);
+            ((a[2] * b[1]) % p + (a[3] * b[3]) % p) % p});
   return tmp;
-&#125;
+}
 
-int main() &#123;
+int main() {
 ios_base::sync_with_stdio(0);
 cin.tie(0);
 ull x1, x2, a, b, n;
 cin &gt;&gt; x1 &gt;&gt; x2 &gt;&gt; a &gt;&gt; b &gt;&gt; n;
-ivec tmat(&#123;1, 0, 0, 1&#125;);
-ivec ans(&#123;x2, 0, x1, 0&#125;);
+ivec tmat({1, 0, 0, 1});
+ivec ans({x2, 0, x1, 0});
 n -= 2;
-for (ivec opMat(&#123;b, a, 1, 0&#125;); n &gt; 0; opMat = matrixchen(opMat, opMat), n &gt;&gt;= 1)
+for (ivec opMat({b, a, 1, 0}); n &gt; 0; opMat = matrixchen(opMat, opMat), n &gt;&gt;= 1)
 if (n &amp; 1) tmat = matrixchen(tmat, opMat);
 auto tmp = matrixchen(tmat, ans);
 cout &lt;&lt; tmp[0] &lt;&lt; endl;
-&#125;
+}
 
 </code></pre>
 </details>
@@ -757,45 +759,45 @@ cout &lt;&lt; tmp[0] &lt;&lt; endl;
   cin.tie(0)
 using namespace std;
 
-int st[signed(maxn) * 4] = &#123;&#125;;
-int a[signed(maxn)] = &#123;&#125;;
+int st[signed(maxn) * 4] = {};
+int a[signed(maxn)] = {};
 int ql, qr, n, minv;
 
-void build(int l, int r, int v) &#123;
-  if (l == r) &#123;
+void build(int l, int r, int v) {
+  if (l == r) {
       st[v] = a[l];
       return;
-  &#125;
+  }
   int m = (l + r) / 2;
   build(l, m, lc(v));
   build(m + 1, r, rc(v));
   st[v] = min(st[lc(v)], st[rc(v)]);
-&#125;
+}
 
-void query(int l, int r, int v) &#123;
-  if (ql &lt;= l &amp;&amp; r &lt;= qr) &#123;
+void query(int l, int r, int v) {
+  if (ql &lt;= l &amp;&amp; r &lt;= qr) {
       minv = min(st[v], minv);
       return;
-  &#125;
+  }
   int m = (l + r) / 2;
   if (ql &lt;= m) query(l, m, lc(v));
   if (qr &gt; m) query(m + 1, r, rc(v));
-&#125;
-signed main() &#123;
+}
+signed main() {
   onedieonedie;
   cin &gt;&gt; n;
   for (int i = 0; i &lt; n; i++)
       cin &gt;&gt; a[i];
   build(0, n - 1, 0);
-  for (int i = 0; i &lt; n; i++) &#123;
+  for (int i = 0; i &lt; n; i++) {
       cin &gt;&gt; ql &gt;&gt; qr;
       ql--;
       qr--;
       minv = INT_MAX;
       query(0, n - 1, 0);
       cout &lt;&lt; minv + 1 &lt;&lt; '\n';
-  &#125;
-&#125;
+  }
+}
 </code></pre>
 </details>
 <h4 id="3-💥-怪怪化學蹄">3. 💥 怪怪化學蹄</h4>
@@ -808,86 +810,86 @@ signed main() &#123;
 <pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
 #define endl '\n'
 using namespace std;
-struct Atom &#123;
+struct Atom {
     string name;
     int amount;
-&#125; atoms[256];
-struct tag &#123;
+} atoms[256];
+struct tag {
     int si;
     int ei;
     int cm;  //change amount
-&#125; tags[256];
+} tags[256];
 string cf;  //chemical formula  打扣也能學英文
-int ca(int &amp;i) &#123;
+int ca(int &amp;i) {
     int amount = 0;
-    while (isdigit(cf[i + 1])) &#123;
+    while (isdigit(cf[i + 1])) {
         amount = (cf[i + 1] - '0') + amount * 10;
         i++;
-    &#125;
+    }
     return amount;
-&#125;  //count atoms
-int main() &#123;
+}  //count atoms
+int main() {
     ios_base::sync_with_stdio(0);
-    while (cin &gt;&gt; cf) &#123;
+    while (cin &gt;&gt; cf) {
         int i = 0, b = 0, aatmp;  //brackets, atomsAmountTmp
         string antmp;             //atomsNameTmp
         stack&lt;struct tag&gt; tagSt;
-        for (int k = 0; k &lt; 256; k++) &#123;
-            atoms[k].name = &quot;NULL&quot;;
+        for (int k = 0; k &lt; 256; k++) {
+            atoms[k].name = "NULL";
             atoms[k].amount = 0;
             tags[k].si = 0;
             tags[k].ei = 0;
             tags[k].cm = 0;
-        &#125;
-        while (i &lt; cf.length()) &#123;
-            if (isalpha(cf[i])) &#123;
+        }
+        while (i &lt; cf.length()) {
+            if (isalpha(cf[i])) {
                 antmp = cf[i];
-                if (isalpha(cf[i + 1]) &amp;&amp; islower(cf[i + 1])) &#123;
+                if (isalpha(cf[i + 1]) &amp;&amp; islower(cf[i + 1])) {
                     antmp += cf[i + 1];
                     i++;
-                &#125;
+                }
                 if ((isalpha(cf[i + 1]) &amp;&amp; isupper(cf[i + 1])) || cf[i + 1] == '(' || cf[i + 1] == ')' || i + 1 == cf.length())
                     aatmp = 1;
                 if (isdigit(cf[i + 1]))
                     aatmp = ca(i);
                 atoms[i].name = antmp;
                 atoms[i].amount = aatmp;
-            &#125; else if (cf[i] == '(') &#123;
+            } else if (cf[i] == '(') {
                 struct tag tmptag;
                 tmptag.si = i;
                 tagSt.push(tmptag);
-            &#125; else if (cf[i] == ')') &#123;
+            } else if (cf[i] == ')') {
                 tagSt.top().ei = i;
                 tagSt.top().cm = ca(i);
                 tags[b] = tagSt.top();
                 tagSt.pop();
                 b++;
-            &#125;
+            }
             i++;
-        &#125;
-        for (int i = 0; i &lt; b; i++) &#123;
+        }
+        for (int i = 0; i &lt; b; i++) {
             if (tags[i].cm == 0) continue;
-            for (int j = tags[i].si; j &lt; tags[i].ei; j++) &#123;
-                if (atoms[j].name != &quot;NULL&quot;)
+            for (int j = tags[i].si; j &lt; tags[i].ei; j++) {
+                if (atoms[j].name != "NULL")
                     atoms[j].amount *= tags[i].cm;
-            &#125;
-        &#125;
+            }
+        }
         map&lt;string, int&gt; ansA;
         map&lt;string, int&gt;::iterator iter;
-        for (int i = 0; i &lt; cf.length(); i++) &#123;
-            if (atoms[i].name != &quot;NULL&quot;) &#123;
+        for (int i = 0; i &lt; cf.length(); i++) {
+            if (atoms[i].name != "NULL") {
                 if (ansA.find(atoms[i].name) != ansA.end())
                     ansA[atoms[i].name] += atoms[i].amount;
                 else
                     ansA[atoms[i].name] = atoms[i].amount;
-            &#125;
-        &#125;
+            }
+        }
         cout &lt;&lt; cf &lt;&lt; endl;
-        for (iter = ansA.begin(); iter != ansA.end(); iter++) &#123;
-            cout &lt;&lt; iter-&gt;first &lt;&lt; &quot;:&quot; &lt;&lt; iter-&gt;second &lt;&lt; endl;
-        &#125;
-    &#125;
-&#125;
+        for (iter = ansA.begin(); iter != ansA.end(); iter++) {
+            cout &lt;&lt; iter-&gt;first &lt;&lt; ":" &lt;&lt; iter-&gt;second &lt;&lt; endl;
+        }
+    }
+}
 </code></pre>
 </details>
 <h3 id="😩-趕快學啟來可能有用ㄉ東西">😩 趕快學啟來可能有用ㄉ東西</h3>
@@ -900,31 +902,31 @@ int main() &#123;
   <summary>糟糕的參考乘勢</summary>
 <pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
 using namespace std;
-int main() &#123;
-  bool c[201][201] = &#123;0&#125;;  //Connected
+int main() {
+  bool c[201][201] = {0};  //Connected
   int n, m, q;
-  for (int i = 0; i &lt; n; i++) &#123;
+  for (int i = 0; i &lt; n; i++) {
       c[i][i] = 1;
-  &#125;
+  }
   cin &gt;&gt; n &gt;&gt; m &gt;&gt; q;
-  while (m--) &#123;
+  while (m--) {
       int a, b;
       cin &gt;&gt; a &gt;&gt; b;
       c[a][b] = 1;
-  &#125;
-  for (int k = 0; k &lt; n; k++) &#123;
-      for (int i = 0; i &lt; n; i++) &#123;
-          for (int j = 0; j &lt; n; j++) &#123;
+  }
+  for (int k = 0; k &lt; n; k++) {
+      for (int i = 0; i &lt; n; i++) {
+          for (int j = 0; j &lt; n; j++) {
               c[i][j] = c[i][j] || (c[i][k] &amp;&amp; c[k][j]);
-          &#125;
-      &#125;
-  &#125;
-  while (q--) &#123;
+          }
+      }
+  }
+  while (q--) {
       int a, b;
       cin &gt;&gt; a &gt;&gt; b;
-      cout &lt;&lt; (c[a][b] ? &quot;YES&quot; : &quot;NO&quot;) &lt;&lt; endl;
-  &#125;
-&#125;
+      cout &lt;&lt; (c[a][b] ? "YES" : "NO") &lt;&lt; endl;
+  }
+}
 </code></pre>
 </details>
 

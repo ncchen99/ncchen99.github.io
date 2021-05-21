@@ -101,6 +101,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     </div>
 </noscript>
 
+
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 </head>
 
   <body>
@@ -687,64 +689,64 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
 using namespace std;
 
-typedef struct Node &#123;
+typedef struct Node {
     int i;
     int j;
     int dis;
-    bool operator&lt;(const Node&amp; a) const &#123;
+    bool operator&lt;(const Node&amp; a) const {
         return a.dis &lt; dis;
-    &#125;
-&#125; node;
+    }
+} node;
 
 int ta, N, M;  // taskAmount
 int maze[1000][1000];
 int dis[1000][1000];
 bool flag[1000][1000];
-int mv[4][2] = &#123;&#123;1, 0&#125;, &#123;0, 1&#125;, &#123;-1, 0&#125;, &#123;0, -1&#125;&#125;;
+int mv[4][2] = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
 priority_queue&lt;node&gt; dispq;
 
-void dijsktra() &#123;
-    while (!dispq.empty()) &#123;
+void dijsktra() {
+    while (!dispq.empty()) {
         flag[dispq.top().i][dispq.top().j] = true;
-        for (int k = 0; k &lt; 4; k++) &#123;
+        for (int k = 0; k &lt; 4; k++) {
             node nn;  //nextNode
             nn.i = dispq.top().i + mv[k][0];
             nn.j = dispq.top().j + mv[k][1];
             nn.dis = dis[nn.i][nn.j];
-            if ((nn.i &lt; N &amp;&amp; nn.i &gt;= 0) &amp;&amp; (nn.j &lt; M &amp;&amp; nn.j &gt;= 0) &amp;&amp; (!flag[nn.i][nn.j])) &#123;
-                if (dispq.top().dis + maze[nn.i][nn.j] &lt; nn.dis) &#123;
+            if ((nn.i &lt; N &amp;&amp; nn.i &gt;= 0) &amp;&amp; (nn.j &lt; M &amp;&amp; nn.j &gt;= 0) &amp;&amp; (!flag[nn.i][nn.j])) {
+                if (dispq.top().dis + maze[nn.i][nn.j] &lt; nn.dis) {
                     nn.dis = dispq.top().dis + maze[nn.i][nn.j];
                     dispq.push(nn);
                     dis[nn.i][nn.j] = nn.dis;
-                &#125;
-            &#125;
-        &#125;
+                }
+            }
+        }
         dispq.pop();
-    &#125;
-&#125;
+    }
+}
 
-int main() &#123;
+int main() {
     ios_base::sync_with_stdio(0);
     cin.tie(nullptr);
     cin &gt;&gt; ta;
-    while (ta--) &#123;
+    while (ta--) {
         //int p[1000][1000];
         cin &gt;&gt; N &gt;&gt; M;
-        for (int i = 0; i &lt; N; i++) &#123;
-            for (int j = 0; j &lt; M; j++) &#123;
+        for (int i = 0; i &lt; N; i++) {
+            for (int j = 0; j &lt; M; j++) {
                 cin &gt;&gt; maze[i][j];
                 flag[i][j] = 0;
                 dis[i][j] = 9999999;
-            &#125;
-        &#125;
-        node n = &#123;0, 0, maze[0][0]&#125;;
+            }
+        }
+        node n = {0, 0, maze[0][0]};
         dis[0][0] = maze[0][0];
         dispq.push(n);
 
         dijsktra();
         cout &lt;&lt; dis[N - 1][M - 1] &lt;&lt; '\n';
-    &#125;
-&#125;
+    }
+}
 </code></pre>
 <div>
 <hr><ol>
@@ -774,7 +776,7 @@ int main() &#123;
 <td>5</td>
 <td>3</td>
 </tr>
-<tr></div>
+<tr>
 <td>2</td>
 <td>3</td>
 <td>4</td>
@@ -782,7 +784,7 @@ int main() &#123;
 <td>5</td>
 </tr>
 </tbody>
-</table> </br><table>
+</table> <br><table>
 <thead>
 <tr>
 <th><span style="color:gray"> <s>0</s> </span></th>
@@ -850,7 +852,7 @@ int main() &#123;
 <td>5</td>
 </tr>
 </tbody>
-</table> </br><table>
+</table> <br><table>
 <thead>
 <tr>
 <th><span style="color:gray"> <s>0</s> </span></th>
@@ -918,7 +920,7 @@ int main() &#123;
 <td>5</td>
 </tr>
 </tbody>
-</table> </br><table>
+</table> <br><table>
 <thead>
 <tr>
 <th><span style="color:gray"> <s>0</s> </span></th>
@@ -986,7 +988,7 @@ int main() &#123;
 <td>5</td>
 </tr>
 </tbody>
-</table> </br><table>
+</table> <br><table>
 <thead>
 <tr>
 <th><span style="color:gray"> <s>0</s> </span></th>
@@ -1054,7 +1056,7 @@ int main() &#123;
 <td>5</td>
 </tr>
 </tbody>
-</table> </br><table>
+</table> <br><table>
 <thead>
 <tr>
 <th><span style="color:gray"> <s>0</s> </span></th>
@@ -1122,7 +1124,7 @@ int main() &#123;
 <td>5</td>
 </tr>
 </tbody>
-</table> </br><table>
+</table> <br><table>
 <thead>
 <tr>
 <th><span style="color:gray"> <s>0</s> </span></th>
@@ -1190,7 +1192,7 @@ int main() &#123;
 <td>5</td>
 </tr>
 </tbody>
-</table> </br><table>
+</table> <br><table>
 <thead>
 <tr>
 <th><span style="color:gray"> <s>0</s> </span></th>
@@ -1258,7 +1260,7 @@ int main() &#123;
 <td>5</td>
 </tr>
 </tbody>
-</table> </br><table>
+</table> <br><table>
 <thead>
 <tr>
 <th><span style="color:gray"> <s>0</s> </span></th>
@@ -1326,7 +1328,7 @@ int main() &#123;
 <td>5</td>
 </tr>
 </tbody>
-</table> </br><table>
+</table> <br><table>
 <thead>
 <tr>
 <th><span style="color:gray"> <s>0</s> </span></th>
@@ -1394,7 +1396,7 @@ int main() &#123;
 <td>5</td>
 </tr>
 </tbody>
-</table> </br><table>
+</table> <br><table>
 <thead>
 <tr>
 <th><span style="color:gray"> <s>0</s> </span></th>
@@ -1462,7 +1464,7 @@ int main() &#123;
 <td>5</td>
 </tr>
 </tbody>
-</table> </br><table>
+</table> <br><table>
 <thead>
 <tr>
 <th><span style="color:gray"> <s>0</s> </span></th>
@@ -1530,7 +1532,7 @@ int main() &#123;
 <td>5</td>
 </tr>
 </tbody>
-</table> </br><table>
+</table> <br><table>
 <thead>
 <tr>
 <th><span style="color:gray"> <s>0</s> </span></th>
@@ -1598,7 +1600,7 @@ int main() &#123;
 <td>5</td>
 </tr>
 </tbody>
-</table> </br><table>
+</table> <br><table>
 <thead>
 <tr>
 <th><span style="color:gray"> <s>0</s> </span></th>
@@ -1666,7 +1668,7 @@ int main() &#123;
 <td>5</td>
 </tr>
 </tbody>
-</table> </br><table>
+</table> <br><table>
 <thead>
 <tr>
 <th><span style="color:gray"> <s>0</s> </span></th>
@@ -1734,7 +1736,7 @@ int main() &#123;
 <td>5</td>
 </tr>
 </tbody>
-</table> </br><table>
+</table> <br><table>
 <thead>
 <tr>
 <th><span style="color:gray"> <s>0</s> </span></th>
@@ -1802,7 +1804,7 @@ int main() &#123;
 <td>5</td>
 </tr>
 </tbody>
-</table> </br><table>
+</table> <br><table>
 <thead>
 <tr>
 <th><span style="color:gray"> <s>0</s> </span></th>
@@ -1870,7 +1872,7 @@ int main() &#123;
 <td><span style="color:red"> 5 </span></td>
 </tr>
 </tbody>
-</table> </br><table>
+</table> <br><table>
 <thead>
 <tr>
 <th><span style="color:gray"> <s>0</s> </span></th>
@@ -1938,7 +1940,7 @@ int main() &#123;
 <td><span style="color:red"> 5 </span></td>
 </tr>
 </tbody>
-</table> </br><table>
+</table> <br><table>
 <thead>
 <tr>
 <th><span style="color:gray"> <s>0</s> </span></th>
@@ -2006,7 +2008,7 @@ int main() &#123;
 <td><span style="color:green"> 5 </span></td>
 </tr>
 </tbody>
-</table> </br><table>
+</table> <br><table>
 <thead>
 <tr>
 <th><span style="color:gray"> <s>0</s> </span></th>
@@ -2074,7 +2076,7 @@ int main() &#123;
 <td><span style="color:gray"> <s>5</s> </span></td>
 </tr>
 </tbody>
-</table> </br><table>
+</table> <br><table>
 <thead>
 <tr>
 <th><span style="color:gray"> <s>0</s> </span></th>
