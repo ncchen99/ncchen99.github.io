@@ -83,19 +83,6 @@
     
     
     <entry>
-      <title>Hello World</title>
-      <link href="2021/02/15/hello-world/"/>
-      <url>2021/02/15/hello-world/</url>
-      
-        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start">Quick Start</h2><h3 id="Create-a-new-post">Create a new post</h3><pre><code class="language-bash">$ hexo new "My New Post"</code></pre><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server">Run server</h3><pre><code class="language-bash">$ hexo server</code></pre><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files">Generate static files</h3><pre><code class="language-bash">$ hexo generate</code></pre><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites">Deploy to remote sites</h3><pre><code class="language-bash">$ hexo deploy</code></pre><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>😎念誠ㄋㄛ˙特殊選材心得</title>
       <link href="2021/02/14/%F0%9F%98%8E%E5%BF%B5%E8%AA%A0%E3%84%8B%E3%84%9B%CB%99%E7%89%B9%E6%AE%8A%E9%81%B8%E6%9D%90%E5%BF%83%E5%BE%97/"/>
       <url>2021/02/14/%F0%9F%98%8E%E5%BF%B5%E8%AA%A0%E3%84%8B%E3%84%9B%CB%99%E7%89%B9%E6%AE%8A%E9%81%B8%E6%9D%90%E5%BF%83%E5%BE%97/</url>
