@@ -5,8 +5,6 @@
   <!-- SEO相关 -->
   
     
-      <meta name="robots" content="noindex,follow">
-    
   
   <!-- 渲染优化 -->
   <meta http-equiv='x-dns-prefetch-control' content='on' />
@@ -24,7 +22,9 @@
 
   <!-- 页面元数据 -->
   
-  <title>歸檔：2020/1 - 念誠</title>
+  <title>🤖picoCTF Write🆙 - 念誠</title>
+  
+    <meta name="keywords" content="CTF,picoCTF">
   
 
   
@@ -523,7 +523,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <div id="l_cover">
   
     
-        <div id="full" class='cover-wrapper  dock' style="display: none;">
+        <div id="full" class='cover-wrapper post dock' style="display: none;">
           
             <div id='cover-backstretch'></div>
           
@@ -605,78 +605,390 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
 
 <div class='l_main'>
-	
-		
-  <section class="post-list">
+  <article class="article post white-box reveal md shadow blur article-type-post" id="post" itemscope itemprop="blogPost">
+  
+
+
+  
+  <div class="article-meta" id="top">
     
-      
+    
+    
+      <h1 class="title">
+        🤖picoCTF Write🆙
+      </h1>
+      <div class='new-meta-box'>
         
           
-            <div class='post-wrapper'>
-              <div class="post post-v3 white-box reveal shadow blur">
+            
+<div class='new-meta-item author'>
+  <a class='author' target="_blank" href="https://github.com/ncchen99/" rel="nofollow noopener">
+    <img no-lazy src="https://cdn.jsdelivr.net/gh/ncchen99/web-app-assets@2.0/blog/image/png/sun.png">
+    <p>念誠</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class='new-meta-item category'>
+    <a class='notlink'>
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <a class="category-link" href="/categories/Write%F0%9F%86%99/">Write🆙</a>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>發佈於：2021年6月18日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class='notlink'>
+      
+      <div id="lc-pv" data-title="🤖picoCTF Write🆙" data-path="/2021/06/18/%F0%9F%A4%96picoCTF-Write%F0%9F%86%99/">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次瀏覽
+      </div>
+    </a>
+  </div>
+
+
+          
+        
+      </div>
+    
+  </div>
+
+
   
   
-    <div class='pin'>
-      <img src='https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f4cc.svg'/>
+  <p>最近想說來練習CTF的東西🥺 偶隔膜覺得CTF好難哇😰 只能先從pico的簡單題目開始惹💩 有大佬說寫writeup會很有幫助😈 先來試試看窩🥶</p>
+<hr>
+<h2 id="😺Obedient-Cat">😺Obedient Cat</h2>
+<ul>
+<li>Category: General Skills</li>
+<li>Score: 5</li>
+</ul>
+<h3 id="💁Description">💁Description</h3>
+<p>This file has a flag in plain sight (aka “in-the-clear”). <a target="_blank" rel="noopener" href="https://mercury.picoctf.net/static/2d24d50b4ebed90c704575627f1f57b2/flag">Download flag</a></p>
+<h3 id="🙆Solution">🙆Solution</h3>
+<p>下載下來然後打開🥺</p>
+<hr>
+<h2 id="🙊Mod-26">🙊Mod 26</h2>
+<ul>
+<li>Category: Cryptography</li>
+<li>Score: 10</li>
+</ul>
+<h3 id="💁Description-v2">💁Description</h3>
+<p>Cryptography can be easy, do you know what <strong>ROT13</strong> is? cvpbPGS{arkg_gvzr_V’yy_gel_2_ebhaqf_bs_ebg13_nSkgmDJE}</p>
+<h3 id="🙆Solution-v2">🙆Solution</h3>
+<p>去Google一下原來 ROT13 是 rotate by 13 places 的意思，是相差十三個字母的凱撒加密，拿去線上CTF小工具解一下，結果全部變小寫🤢，眼睛不好看不出來，只好查解答🙊，原來 ROT13 可以用一個叫做<code>nkf</code>的軟件變回來，用法：</p>
+<p><code>echo "cvpbPGS{arkg_gvzr_V'yy_gel_2_ebhaqf_bs_ebg13_nSkgmDJE}" | nkf -r</code></p>
+<p><code>nkf</code> 是一個漢字的轉換器的樣子😮　不過它還可以用<a target="_blank" rel="noopener" href="https://linux.die.net/man/1/nkf">參數</a><code>-r</code> 轉換 <code>ROT13</code> 。</p>
+<hr>
+<h2 id="🐍Python-Wrangling">🐍Python Wrangling</h2>
+<ul>
+<li>Category: General Skills</li>
+<li>Score: 10</li>
+</ul>
+<h3 id="💁Description-v3">💁Description</h3>
+<p>Python scripts are invoked kind of like programs in the Terminal… Can you run <a href="https://">this Python</a> script using <a href="https://">this password</a> to get <a href="https://">the flag</a>?</p>
+<h3 id="🙆Solution-v3">🙆Solution</h3>
+<p>好像要執行臘個Python檔案的樣子🐌　偶把他們（三個檔案）全部載下來，生氣氣載是ㄗㄞˋ不是ㄗㄞˇ，打字都打不出來🤧，它的意思是要用這個小程式解密<code>flag.txt.en</code>的樣子，用一下</p>
+<pre><code class="language-bash">python3 ende.py
+</code></pre>
+<p>它寫說：</p>
+<pre><code>Usage: ende.py (-e/-d) [file]
+</code></pre>
+<p>所以就用醬子：</p>
+<pre><code>python3 ende.py -d flag.txt.en
+</code></pre>
+<p>應該會有答案跑出來😲😲　它希望偶用pico的小黑黑terminal的樣子，不過偶都本末倒置🤕🤕</p>
+<hr>
+<h2 id="🏁Wave-a-flag">🏁Wave a flag</h2>
+<ul>
+<li>Category: General Skills</li>
+<li>Score: 10</li>
+</ul>
+<h3 id="💁Description-v4">💁Description</h3>
+<p>Can you invoke help flags for a tool or binary? <a href="%5Bhttps://%5D(https://mercury.picoctf.net/static/b28b6021d6040b086c2226ebeb913bc2/warm)">This program</a> has extraordinarily helpful information…</p>
+<h3 id="🙆Solution-v4">🙆Solution</h3>
+<p>好像要執行臘個程式的樣子🐌　先把它載下來，可以練習用 <code>wget</code> ：</p>
+<pre><code class="language-bash">wget https://mercury.picoctf.net/static/b28b6021d6040b086c2226ebeb913bc2/warm
+</code></pre>
+<p>如果直接執行的的話📫　它會說不行🥺　所以幫它加一個執行的權限😈</p>
+<pre><code class="language-bash">chmod +x warm
+</code></pre>
+<p>再來執行🥺</p>
+<pre><code class="language-bash">./warm
+</code></pre>
+<p>它寫說：</p>
+<pre><code>Hello user! Pass me a -h to learn what I can do!
+</code></pre>
+<p>所以就用醬子：</p>
+<pre><code>./warm -h
+</code></pre>
+<p>應該會有答案跑出來😲😲</p>
+<hr>
+<h2 id="👁‍information">👁‍information</h2>
+<ul>
+<li>Category: Forensics</li>
+<li>Score: 10</li>
+</ul>
+<h3 id="💁Description-v5">💁Description</h3>
+<p>Files can always be changed in a secret way. Can you find the flag? <a target="_blank" rel="noopener" href="https://mercury.picoctf.net/static/c28a959c5605d5f67480d5dd3a77f302/cat.jpg">cat.jpg</a></p>
+<h3 id="🙆Solution-v5">🙆Solution</h3>
+<p>先把😺圖片載下來，結果看不出神模東西🐌　開始查別人的writeup😕 原來可以用<a target="_blank" rel="noopener" href="https://29a.ch/photo-forensics/#strings">這個網頁</a>看檔案裡面可以顯示的字，也可以用 <code>strings</code> 的指令na，只是因為太大惹🥺，所以偶的<code>terminal</code>會看不到上面的字，所以可以加一個<code>-10</code>只顯示那些一行大於 <strong>10</strong> 個字的：</p>
+<pre><code class="language-bash">strings -10 cat.jpg
+</code></pre>
+<p>發現裡面有這個東西</p>
+<p>:::spoiler 很像xml的東C</p>
+<pre><code class="language-xml=">&lt;x:xmpmeta xmlns:x='adobe:ns:meta/' x:xmptk='Image::ExifTool 10.80'&gt;
+&lt;rdf:RDF xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#'&gt;
+ &lt;rdf:Description rdf:about=''
+  xmlns:cc='http://creativecommons.org/ns#'&gt;
+  &lt;cc:license rdf:resource='cGljb0NURnt0aGVfbTN0YWRhdGFfMXNfbW9kaWZpZWR9'/&gt;
+ &lt;/rdf:Description&gt;
+ &lt;rdf:Description rdf:about=''
+  xmlns:dc='http://purl.org/dc/elements/1.1/'&gt;
+  &lt;dc:rights&gt;
+   &lt;rdf:Alt&gt;
+    &lt;rdf:li xml:lang='x-default'&gt;PicoCTF&lt;/rdf:li&gt;
+   &lt;/rdf:Alt&gt;
+  &lt;/dc:rights&gt;
+ &lt;/rdf:Description&gt;
+&lt;/rdf:RDF&gt;
+&lt;/x:xmpmeta&gt;
+</code></pre>
+<p>:::<br>
+<br></p>
+<p>然後裡面的這個是一個base64編碼的文字👿</p>
+<pre><code class="language-xml">&lt;cc:license rdf:resource='cGljb0NURnt0aGVfbTN0YWRhdGFfMXNfbW9kaWZpZWR9'/&gt;
+</code></pre>
+<p>可以到<a target="_blank" rel="noopener" href="https://www.base64decode.org/">線上</a>轉一下或是練習指令：</p>
+<pre><code class="language-bash">echo "cGljb0NURnt0aGVfbTN0YWRhdGFfMXNfbW9kaWZpZWR9" | base64 -d
+</code></pre>
+<p>應該會有答案跑出來😲😲 葛是醬擠偶真的想不到耶🥺🥺</p>
+<hr>
+<h2 id="😻Nice-netcat…">😻Nice netcat…</h2>
+<ul>
+<li>Category: General Skills</li>
+<li>Score: 10</li>
+</ul>
+<h3 id="💁Description-v6">💁Description</h3>
+<p>There is a nice program that you can talk to by using this command in a shell:<br>
+<code>$ nc mercury.picoctf.net 22342</code>, but it doesn’t speak English…</p>
+<h3 id="🙆Solution-v6">🙆Solution</h3>
+<p>這個題目要偶們用<code>nc</code>這個小工具連到 <code>mercury.picoctf.net 22342</code>的樣子，去查惹一下，<code>nc</code>是用<code>TCP</code>或<code>UDP</code>協定對端點進行讀寫的小工具，用法就像題目寫的那樣子。</p>
+<p>連上去之後它吐惹很多數字出來，猜不出來是葛摩🙄 只好看一下提示，原來是<code>ASCII</code>的十進位數字🙂 寫一個小Python來轉換😎</p>
+<pre><code class="language-python=">from __future__ import print_function
+import socket
+
+HOST = "mercury.picoctf.net"
+PORT = 22342
+BUFFER = 4096
+
+sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+sock.connect((HOST, PORT))
+
+while 1:
+    recv = sock.recv(BUFFER).split()
+    if recv:
+        for num in recv:
+            num.strip()
+            print(chr(int(num)),end="")
+    else:
+        continue
+
+sock.close()
+</code></pre>
+<p>應該會有答案跑出來😲😲</p>
+<hr>
+<h2 id="👩‍🏭Transformation">👩‍🏭Transformation</h2>
+<ul>
+<li>Category: Reverse Engineering</li>
+<li>Score: 10</li>
+</ul>
+<h3 id="💁Description-v7">💁Description</h3>
+<p>I wonder what this really is… <a target="_blank" rel="noopener" href="https://mercury.picoctf.net/static/e47483f88b12f2ab0c46315afc12f64d/enc">enc </a></p>
+<pre><code class="language-python">''.join([chr((ord(flag[i]) &lt;&lt; 8) + ord(flag[i + 1])) for i in range(0, len(flag), 2)])
+</code></pre>
+<h3 id="🙆Solution-v7">🙆Solution</h3>
+<p>本來以為 <code>enc</code> 的檔案是要拿來執行的🥵　結果只是一個文字檔，看惹提示還是不懂🔧，只好去查別人的write🆙，原來題目的意思是檔案裡的字串是<code>flag</code> 經由下面ㄉPython程式轉換出來的，所以偶們要按照程式的規則推回去😰</p>
+<p>結果偶發現別人解答的程式跑惹會報錯，題目的轉換程式也是🥺，看起來問題是這些<code>unicode</code> 編碼的東西用 <code>Python</code> 的 <code>ord()</code> 轉出來剩下8bit但是實際上應該是16bit才對，提示又說需要找一些線上編碼的工具，所以偶先拿去<a target="_blank" rel="noopener" href="https://www.online-toolz.com/tools/text-unicode-entities-convertor.php">這個網頁</a>轉成樣子怪怪的十六進位數字編號，然後寫一個步驟相反的小Python🐍</p>
+<p>題目的Python會把 <code>flag</code> 兩個兩個字一組，第一個字左移8位（位元運算）然後轉成ASCII的數字編號　加上　轉成ASCII數字編號的第二個字，再把這個東西由數字編號轉成一個字元（不過偶的<code>chr()</code>是不能接收大於<code>256[8bit]</code>的參數na🥺🥺）。</p>
+<table>
+<thead>
+<tr>
+<th>原本的字</th>
+<th>ASCII的編號</th>
+<th>第一個字左移8bit</th>
+<th>二進位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>p</td>
+<td>112</td>
+<td>28672</td>
+<td>111000000000000</td>
+</tr>
+<tr>
+<td>i</td>
+<td>105</td>
+<td>105</td>
+<td>000000001101001</td>
+</tr>
+</tbody>
+</table>
+<p>編號(28672 + 105)的 Unicode 應該會是<strong>灩</strong></p>
+<blockquote>
+<p>以　flag　的前兩個字舉例🤬</p>
+</blockquote>
+<p>所以逆著做就需要先把一個字變成兩個，用右移推出第一個字，第二個字偶是用取模把後8個bit用粗乃na，可能不是很好🤒🤒　然後再把它們各自轉回字元🙊　醬子應該就有答案惹💋</p>
+<pre><code class="language-python=">enc = "%u7069%u636F%u4354%u467B%u3136%u5F62%u6974%u735F%u696E%u7374%u3334%u645F%u6F66%u5F38%u5F65%u3134%u3161%u3066%u377D"
+enc = enc.split("%u")
+for i in range(1, len(enc)):
+    num = int(enc[i].lower(), 16)
+    print(chr(num &gt;&gt; 8)+chr(num % (1 &lt;&lt; 8)), end="")
+
+</code></pre>
+<p>應該會有答案跑出來😲😲</p>
+
+  
+  
+    
+    <div class='footer'>
+      
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>博客內容遵循 署名-非商業性使用-相同方式共享 4.0 國際 (CC BY-NC-SA 4.0) 協議</p>
+
+              
+            
+              
+                <p>本文永久鏈接是：<a href=https://ncchen99.github.io/2021/06/18/%F0%9F%A4%96picoCTF-Write%F0%9F%86%99/>https://ncchen99.github.io/2021/06/18/%F0%9F%A4%96picoCTF-Write%F0%9F%86%99/</a></p>
+              
+            
+          </blockquote>
+        </div>
+      
+      
     </div>
   
   
-  
     
-    <h2 class="article-title" pin>
-      <a href="/2020/01/06/%E5%81%B6%E7%9A%84%E7%AC%AC%E4%B8%80%E5%80%8B%E5%8D%9A%E5%AE%A2/">
-        偶的第一個博客
-      </a>
-    </h2>
+
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-06-18T18:36:14+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新於：2021年6月18日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
   
-  <div class='md'>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/CTF/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>CTF</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/picoCTF/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>picoCTF</p></a></div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
     
       
-        Hi 囉!
-偶是文華高中的二黏級小捧油，有逮幾口以到 208 找偶 🤗
-hi = "World"
-print("Hello" + hi)
-
-
+        
+        <div class='hoverbox'>
+          <a class='share'><img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/wechat.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/wechat.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></a>
+          <div class='target'>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAVgAAAFYCAAAAAAzB7ucAAAEd0lEQVR42u3aQXIbMQwEQP//08k9KZU4Ayxlu5o3ORst2fCBGOPrj/XI+kIAFqwFFixYC+wV2K9y/feF//z81ef0uXfve/d9p+fc8gALFixYsGDBggV7F/b4AhzCvvv+U+jTz2mBTs93vH+wYMGCBQsWLFiwH4E9vUCnz5+CbBU4bQjWPMCCBQsWLFiwYMH+KNj4Ij0MmlPgaYMCFixYsGDBggUL9nfCtoFz+vN3QNPgGyxYsGDBggULFuzPhG0v+u0B2ot8W8D0PB+bhAELFixYsGDBggV7BJuuFPqnfa49wIIFCxYsWLBgwV6Bna42wJ4ebNrQtN/39n1gwYIFCxYsWLBgr8BuH6wNpNPBjK0Cpvt7ez6wYMGCBQsWLFiwV2DTC38Llg5MTAdBtgdKjgdDwIIFCxYsWLBgwX4ENr1Av/v5aWFO37sVwG/Bx39BAAsWLFiwYMGCBbsCux1ct3BbDUJa6GmjARYsWLBgwYIFC/YzsG1wnW6k/d60IUgv/ukvxFrQDRYsWLBgwYIFC/ZR2C2o9OCnjUEbvLfB+PpfEMCCBQsWLFiwYMGO5grSg7UbmQbL00aiDdaPg3qwYMGCBQsWLFiw3wK23VhauK1CphBtY/TyebBgwYIFCxYsWLBXYdvg97Qg0/e0MFuNwPFzYMGCBQsWLFiwYK/CtgMO7QHThiBtHE4bmnRA5PHOCyxYsGDBggULFmwFe7qRKVz7/qf21xb+eGADLFiwYMGCBQsW7KOw2wFzCtEObDwVlMeFAgsWLFiwYMGCBXsVtgVIN5xe5FvQtOFYC+7BggULFixYsGDBXoFNg+VpAbYgtwL0rQYGLFiwYMGCBQsW7F3YdvBiqyBbAx/ThiQNvl8+DxYsWLBgwYIFC/YqbBtst43BUwds992eJ56EAQsWLFiwYMGCBbsC275oOugwhUsHMNJCtucBCxYsWLBgwYIF+xnY9PP2YMXW4EcbeE8HP8CCBQsWLFiwYMHegT39D2lDsHWRbwP0FG6rkQALFixYsGDBggV7BzYFOv339qBpoab7bgN+sGDBggULFixYsJ+FbQPo7YahbVS2IdvGAyxYsGDBggULFuz3hk2D4+2GYauxme7npRtYsGDBggULFizYq7DpxXp64X6qwZj+QlybhAELFixYsGDBggW7Cjt9QTvosBVstwWbBvlgwYIFCxYsWLBgPwu7dTFPYaYFaAPs6Rp3XmDBggULFixYsGAr2Ol6OsDeakCmDcDpPsGCBQsWLFiwYMHegd26GG8F3+3gx1YDMR00AQsWLFiwYMGCBXsXditgfgpqur/2F+W0YQELFixYsGDBggX7Wdh0sCKFbRuKNKhuA/BxQwMWLFiwYMGCBQv2V8Kmg8ptQdr9TAsGFixYsGDBggUL9mfDpgd49z3bjcb0ebBgwYIFCxYsWLDfCzYdiJg2CtOL/7TwbWFfPg8WLFiwYMGCBQv2Kmy62o1PC7D1vW0gHwfdYMGCBQsWLFiwYB+BtXYXWLBgLbBgwVpgH11/AZ1YE6eLK0hDAAAAAElFTkSuQmCC">
+          </div>
+        </div>
+      
+    
+      
+        <a class="-mob-share-telegram" title="" rel="external nofollow noopener noreferrer noopener"
+          
+            target="_blank" href="https://t.me/share/url?url=https://ncchen99.github.io/2021/06/18/%F0%9F%A4%96picoCTF-Write%F0%9F%86%99/&text=🤖picoCTF Write🆙 - 念誠"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/telegram.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/telegram.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
       
     
   </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
+</div>
+
+
+
         
-        <time>2020-01-06</time>
-        
-      </div>
       
-        <div>
-          <a class='readmore' href='/2020/01/06/%E5%81%B6%E7%9A%84%E7%AC%AC%E4%B8%80%E5%80%8B%E5%8D%9A%E5%AE%A2/'>
-            閱讀全文
-          </a>
-        </div>
+    </div>
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+      
+        <a class='next' href='/2021/06/18/%F0%9F%A6%A7%E5%85%AD%E6%9C%88%E5%8D%81%E4%B8%83%E3%84%89%E6%97%A5%E8%A8%98/'>
+          <p class='title'>🦧六月十七ㄉ日記<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>有時候偶會覺得，好像有人不喜歡我，為什麼沒有回覆我的訊息，諸如此類的想法，忘記什麼時後看到一個文章，就是告訴大家不要對號入座，世界不是繞著我們旋轉，事情發生的原因很多，不用覺得今天某某好像都不太...</p>
+        </a>
       
     </div>
   
+</article>
 
+
+  
+
+  <article class="post white-box reveal shadow blur" id="comments">
+    <p ct><i class='fas fa-comments'></i> 評論</p>
+    
+    <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
 </div>
 
-            </div>
-          
-        
-      
-    
-    
-      
-        
-      
-    
-  </section>
-  
-    
-  
+  </article>
 
 
-	
+
+
+
+
 </div>
 <aside class='l_side'>
   
@@ -684,163 +996,28 @@ print("Hello" + hi)
     
     
 
-<section class="widget blogger shadow blur desktop mobile">
-  <div class='content'>
-    
-      
-        <a class='avatar flat-box rectangle' href='/about/'>
-          <img no-lazy src='https://cdn.jsdelivr.net/gh/ncchen99/web-app-assets@2.0/blog/image/png/extend-sun.png'/>
-        </a>
-      
-    
-    
-      <div class='text'>
-        
-          <h2>念誠</h2>
-        
-        
-          <p>偶很乖👨‍💻</p>
 
-        
-        
-      </div>
-    
-    
-      <div class="social-wrapper">
-        
-          
-            <a href="https://www.facebook.com/WHCSCKids/"
-              class="social fab fa-facebook flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="mailto:ncchen99@gmail.com"
-              class="social fas fa-envelope flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="https://github.com/ncchen99/"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="https://www.instagram.com/ncchen.foss/"
-              class="social fab fa-instagram flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-      </div>
-    
-  </div>
-</section>
 
-  
-
-  
-    
-    
-  
-
-  <section class="widget category shadow blur desktop">
+  <section class="widget toc-wrapper shadow blur desktop mobile" id="toc-div" >
     
   <header>
     
-      <a href='/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分類</span></a>
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目錄</span>
     
   </header>
 
 
     <div class='content'>
-      <ul class="entry navigation">
-        
-          <li><a class="flat-box"
-            title="/categories/Write%F0%9F%86%99/" href="/categories/Write%F0%9F%86%99/"
-            id="categoriesWriteF09F8699"
-            ><div class='name'>Write🆙</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E4%B8%BB%E9%A1%8C/" href="/categories/%E4%B8%BB%E9%A1%8C/"
-            id="categoriesE4B8BBE9A18C"
-            ><div class='name'>主題</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E5%BB%A2%E8%A9%B1%E5%8D%80/" href="/categories/%E5%BB%A2%E8%A9%B1%E5%8D%80/"
-            id="categoriesE5BBA2E8A9B1E58D80"
-            ><div class='name'>廢話區</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E5%BF%83%E5%BE%97/" href="/categories/%E5%BF%83%E5%BE%97/"
-            id="categoriesE5BF83E5BE97"
-            ><div class='name'>心得</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E6%95%99%E5%AD%B8/" href="/categories/%E6%95%99%E5%AD%B8/"
-            id="categoriesE69599E5ADB8"
-            ><div class='name'>教學</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E6%97%A5%E8%A8%98/" href="/categories/%E6%97%A5%E8%A8%98/"
-            id="categoriesE697A5E8A898"
-            ><div class='name'>日記</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E6%BC%94%E7%AE%97%E6%B3%95/" href="/categories/%E6%BC%94%E7%AE%97%E6%B3%95/"
-            id="categoriesE6BC94E7AE97E6B395"
-            ><div class='name'>演算法</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E9%83%A8%E8%90%BD%E6%A0%BC/" href="/categories/%E9%83%A8%E8%90%BD%E6%A0%BC/"
-            id="categoriesE983A8E890BDE6A0BC"
-            ><div class='name'>部落格</div><div class='badge'>(1)</div></a></li>
-        
-      </ul>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%98%BAObedient-Cat"><span class="toc-text">😺Obedient Cat</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%81Description"><span class="toc-text">💁Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%99%86Solution"><span class="toc-text">🙆Solution</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%99%8AMod-26"><span class="toc-text">🙊Mod 26</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%81Description-v2"><span class="toc-text">💁Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%99%86Solution-v2"><span class="toc-text">🙆Solution</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%90%8DPython-Wrangling"><span class="toc-text">🐍Python Wrangling</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%81Description-v3"><span class="toc-text">💁Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%99%86Solution-v3"><span class="toc-text">🙆Solution</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%8F%81Wave-a-flag"><span class="toc-text">🏁Wave a flag</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%81Description-v4"><span class="toc-text">💁Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%99%86Solution-v4"><span class="toc-text">🙆Solution</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%91%81%E2%80%8Dinformation"><span class="toc-text">👁‍information</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%81Description-v5"><span class="toc-text">💁Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%99%86Solution-v5"><span class="toc-text">🙆Solution</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%98%BBNice-netcat%E2%80%A6"><span class="toc-text">😻Nice netcat…</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%81Description-v6"><span class="toc-text">💁Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%99%86Solution-v6"><span class="toc-text">🙆Solution</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%91%A9%E2%80%8D%F0%9F%8F%ADTransformation"><span class="toc-text">👩‍🏭Transformation</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%81Description-v7"><span class="toc-text">💁Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%99%86Solution-v7"><span class="toc-text">🙆Solution</span></a></li></ol></li></ol>
     </div>
   </section>
 
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud shadow blur desktop mobile">
-    
-  <header>
-    
-      <a href='/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>熱門標籤</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-      <a href="/tags/CTF/" style="font-size: 14px; color: #999">CTF</a> <a href="/tags/Hexo/" style="font-size: 14px; color: #999">Hexo</a> <a href="/tags/Linux/" style="font-size: 14px; color: #999">Linux</a> <a href="/tags/Python/" style="font-size: 14px; color: #999">Python</a> <a href="/tags/algorithm/" style="font-size: 14px; color: #999">algorithm</a> <a href="/tags/helloWorld/" style="font-size: 14px; color: #999">helloWorld</a> <a href="/tags/picoCTF/" style="font-size: 14px; color: #999">picoCTF</a> <a href="/tags/%E6%97%A5%E8%A8%98/" style="font-size: 14px; color: #999">日記</a> <a href="/tags/%E7%89%B9%E6%AE%8A%E9%81%B8%E6%9D%90/" style="font-size: 14px; color: #999">特殊選材</a> <a href="/tags/%E8%A1%8C%E5%89%8D%E9%80%9A%E7%9F%A5/" style="font-size: 14px; color: #999">行前通知</a> <a href="/tags/%E8%BB%9F%E9%AB%94%E5%AE%89%E8%A3%9D/" style="font-size: 14px; color: #999">軟體安裝</a> <a href="/tags/%E9%9B%BB%E7%A0%94/" style="font-size: 14px; color: #999">電研</a>
-    </div>
-  </section>
-
-
-  
 
   
 
 
 </aside>
+
 
 
 		  
@@ -849,8 +1026,8 @@ print("Hello" + hi)
 
 <script>
   window.pdata={}
-  pdata.ispage=false;
-  pdata.postTitle="";
+  pdata.ispage=true;
+  pdata.postTitle="🤖picoCTF Write🆙";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
   // header 这里无论是否开启pjax都需要
