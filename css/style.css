@@ -2839,22 +2839,22 @@ article#tag .all-tags ul li span:before {
 .article h1 {
   text-align: left;
   color: var(--color-h1);
-  margin-top: 48px;
+  margin-top: 24px;
 }
 .article h2 {
   text-align: left;
   color: var(--color-h2);
-  margin-top: 48px;
+  margin-top: 24px;
 }
 .article h3 {
   text-align: left;
   color: var(--color-h3);
-  margin-top: 32px;
+  margin-top: 16px;
 }
 .article h4 {
   text-align: left;
   color: var(--color-h4);
-  margin-top: 16px;
+  margin-top: 8px;
 }
 .article h5 {
   font-weight: bold;
@@ -2928,7 +2928,7 @@ article#tag .all-tags ul li span:before {
 .article p {
   margin-top: 1em;
   margin-bottom: 1em;
-  text-align: justify;
+  text-align: left;
   max-width: 100%;
   line-height: inherit;
 }
@@ -3937,11 +3937,11 @@ img.lazyload:not(.placeholder).loaded {
 }
 .md h1:before,
 .md h2:before {
-  margin-top: -32px;
+  margin-top: -56px;
 }
 .md .article-meta+h1,
 .md .article-meta+h2 {
-  margin-top: -80px;
+  margin-top: -104px;
 }
 .md h3,
 .md h4,
@@ -3950,16 +3950,16 @@ img.lazyload:not(.placeholder).loaded {
   margin-bottom: 1em;
 }
 .md h3:before {
-  margin-top: -48px;
+  margin-top: -64px;
 }
 .md h4:before {
-  margin-top: -64px;
+  margin-top: -72px;
 }
 .md h5 {
   font-weight: bold;
 }
 .md h2+h3:before {
-  margin-top: -80px;
+  margin-top: -104px;
 }
 .md ul,
 .md ol {

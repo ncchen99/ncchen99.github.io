@@ -702,7 +702,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>Cryptography can be easy, do you know what <strong>ROT13</strong> is? cvpbPGS{arkg_gvzr_V’yy_gel_2_ebhaqf_bs_ebg13_nSkgmDJE}</p>
 <h3 id="🙆Solution-v2">🙆Solution</h3>
 <p>去Google一下原來 ROT13 是 rotate by 13 places 的意思，是相差十三個字母的凱撒加密，拿去線上CTF小工具解一下，結果全部變小寫🤢，眼睛不好看不出來，只好查解答🙊，原來 ROT13 可以用一個叫做<code>nkf</code>的軟件變回來，用法：</p>
-<p><code>echo "cvpbPGS{arkg_gvzr_V'yy_gel_2_ebhaqf_bs_ebg13_nSkgmDJE}" | nkf -r</code></p>
+<pre><code class="language-bash">echo "cvpbPGS{arkg_gvzr_V'yy_gel_2_ebhaqf_bs_ebg13_nSkgmDJE}" | nkf -r
+</code></pre>
 <p><code>nkf</code> 是一個漢字的轉換器的樣子😮　不過它還可以用<a target="_blank" rel="noopener" href="https://linux.die.net/man/1/nkf">參數</a><code>-r</code> 轉換 <code>ROT13</code> 。</p>
 <hr>
 <h2 id="🐍Python-Wrangling">🐍Python Wrangling</h2>
@@ -905,7 +906,7 @@ for i in range(1, len(enc)):
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-06-19T17:08:59+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-06-19T17:40:31+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新於：2021年6月19日</p>
