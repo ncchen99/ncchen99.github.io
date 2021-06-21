@@ -681,7 +681,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   
   
-  <p>最近想說來練習CTF的東西🥺 偶隔膜覺得CTF好難哇😰 只能先從pico的簡單題目開始惹💩 有大佬說寫writeup會很有幫助😈 先來試試看窩🥶</p>
+  <h1>🤖picoCTF Write🆙</h1>
+<p>最近想說來練習CTF的東西🥺 偶隔膜覺得CTF好難哇😰 只能先從pico的簡單題目開始惹💩 有大佬說寫writeup會很有幫助😈 先來試試看窩🥶</p>
 <hr>
 <h2 id="😺Obedient-Cat">😺Obedient Cat</h2>
 <ul>
@@ -702,7 +703,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>Cryptography can be easy, do you know what <strong>ROT13</strong> is? cvpbPGS{arkg_gvzr_V’yy_gel_2_ebhaqf_bs_ebg13_nSkgmDJE}</p>
 <h3 id="🙆Solution-v2">🙆Solution</h3>
 <p>去Google一下原來 ROT13 是 rotate by 13 places 的意思，是相差十三個字母的凱撒加密，拿去線上CTF小工具解一下，結果全部變小寫🤢，眼睛不好看不出來，只好查解答🙊，原來 ROT13 可以用一個叫做<code>nkf</code>的軟件變回來，用法：</p>
-<pre><code class="language-bash">echo "cvpbPGS{arkg_gvzr_V'yy_gel_2_ebhaqf_bs_ebg13_nSkgmDJE}" | nkf -r
+<pre><code>echo "cvpbPGS{arkg_gvzr_V'yy_gel_2_ebhaqf_bs_ebg13_nSkgmDJE}" | nkf -r
 </code></pre>
 <p><code>nkf</code> 是一個漢字的轉換器的樣子😮　不過它還可以用<a target="_blank" rel="noopener" href="https://linux.die.net/man/1/nkf">參數</a><code>-r</code> 轉換 <code>ROT13</code> 。</p>
 <hr>
@@ -762,6 +763,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <pre><code class="language-bash">strings -10 cat.jpg
 </code></pre>
 <p>發現裡面有這個東西</p>
+<p>:::spoiler 很像xml的東C</p>
 <pre><code class="language-xml=">&lt;x:xmpmeta xmlns:x='adobe:ns:meta/' x:xmptk='Image::ExifTool 10.80'&gt;
 &lt;rdf:RDF xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#'&gt;
  &lt;rdf:Description rdf:about=''
@@ -779,7 +781,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 &lt;/rdf:RDF&gt;
 &lt;/x:xmpmeta&gt;
 </code></pre>
-<br>
+<p>:::<br>
+<br></p>
 <p>然後裡面的這個是一個base64編碼的文字👿</p>
 <pre><code class="language-xml">&lt;cc:license rdf:resource='cGljb0NURnt0aGVfbTN0YWRhdGFfMXNfbW9kaWZpZWR9'/&gt;
 </code></pre>
@@ -791,7 +794,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <h2 id="😻Nice-netcat…">😻Nice netcat…</h2>
 <ul>
 <li>Category: General Skills</li>
-<li>Score: 10</li>
+<li>Score: 15</li>
 </ul>
 <h3 id="💁Description-v6">💁Description</h3>
 <p>There is a nice program that you can talk to by using this command in a shell:<br>
@@ -825,7 +828,7 @@ sock.close()
 <h2 id="👩‍🏭Transformation">👩‍🏭Transformation</h2>
 <ul>
 <li>Category: Reverse Engineering</li>
-<li>Score: 10</li>
+<li>Score: 20</li>
 </ul>
 <h3 id="💁Description-v7">💁Description</h3>
 <p>I wonder what this really is… <a target="_blank" rel="noopener" href="https://mercury.picoctf.net/static/e47483f88b12f2ab0c46315afc12f64d/enc">enc </a></p>
@@ -871,12 +874,11 @@ for i in range(1, len(enc)):
     print(chr(num &gt;&gt; 8)+chr(num % (1 &lt;&lt; 8)), end="")
 
 </code></pre>
-<p>應該會有答案跑出來😲😲</p>
 <hr>
-<h2 id="👩‍🏭Stonks">👩‍🏭Stonks</h2>
+<h2 id="📺Stonks">📺Stonks</h2>
 <ul>
 <li>Category: Binary Exploitation</li>
-<li>Score: 10</li>
+<li>Score: 20</li>
 </ul>
 <h3 id="💁Description-v8">💁Description</h3>
 <p>I decided to try something noone else has before. I made a bot to automatically trade stonks for me using AI and machine learning. I wouldn’t believe you if you told me it’s unsecure! <a target="_blank" rel="noopener" href="https://mercury.picoctf.net/static/f9d545499faf6f436853685ad21dcb33/vuln.c">vuln.c</a> <code>nc mercury.picoctf.net 33411</code></p>
@@ -943,6 +945,57 @@ r.recvall()
 print(flag)
 </code></pre>
 <p>應該會有答案跑出來😲😲</p>
+<hr>
+<h2 id="🌺GET-aHEAD">🌺GET aHEAD</h2>
+<ul>
+<li>Category: Web Exploitation</li>
+<li>Score: 20</li>
+</ul>
+<h3 id="💁Description-v9">💁Description</h3>
+<p>Find the flag being held on this server to get ahead of the competition <a target="_blank" rel="noopener" href="http://mercury.picoctf.net:15931/">http://mercury.picoctf.net:15931/</a></p>
+<h3 id="🙆Solution-v9">🙆Solution</h3>
+<p>先把網頁打開，然後它會長醬子🥺</p>
+<table>
+<thead>
+<tr>
+<th>兩個按鈕</th>
+<th>HTML</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="https://i.imgur.com/qqo9NB7.png" class="lazyload" data-srcset="https://i.imgur.com/qqo9NB7.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt=""></td>
+<td><img src="https://i.imgur.com/40ZfnfP.png" class="lazyload" data-srcset="https://i.imgur.com/40ZfnfP.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt=""></td>
+</tr>
+</tbody>
+</table>
+<p>可以看出來紅色的按紐是用 GET 方法，藍色的是用 POST ，然後偶就不會惹🤧　偶看惹 <a target="_blank" rel="noopener" href="https://ctftime.org/user/95909">rschauhan2199</a> 和 <a target="_blank" rel="noopener" href="https://ctftime.org/user/106830">abbas</a> 的Write🆙 原來題目 get aHEAD 的意思是<strong>用HEAD方法請求</strong>，可以用這些方法：</p>
+<h4 id="cURL">cURL</h4>
+<pre><code class="language-bash">curl -I  http://mercury.picoctf.net:53554/index.php
+</code></pre>
+<p>用 <code>curl</code> 這個工具加上 <code>-I</code> 的參數發一個 <code>HEAD</code> 請求。</p>
+<h4 id="Burpsuite">Burpsuite</h4>
+<p>這個要先安裝，偶孤陋寡聞沒用過🤕 先去<a target="_blank" rel="noopener" href="https://portswigger.net/burp/communitydownload">官網</a>下載來安裝。其實偶搞不清楚這個軟件要怎摸用na😭😭</p>
+<p>還好有 <strong>rschauhan2199</strong> 大大做的<a target="_blank" rel="noopener" href="https://ctftime.org/writeup/26931">教學影片</a>🥰🥰可能第一次使用需要設定一些東C，接下來的步驟大guy是醬子：</p>
+<p><img src="https://i.imgur.com/6LWvIlM.png" class="lazyload" data-srcset="https://i.imgur.com/6LWvIlM.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt=""></p>
+<p>開一個 <code>Project</code> ，然後選 <code>Proxy</code> ⏭️ <code>Intercept</code> ， 確定第三個按鈕 <code>Intercept in on</code> 是藍藍的，然後按 <code>Open Browser</code> ，接下來會打開 Brupsuite 的神奇 Chromium😈</p>
+<p><img src="https://i.imgur.com/0kdl7pT.png" class="lazyload" data-srcset="https://i.imgur.com/0kdl7pT.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt=""></p>
+<p>然後就把網址貼過來↩ 接下來它應該會一直轉轉轉，偶們在回到 <code>Brupsuite</code> 🔙</p>
+<p><img src="https://i.imgur.com/33XgyiC.png" class="lazyload" data-srcset="https://i.imgur.com/33XgyiC.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt=""></p>
+<p>可以看到請求ㄉ資訊，不過這個是可以修改的窩，修改完按 <code>Forward</code> 就會送粗惹喔～嘗試過藍色和紅色的按鈕之後可以發現它們的差別只有一個是 <code>GET</code> ♂️ 一個是 <code>POST</code> ♀️ 所以偶們在按一次按鈕，然後把文字匡裡的 <code>GET</code> 改成 <code>HEAD</code> ㄛ⛎</p>
+<p><img src="https://i.imgur.com/4z94Svk.png" class="lazyload" data-srcset="https://i.imgur.com/4z94Svk.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt=""></p>
+<p>按下 <code>forward</code> 之後，可以到 <code>HTTP history</code> 的分頁看結果，應該是最後一個請求，在 <code>Response</code> 那裡應該會有答案ㄛ☯</p>
+<p><img src="https://i.imgur.com/qch5cFw.png" class="lazyload" data-srcset="https://i.imgur.com/qch5cFw.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt=""></p>
+<p>也可以右鍵 <code>Send to Repeater</code> 然後在上面的 <code>Repeater</code> 分頁再做一次窩🔱</p>
+<p><img src="https://i.imgur.com/m9hTH5X.png" class="lazyload" data-srcset="https://i.imgur.com/m9hTH5X.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt=""></p>
+<p><img src="https://i.imgur.com/F5KTEWm.png" class="lazyload" data-srcset="https://i.imgur.com/F5KTEWm.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt=""></p>
+<h4 id="Python-requests">Python requests</h4>
+<pre><code class="language-python=">import requests
+r = requests.head('http://mercury.picoctf.net:15931/index.php')
+print(r.headers)
+
+</code></pre>
+<p>醬子也可以ㄛ😲😲</p>
 
   
   
@@ -977,10 +1030,10 @@ print(flag)
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-06-20T18:37:56+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-06-21T16:49:39+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新於：2021年6月20日</p>
+    <p>更新於：2021年6月21日</p>
   </a>
 </div>
 
@@ -1084,7 +1137,7 @@ print(flag)
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%98%BAObedient-Cat"><span class="toc-text">😺Obedient Cat</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%81Description"><span class="toc-text">💁Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%99%86Solution"><span class="toc-text">🙆Solution</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%99%8AMod-26"><span class="toc-text">🙊Mod 26</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%81Description-v2"><span class="toc-text">💁Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%99%86Solution-v2"><span class="toc-text">🙆Solution</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%90%8DPython-Wrangling"><span class="toc-text">🐍Python Wrangling</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%81Description-v3"><span class="toc-text">💁Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%99%86Solution-v3"><span class="toc-text">🙆Solution</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%8F%81Wave-a-flag"><span class="toc-text">🏁Wave a flag</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%81Description-v4"><span class="toc-text">💁Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%99%86Solution-v4"><span class="toc-text">🙆Solution</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%91%81%E2%80%8Dinformation"><span class="toc-text">👁‍information</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%81Description-v5"><span class="toc-text">💁Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%99%86Solution-v5"><span class="toc-text">🙆Solution</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%98%BBNice-netcat%E2%80%A6"><span class="toc-text">😻Nice netcat…</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%81Description-v6"><span class="toc-text">💁Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%99%86Solution-v6"><span class="toc-text">🙆Solution</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%91%A9%E2%80%8D%F0%9F%8F%ADTransformation"><span class="toc-text">👩‍🏭Transformation</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%81Description-v7"><span class="toc-text">💁Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%99%86Solution-v7"><span class="toc-text">🙆Solution</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%91%A9%E2%80%8D%F0%9F%8F%ADStonks"><span class="toc-text">👩‍🏭Stonks</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%81Description-v8"><span class="toc-text">💁Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%99%86Solution-v8"><span class="toc-text">🙆Solution</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%98%BAObedient-Cat"><span class="toc-text">😺Obedient Cat</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%81Description"><span class="toc-text">💁Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%99%86Solution"><span class="toc-text">🙆Solution</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%99%8AMod-26"><span class="toc-text">🙊Mod 26</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%81Description-v2"><span class="toc-text">💁Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%99%86Solution-v2"><span class="toc-text">🙆Solution</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%90%8DPython-Wrangling"><span class="toc-text">🐍Python Wrangling</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%81Description-v3"><span class="toc-text">💁Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%99%86Solution-v3"><span class="toc-text">🙆Solution</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%8F%81Wave-a-flag"><span class="toc-text">🏁Wave a flag</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%81Description-v4"><span class="toc-text">💁Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%99%86Solution-v4"><span class="toc-text">🙆Solution</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%91%81%E2%80%8Dinformation"><span class="toc-text">👁‍information</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%81Description-v5"><span class="toc-text">💁Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%99%86Solution-v5"><span class="toc-text">🙆Solution</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%98%BBNice-netcat%E2%80%A6"><span class="toc-text">😻Nice netcat…</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%81Description-v6"><span class="toc-text">💁Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%99%86Solution-v6"><span class="toc-text">🙆Solution</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%91%A9%E2%80%8D%F0%9F%8F%ADTransformation"><span class="toc-text">👩‍🏭Transformation</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%81Description-v7"><span class="toc-text">💁Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%99%86Solution-v7"><span class="toc-text">🙆Solution</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%93%BAStonks"><span class="toc-text">📺Stonks</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%81Description-v8"><span class="toc-text">💁Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%99%86Solution-v8"><span class="toc-text">🙆Solution</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%8C%BAGET-aHEAD"><span class="toc-text">🌺GET aHEAD</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%81Description-v9"><span class="toc-text">💁Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%99%86Solution-v9"><span class="toc-text">🙆Solution</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#cURL"><span class="toc-text">cURL</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Burpsuite"><span class="toc-text">Burpsuite</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Python-requests"><span class="toc-text">Python requests</span></a></li></ol></li></ol></li></ol>
     </div>
   </section>
 
