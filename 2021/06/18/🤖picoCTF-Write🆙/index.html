@@ -681,8 +681,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   
   
-  <h1>🤖picoCTF Write🆙</h1>
-<p>最近想說來練習CTF的東西🥺 偶隔膜覺得CTF好難哇😰 只能先從pico的簡單題目開始惹💩 有大佬說寫writeup會很有幫助😈 先來試試看窩🥶</p>
+  <p>最近想說來練習CTF的東西🥺 偶隔膜覺得CTF好難哇😰 只能先從pico的簡單題目開始惹💩 有大佬說寫writeup會很有幫助😈 先來試試看窩🥶</p>
 <hr>
 <h2 id="😺Obedient-Cat">😺Obedient Cat</h2>
 <ul>
@@ -908,7 +907,7 @@ What would you like to do?
 Using patented AI algorithms to buy stonks
 Stonks chosen
 What is your API token?
-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x
+%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x 
 Buying stonks with token:
 919a3d0-804b000-80489c3-f7f02d80-ffffffff-1-9198160-f7f10110-f7f02dc7-0-9199180-1-919a3b0-919a3d0-6f636970-7b465443-306c5f49-345f7435
 Portfolio as of Sun Jun 20 10:23:09 UTC 2021
@@ -1087,7 +1086,7 @@ Disallow: /8028f.html
 <h3 id="💁Description-v14">💁Description</h3>
 <p>The factory is hiding things from all of its users. Can you login as Joe and find what they’ve been looking at? <a target="_blank" rel="noopener" href="https://jupiter.challenges.picoctf.org/problem/15796/">https://jupiter.challenges.picoctf.org/problem/15796/</a> or <a target="_blank" rel="noopener" href="http://jupiter.challenges.picoctf.org:15796">http://jupiter.challenges.picoctf.org:15796</a></p>
 <h3 id="🙆Solution-v14">🙆Solution</h3>
-<p>偶先試試看隨便打一個照號密碼是試試看，結果可以登入，不過神<br>
+<p>偶先試試看隨便打一個帳號密碼是試試看，結果可以登入，不過神<br>
 模都沒有，看它的 <code>HTML</code> 登入的地方長這樣🐻</p>
 <pre><code class="language-html=">&lt;div class="jumbotron"&gt;
     &lt;p class="lead"&gt;&lt;/p&gt;
@@ -1112,6 +1111,87 @@ Disallow: /8028f.html
 <p><img src="https://i.imgur.com/mivrvsl.png" class="lazyload" data-srcset="https://i.imgur.com/mivrvsl.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt=""></p>
 <p>果然是它在搞事，可以按 <code>f12</code> 看一下 <code>Cookies</code> ，有一個叫做 <code>admin</code> 的，把它改成 <code>True</code> 之後重新整理就有惹🐻</p>
 <p><img src="https://i.imgur.com/VD6GrE5.png" class="lazyload" data-srcset="https://i.imgur.com/VD6GrE5.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt=""></p>
+<hr>
+<h2 id="🐻dont-use-client-side">🐻dont-use-client-side</h2>
+<ul>
+<li>Category: Web Exploitation</li>
+<li>Score: 100</li>
+</ul>
+<h3 id="💁Description-v15">💁Description</h3>
+<p>Can you break into this super secure portal? <a target="_blank" rel="noopener" href="https://jupiter.challenges.picoctf.org/problem/29835/">https://jupiter.challenges.picoctf.org/problem/29835/</a> or <a target="_blank" rel="noopener" href="http://jupiter.challenges.picoctf.org:29835">http://jupiter.challenges.picoctf.org:29835</a></p>
+<h3 id="🙆Solution-v15">🙆Solution</h3>
+<p>偶先試試看隨便打一個密碼是試試看，它會縮不對，題目叫做不要相信客戶端，所以偶按右鍵檢查 <code>Verify</code> 的按鈕，發現它的 <code>onclick</code> 會觸發 <code>verify();</code> 函式，偶們到找到 <code>verify</code> 就可以看到答案惹🍑</p>
+<pre><code class="language-javascript=">function verify() {
+    checkpass = document.getElementById("pass").value;
+    split = 4;
+    if (checkpass.substring(0, split) == 'pico') {
+      if (checkpass.substring(split*6, split*7) == '723c') {
+        if (checkpass.substring(split, split*2) == 'CTF{') {
+         if (checkpass.substring(split*4, split*5) == 'ts_p') {
+          if (checkpass.substring(split*3, split*4) == 'lien') {
+            if (checkpass.substring(split*5, split*6) == 'lz_7') {
+              if (checkpass.substring(split*2, split*3) == 'no_c') {
+                if (checkpass.substring(split*7, split*8) == 'e}') {
+                  alert("Password Verified")
+                  }
+                }
+              }
+
+            }
+          }
+        }
+      }
+    }
+    else {
+      alert("Incorrect password");
+    }
+}
+</code></pre>
+<hr>
+<h2 id="🥝It-is-my-Birthday">🥝It is my Birthday</h2>
+<ul>
+<li>Category: Web Exploitation</li>
+<li>Score: 100</li>
+</ul>
+<h3 id="💁Description-v16">💁Description</h3>
+<p>I sent out 2 invitations to all of my friends for my birthday! I’ll know if they get stolen because the two invites look similar, and they even have the same md5 hash, but they are slightly different! You wouldn’t believe how long it took me to find a collision. Anyway, see if you’re invited by submitting 2 PDFs to my website. <a target="_blank" rel="noopener" href="http://mercury.picoctf.net:20277/">http://mercury.picoctf.net:20277/</a></p>
+<h3 id="🙆Solution-v16">🙆Solution</h3>
+<p>題目落落長，英文不好看有夠久🍐，結果還是不會所以偶看惹 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=yn2MajG2dMg">Rahul Singh</a> 的影片，原來題目要偶們上傳兩個內容不同 <code>PDF</code> 的檔案，不過要有相同的 <code>md5</code> 哈西，偶們可以去 Google ：<code>md5 collision</code> ，不過偶不知道為隔膜自己把查到的字串加到檔案裡 <code>md5</code> 會不一樣，所以偶是完全依照 Rahul Singh 的方法na🍕，去 <a target="_blank" rel="noopener" href="https://crypto.stackexchange.com/questions/1434/are-there-two-known-strings-which-have-the-same-md5-hash-value">stackexchange.com</a> 下載下面圖片的那兩個檔案🦄</p>
+<p><img src="https://i.imgur.com/iO9o1dI.png" class="lazyload" data-srcset="https://i.imgur.com/iO9o1dI.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt=""></p>
+<p>然後在把副檔名改成 <code>.pdf</code> 上傳到題目那裡🆙，就會有答案惹🚀</p>
+<hr>
+<h2 id="🐣Who-are-you">🐣Who are you?</h2>
+<ul>
+<li>Category: Web Exploitation</li>
+<li>Score: 100</li>
+</ul>
+<h3 id="💁Description-v17">💁Description</h3>
+<p>Let me in. Let me iiiiiiinnnnnnnnnnnnnnnnnnnn <a target="_blank" rel="noopener" href="http://mercury.picoctf.net:52362/">http://mercury.picoctf.net:52362/</a></p>
+<h3 id="🙆Solution-v17">🙆Solution</h3>
+<p>這個題目有點壞👺，它的 <code>hint</code> 給惹 <code>http</code> 的文件，網頁寫說</p>
+<blockquote>
+<p>Only people who use the official PicoBrowser are allowed on this site!</p>
+</blockquote>
+<p>感覺又是需要改 <code>http headers</code> 的題目，偶是用 <code>Python</code> na，用 <code>BrupSuite</code> 也可以，先加一個 <code>User-Agent</code>:</p>
+<pre><code class="language-python=">import requests
+headers = {"User-Agent": "PicoBrowser"}
+r = requests.get("http://mercury.picoctf.net:52362/", headers=headers)
+print(r.text)
+</code></pre>
+<p>結果它又說它不相信其他地方來的人，之後還有很多要求😢 偶查惹很久 Google 特別是瑞典話的那個，感覺有兩種都符合他的說法🔕 最後的 <code>headers</code> 長這樣：</p>
+<pre><code class="language-python=">import requests
+
+headers = {"User-Agent": "PicoBrowser",
+           "Referer": "http://mercury.picoctf.net:52362/",
+           "Origin": "http://mercury.picoctf.net:52362/",
+           "Date": "Tue, 15 2018 08:12:55 GMT",
+           "DNT": "1",
+           "X-Forwarded-For": "31.15.32.45",
+           "Accept-Language": "sv-SE",
+           "Content-Language": "sv-SE"}
+r = requests.get("http://mercury.picoctf.net:52362/", headers=headers)
+print(r.text)
+</code></pre>
 <hr>
 
   
@@ -1147,10 +1227,10 @@ Disallow: /8028f.html
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-07-08T18:09:10+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-07-10T17:07:44+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新於：2021年7月8日</p>
+    <p>更新於：2021年7月10日</p>
   </a>
 </div>
 
@@ -1266,7 +1346,7 @@ Disallow: /8028f.html
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%98%BAObedient-Cat"><span class="toc-text">😺Obedient Cat</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%81Description"><span class="toc-text">💁Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%99%86Solution"><span class="toc-text">🙆Solution</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%99%8AMod-26"><span class="toc-text">🙊Mod 26</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%81Description-v2"><span class="toc-text">💁Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%99%86Solution-v2"><span class="toc-text">🙆Solution</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%90%8DPython-Wrangling"><span class="toc-text">🐍Python Wrangling</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%81Description-v3"><span class="toc-text">💁Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%99%86Solution-v3"><span class="toc-text">🙆Solution</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%8F%81Wave-a-flag"><span class="toc-text">🏁Wave a flag</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%81Description-v4"><span class="toc-text">💁Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%99%86Solution-v4"><span class="toc-text">🙆Solution</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%91%81%E2%80%8Dinformation"><span class="toc-text">👁‍information</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%81Description-v5"><span class="toc-text">💁Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%99%86Solution-v5"><span class="toc-text">🙆Solution</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%98%BBNice-netcat%E2%80%A6"><span class="toc-text">😻Nice netcat…</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%81Description-v6"><span class="toc-text">💁Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%99%86Solution-v6"><span class="toc-text">🙆Solution</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%91%A9%E2%80%8D%F0%9F%8F%ADTransformation"><span class="toc-text">👩‍🏭Transformation</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%81Description-v7"><span class="toc-text">💁Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%99%86Solution-v7"><span class="toc-text">🙆Solution</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%93%BAStonks"><span class="toc-text">📺Stonks</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%81Description-v8"><span class="toc-text">💁Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%99%86Solution-v8"><span class="toc-text">🙆Solution</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%8C%BAGET-aHEAD"><span class="toc-text">🌺GET aHEAD</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%81Description-v9"><span class="toc-text">💁Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%99%86Solution-v9"><span class="toc-text">🙆Solution</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#cURL"><span class="toc-text">cURL</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Burpsuite"><span class="toc-text">Burpsuite</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Python-requests"><span class="toc-text">Python requests</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%8D%BBCookies"><span class="toc-text">🍻Cookies</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%81Description-v10"><span class="toc-text">💁Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%99%86Solution-v10"><span class="toc-text">🙆Solution</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%91%B9Insp3ct0r"><span class="toc-text">👹Insp3ct0r</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%81Description-v11"><span class="toc-text">💁Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%99%86Solution-v11"><span class="toc-text">🙆Solution</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%98%BCScavenger-Hunt"><span class="toc-text">😼Scavenger Hunt</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%81Description-v12"><span class="toc-text">💁Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%99%86Solution-v12"><span class="toc-text">🙆Solution</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%90%BEwhere-are-the-robots"><span class="toc-text">🐾where are the robots</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%81Description-v13"><span class="toc-text">💁Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%99%86Solution-v13"><span class="toc-text">🙆Solution</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%A6%84logon"><span class="toc-text">🦄logon</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%81Description-v14"><span class="toc-text">💁Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%99%86Solution-v14"><span class="toc-text">🙆Solution</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%98%BAObedient-Cat"><span class="toc-text">😺Obedient Cat</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%81Description"><span class="toc-text">💁Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%99%86Solution"><span class="toc-text">🙆Solution</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%99%8AMod-26"><span class="toc-text">🙊Mod 26</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%81Description-v2"><span class="toc-text">💁Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%99%86Solution-v2"><span class="toc-text">🙆Solution</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%90%8DPython-Wrangling"><span class="toc-text">🐍Python Wrangling</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%81Description-v3"><span class="toc-text">💁Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%99%86Solution-v3"><span class="toc-text">🙆Solution</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%8F%81Wave-a-flag"><span class="toc-text">🏁Wave a flag</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%81Description-v4"><span class="toc-text">💁Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%99%86Solution-v4"><span class="toc-text">🙆Solution</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%91%81%E2%80%8Dinformation"><span class="toc-text">👁‍information</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%81Description-v5"><span class="toc-text">💁Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%99%86Solution-v5"><span class="toc-text">🙆Solution</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%98%BBNice-netcat%E2%80%A6"><span class="toc-text">😻Nice netcat…</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%81Description-v6"><span class="toc-text">💁Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%99%86Solution-v6"><span class="toc-text">🙆Solution</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%91%A9%E2%80%8D%F0%9F%8F%ADTransformation"><span class="toc-text">👩‍🏭Transformation</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%81Description-v7"><span class="toc-text">💁Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%99%86Solution-v7"><span class="toc-text">🙆Solution</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%93%BAStonks"><span class="toc-text">📺Stonks</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%81Description-v8"><span class="toc-text">💁Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%99%86Solution-v8"><span class="toc-text">🙆Solution</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%8C%BAGET-aHEAD"><span class="toc-text">🌺GET aHEAD</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%81Description-v9"><span class="toc-text">💁Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%99%86Solution-v9"><span class="toc-text">🙆Solution</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#cURL"><span class="toc-text">cURL</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Burpsuite"><span class="toc-text">Burpsuite</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Python-requests"><span class="toc-text">Python requests</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%8D%BBCookies"><span class="toc-text">🍻Cookies</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%81Description-v10"><span class="toc-text">💁Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%99%86Solution-v10"><span class="toc-text">🙆Solution</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%91%B9Insp3ct0r"><span class="toc-text">👹Insp3ct0r</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%81Description-v11"><span class="toc-text">💁Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%99%86Solution-v11"><span class="toc-text">🙆Solution</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%98%BCScavenger-Hunt"><span class="toc-text">😼Scavenger Hunt</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%81Description-v12"><span class="toc-text">💁Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%99%86Solution-v12"><span class="toc-text">🙆Solution</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%90%BEwhere-are-the-robots"><span class="toc-text">🐾where are the robots</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%81Description-v13"><span class="toc-text">💁Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%99%86Solution-v13"><span class="toc-text">🙆Solution</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%A6%84logon"><span class="toc-text">🦄logon</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%81Description-v14"><span class="toc-text">💁Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%99%86Solution-v14"><span class="toc-text">🙆Solution</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%90%BBdont-use-client-side"><span class="toc-text">🐻dont-use-client-side</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%81Description-v15"><span class="toc-text">💁Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%99%86Solution-v15"><span class="toc-text">🙆Solution</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%A5%9DIt-is-my-Birthday"><span class="toc-text">🥝It is my Birthday</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%81Description-v16"><span class="toc-text">💁Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%99%86Solution-v16"><span class="toc-text">🙆Solution</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%90%A3Who-are-you"><span class="toc-text">🐣Who are you?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%81Description-v17"><span class="toc-text">💁Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%99%86Solution-v17"><span class="toc-text">🙆Solution</span></a></li></ol></li></ol>
     </div>
   </section>
 
