@@ -1,6 +1,10 @@
 <img align="right" width="150" alt="logo" src="https://user-images.githubusercontent.com/5889006/190859553-5b229b4f-c476-4cbd-928f-890f5265ca4c.png">
 
-# Hugo Theme Stack Starter Template
+# 我ㄉ Hugo 部落格
+
+### 使用 Hugo theme Stack
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/0f5b5b7a-0b0a-4b0a-8b0a-5b0a0b0a0b0a/deploy-status)](https://app.netlify.com/sites/hugo-theme-stack/deploys)
 
 This is a quick start template for [Hugo theme Stack](https://github.com/CaiJimmy/hugo-theme-stack). It uses [Hugo modules](https://gohugo.io/hugo-modules/) feature to load the theme.
 
