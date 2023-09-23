@@ -1,5 +1,6 @@
 ---
-title: Links
+title: 連結
+slug: "links"
 menu:
     main: 
         weight: 4
