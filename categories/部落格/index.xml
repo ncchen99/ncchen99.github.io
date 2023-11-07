@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>部落格 on 黏黏ㄉ家</title><link>https://ncchen99.github.io/categories/%E9%83%A8%E8%90%BD%E6%A0%BC/</link><description>Recent content in 部落格 on 黏黏ㄉ家</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><lastBuildDate>Sun, 28 Feb 2021 14:45:42 +0000</lastBuildDate><atom:link href="https://ncchen99.github.io/categories/%E9%83%A8%E8%90%BD%E6%A0%BC/index.xml" rel="self" type="application/rss+xml"/><item><title>🎊偶ㄉ新 Volantis 部落格👨‍💻</title><link>https://ncchen99.github.io/p/%E5%81%B6%E3%84%89%E6%96%B0volantis%E9%83%A8%E8%90%BD%E6%A0%BC/</link><pubDate>Sun, 28 Feb 2021 14:45:42 +0000</pubDate><guid>https://ncchen99.github.io/p/%E5%81%B6%E3%84%89%E6%96%B0volantis%E9%83%A8%E8%90%BD%E6%A0%BC/</guid><description>&lt;img src="https://i.imgur.com/3mr5UsF.jpg" alt="Featured image of post 🎊偶ㄉ新 Volantis 部落格👨‍💻" />&lt;h2 id="no_good-廢話ㄉ地方">:no_good: 廢話ㄉ地方&lt;/h2>
+&lt;p>因為之前以為舊的 Hexo 部落格壞掉惹 :-1: 偶真的很呆 :accept: 所以就整個打掉重用惹 🦄 這次有遇到一些問題 :bento: 想說記下來以免忘記惹　:100:&lt;/p>
+&lt;h2 id="100-推廣-volantis-主題">:100: 推廣 Volantis 主題&lt;/h2>
+&lt;ul>
+&lt;li>文件真的非常完整，可以配置的東西超多的，如果比較懶，&lt;code>_config.volantis.yml&lt;/code> 可以用官方的 example 改。&lt;/li>
+&lt;li>作者人很好，有問題都可以問，雖然我問了一個智障問題，沒倫李偶。&lt;/li>
+&lt;/ul>
+&lt;h2 id="panda_face-遇到ㄉ問題">:panda_face: 遇到ㄉ問題&lt;/h2>
+&lt;h3 id="1作者資訊底下的那幾個-icon-需要另外配置-1234">1.　作者資訊底下的那幾個 icon 需要另外配置 :1234:&lt;/h3>
+&lt;p>在 &lt;code>sidebar:&lt;/code> =&amp;gt; &lt;code>widget_library:&lt;/code> =&amp;gt; &lt;code>blogger:&lt;/code> =&amp;gt; &lt;code>social:&lt;/code> 底下加東西，像下面醬子 :diamond_shape_with_a_dot_inside:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-gdscript3" data-lang="gdscript3">&lt;span class="line">&lt;span class="cl">&lt;span class="n">blogger&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">class&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">blogger&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">display&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="n">desktop&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">mobile&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="c1"># [desktop, mobile]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">avatar&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">https&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="o">//&lt;/span>&lt;span class="n">cdn&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">jsdelivr&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">net&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">gh&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">ncchen99&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">web&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">app&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">assets&lt;/span>&lt;span class="err">@&lt;/span>&lt;span class="mf">1.1&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">blog&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">image&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">png&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">extend&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">sun&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">png&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">shape&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">rectangle&lt;/span> &lt;span class="c1"># circle, rectangle&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">url&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="o">/&lt;/span>&lt;span class="n">about&lt;/span>&lt;span class="o">/&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">title&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="err">念誠&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">subtitle&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="err">偶很乖👨‍💻&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">jinrishici&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="bp">false&lt;/span> &lt;span class="c1"># Poetry Today. You can set a string, and it will be displayed when loading fails.&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1">#social: true&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">social&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="o">-&lt;/span> &lt;span class="n">icon&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">fab&lt;/span> &lt;span class="n">fa&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">facebook&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">url&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">https&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="o">//&lt;/span>&lt;span class="n">www&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">facebook&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">com&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">WHCSCKids&lt;/span>&lt;span class="o">/&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="o">-&lt;/span> &lt;span class="n">icon&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">fas&lt;/span> &lt;span class="n">fa&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">envelope&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">url&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">mailto&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="n">ncchen99&lt;/span>&lt;span class="err">@&lt;/span>&lt;span class="n">gmail&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">com&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="o">-&lt;/span> &lt;span class="n">icon&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">fab&lt;/span> &lt;span class="n">fa&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">github&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">url&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">https&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="o">//&lt;/span>&lt;span class="n">github&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">com&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">ncchen99&lt;/span>&lt;span class="o">/&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="o">-&lt;/span> &lt;span class="n">icon&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">fab&lt;/span> &lt;span class="n">fa&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">instagram&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">url&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">https&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="o">//&lt;/span>&lt;span class="n">www&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">instagram&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">com&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">ncchen&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">foss&lt;/span>&lt;span class="o">/&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>效果圖 :+1:&lt;/th>
+&lt;th>&lt;img src="https://i.imgur.com/UTTQQmr.png"
+loading="lazy"
+>&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;/table>
+&lt;h3 id="2-git-deployer-怪怪ㄉ-anguished">2. Git deployer 怪怪ㄉ :anguished:&lt;/h3>
+&lt;p>這個不知道為神魔 :angry: 如果遇到 &lt;code>hexo g&lt;/code> 完， &lt;code>hexo s&lt;/code> 正常，但是 &lt;code>hexo d&lt;/code> 之後修改沒有生效，導致在本地預覽和 gh page 上看起來不太一樣，重裝 &lt;code>hexo-deployer-git&lt;/code>　試試看！&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">npm un hexo-deployer-git
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">npm i hexojs/hexo-deployer-git
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="3-使用-httpsiimgurcomdwr5snmpng-100">3. 使用 &lt;img src="https://i.imgur.com/Dwr5SNm.png"
+loading="lazy"
+> :100:&lt;/h3>
+&lt;p>看到它的配置裡面，資源取的都是用這個的 :space_invader: 我也不知到怎摸讓圖片之類的生成的時候跑到&lt;code>public&lt;/code>之廖夾，所以還是去看 jsDeliver 怎模用 🤨 　原來只需要在 Github 開一個&lt;a class="link" href="https://github.com/ncchen99/web-app-assets" target="_blank" rel="noopener"
+>存東西專用的 repo&lt;/a>，把要用的東西都 push 上去之後，用一個 release，組合網址之後就可以取用檔案惹！像是這個:point_right: &lt;a class="link" href="https://www.jsdelivr.com/package/gh/ncchen99/web-app-assets" target="_blank" rel="noopener"
+>&lt;img src="https://data.jsdelivr.com/v1/package/gh/ncchen99/web-app-assets/badge"
+loading="lazy"
+>&lt;/a>&lt;/p>
+&lt;h3 id="4-有些-font-awesome-粗不來-smile">4. 有些 Font Awesome 粗不來 :smile:&lt;/h3>
+&lt;p>有些會變成一個格子，可以先檢查是不是用最新的版本，再來就是名字前面&lt;code>fas&lt;/code>、&lt;code>fab&lt;/code>、&lt;code>fa&lt;/code>有沒有對 :8ball:&lt;/p>
+&lt;h3 id="5-讓畫面有玻璃的效果-1">5. 讓畫面有玻璃的效果 :+1:&lt;/h3>
+&lt;p>這個偶找惹有夠九才發現葛模改 :cry: ，太呆惹。
+總之，修改這個很像 css 的東西：）&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">file: /node_modules/hexo-theme-volantis/source/css/_defines/effect.styl
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">.blur
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> @supports (backdrop-filter: blur(20px))
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> background: alpha($color-card, .75) !important
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> backdrop-filter: saturate(200%) blur(20px)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>偶們只要改阿爾法的透明度即可，像偶是改到 0.75 :a: 變程醬子 :hamburger:&lt;/p>
+&lt;p>&lt;img src="https://i.imgur.com/4eNDOQF.jpg"
+loading="lazy"
+>&lt;/p>
+&lt;p>&lt;img src="https://i.imgur.com/3mr5UsF.jpg"
+loading="lazy"
+>&lt;/p></description></item></channel></rss>
