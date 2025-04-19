@@ -1,7 +1,8 @@
 # Change baseurl before deploy
 baseurl = "https://ncchen99.github.io"
 languageCode = "zh-tw"
-paginate = 5
+[pagination]
+  pagerSize = 10
 title = "黏黏ㄉ家"
 
 # Theme i18n support
