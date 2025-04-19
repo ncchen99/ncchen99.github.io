@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>教學 on</title><link>https://ncchen99.github.io/categories/%E6%95%99%E5%AD%B8/</link><description>Recent content in 教學 on</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><lastBuildDate>Sun, 25 Apr 2021 22:24:36 +0000</lastBuildDate><atom:link href="https://ncchen99.github.io/categories/%E6%95%99%E5%AD%B8/index.xml" rel="self" type="application/rss+xml"/><item><title>🐍Windows安裝寫Pythonㄉ環境</title><link>https://ncchen99.github.io/p/windows%E5%AE%89%E8%A3%9D%E5%AF%ABpython%E3%84%89%E7%92%B0%E5%A2%83/</link><pubDate>Sun, 25 Apr 2021 22:24:36 +0000</pubDate><guid>https://ncchen99.github.io/p/windows%E5%AE%89%E8%A3%9D%E5%AF%ABpython%E3%84%89%E7%92%B0%E5%A2%83/</guid><description>&lt;img src="https://cdn.jsdelivr.net/gh/ncchen99/web-app-assets@2.3/blog/wallpaper/img15.jpg" alt="Featured image of post 🐍Windows安裝寫Pythonㄉ環境" />&lt;h2 id="-安裝python-interpreter">🔮 安裝&lt;code>Python interpreter&lt;/code>
+&lt;/h2>&lt;h3 id="1-到官方網頁下載">1️⃣ 到&lt;a class="link" href="https://www.python.org/" target="_blank" rel="noopener"
+>官方網頁&lt;/a>下載
+&lt;/h3>&lt;p>&lt;img src="https://i.imgur.com/Dn2R8lu.png"
+loading="lazy"
+>&lt;/p>
+&lt;h3 id="2-打開下載的檔案">2️⃣ 打開下載的檔案
+&lt;/h3>&lt;p>&lt;img src="https://i.imgur.com/YyTkcLJ.png"
+loading="lazy"
+>&lt;/p>
+&lt;h3 id="3-把add-python-3x-to-path的方格打勾">3️⃣ 把&lt;code>Add Python 3.x to PATH&lt;/code>的方格打勾
+&lt;/h3>&lt;p>&lt;img src="https://i.imgur.com/YVuNEDl.png"
+loading="lazy"
+>&lt;/p>
+&lt;h3 id="4-按install-now那裡">4️⃣ 按&lt;code>Install Now&lt;/code>那裡
+&lt;/h3>&lt;p>&lt;img src="https://i.imgur.com/bPOMnkm.png"
+loading="lazy"
+>&lt;/p>
+&lt;h3 id="5-允許此app更變我的裝置">5️⃣ 允許此APP更變我的裝置
+&lt;/h3>&lt;hr>
+&lt;h2 id="-安裝visual-studio-code">🧸 安裝&lt;code>Visual Studio Code&lt;/code>
+&lt;/h2>&lt;h3 id="1-到官方網頁下載-1">1️⃣ 到&lt;a class="link" href="https://code.visualstudio.com/" target="_blank" rel="noopener"
+>官方網頁&lt;/a>下載
+&lt;/h3>&lt;p>&lt;img src="https://i.imgur.com/HanGANv.png"
+loading="lazy"
+>&lt;/p>
+&lt;h3 id="2-打開下載的檔案-1">2️⃣ 打開下載的檔案
+&lt;/h3>&lt;p>&lt;img src="https://i.imgur.com/SsEgXgC.png"
+loading="lazy"
+>&lt;/p>
+&lt;h3 id="3-同意授權合約">3️⃣ 同意授權合約
+&lt;/h3>&lt;p>&lt;img src="https://i.imgur.com/chv5nPv.png"
+loading="lazy"
+>&lt;/p>
+&lt;h3 id="4-按下一步">4️⃣ 按下一步
+&lt;/h3>&lt;p>&lt;img src="https://i.imgur.com/PuCBusn.png"
+loading="lazy"
+>&lt;/p>
+&lt;h3 id="5-按下一步">5️⃣ 按下一步
+&lt;/h3>&lt;p>&lt;img src="https://i.imgur.com/d0NmoY2.png"
+loading="lazy"
+>&lt;/p>
+&lt;h3 id="6-按下一步">6️⃣ 按下一步
+&lt;/h3>&lt;p>&lt;img src="https://i.imgur.com/gPnyCS6.png"
+loading="lazy"
+>&lt;/p>
+&lt;h3 id="7-按下一步">7️⃣ 按下一步
+&lt;/h3>&lt;p>&lt;img src="https://i.imgur.com/6xTOZej.png"
+loading="lazy"
+>&lt;/p>
+&lt;h3 id="8-按安裝">8️⃣ 按安裝
+&lt;/h3>&lt;p>&lt;img src="https://i.imgur.com/xBh0LR5.png"
+loading="lazy"
+>&lt;/p>
+&lt;hr>
+&lt;h2 id="-設定visual-studio-code">🚀 設定&lt;code>Visual Studio Code&lt;/code>
+&lt;/h2>&lt;h3 id="1-按左下方齒輪之後再按extensions">1️⃣ 按左下方齒輪之後，再按&lt;code>Extensions&lt;/code>
+&lt;/h3>&lt;p>&lt;img src="https://i.imgur.com/36zDItu.png"
+loading="lazy"
+>&lt;/p>
+&lt;h3 id="2-搜尋python之後安裝第一個">2️⃣ 搜尋&lt;code>python&lt;/code>之後安裝第一個
+&lt;/h3>&lt;p>&lt;img src="https://i.imgur.com/GMVfkFe.png"
+loading="lazy"
+>&lt;/p>
+&lt;h3 id="3-按左上角file再按new-file">3️⃣ 按左上角&lt;code>File&lt;/code>，再按&lt;code>New File&lt;/code>
+&lt;/h3>&lt;p>&lt;img src="https://i.imgur.com/1zuTrUE.png"
+loading="lazy"
+>&lt;/p>
+&lt;h3 id="4-按左上角file再按save">4️⃣ 按左上角&lt;code>File&lt;/code>，再按&lt;code>Save&lt;/code>
+&lt;/h3>&lt;p>&lt;img src="https://i.imgur.com/uAneEnp.png"
+loading="lazy"
+>&lt;/p>
+&lt;h3 id="5-輸入檔名以py結尾存檔類型不用更改">5️⃣ 輸入檔名，以&lt;code>.py&lt;/code>結尾，存檔類型不用更改
+&lt;/h3>&lt;p>&lt;img src="https://i.imgur.com/o1cVk7p.png"
+loading="lazy"
+>&lt;/p>
+&lt;h3 id="6-開始寫程式">6️⃣ 開始寫程式
+&lt;/h3>&lt;p>&lt;img src="https://i.imgur.com/tKUBpjt.png"
+loading="lazy"
+>&lt;/p>
+&lt;h3 id="7-按左下-select-python-interpreter">7️⃣ 按左下&lt;code>⚠️ Select Python Interpreter&lt;/code>
+&lt;/h3>&lt;p>&lt;img src="https://i.imgur.com/6Gz76k9.png"
+loading="lazy"
+>&lt;/p>
+&lt;h3 id="8-選擇python-3xx-64-bit">8️⃣ 選擇&lt;code>Python 3.x.x 64-bit&lt;/code>
+&lt;/h3>&lt;p>&lt;img src="https://i.imgur.com/L6utNuT.png"
+loading="lazy"
+>&lt;/p>
+&lt;h3 id="9-按run再按start-dbugging或按f5">9️⃣ 按&lt;code>Run&lt;/code>，再按&lt;code>Start Dbugging&lt;/code>，或按&lt;code>F5&lt;/code>
+&lt;/h3>&lt;p>&lt;img src="https://i.imgur.com/MxtHA7U.png"
+loading="lazy"
+>&lt;/p>
+&lt;h3 id="10-選擇python-檔案">1️⃣0️⃣ 選擇&lt;code>Python 檔案&lt;/code>
+&lt;/h3>&lt;p>&lt;img src="https://i.imgur.com/xHBpLiY.png"
+loading="lazy"
+>&lt;/p>
+&lt;h3 id="-大功告成">🛐 大功告成！！！
+&lt;/h3>&lt;p>&lt;img src="https://i.imgur.com/YwGUv2t.png"
+loading="lazy"
+>&lt;/p></description></item></channel></rss>
