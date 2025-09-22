@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>軟體安裝 on</title><link>https://ncchen99.github.io/tags/%E8%BB%9F%E9%AB%94%E5%AE%89%E8%A3%9D/</link><description>Recent content in 軟體安裝 on</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><lastBuildDate>Sun, 25 Apr 2021 22:24:36 +0000</lastBuildDate><atom:link href="https://ncchen99.github.io/tags/%E8%BB%9F%E9%AB%94%E5%AE%89%E8%A3%9D/index.xml" rel="self" type="application/rss+xml"/><item><title>🐍Windows安裝寫Pythonㄉ環境</title><link>https://ncchen99.github.io/p/windows%E5%AE%89%E8%A3%9D%E5%AF%ABpython%E3%84%89%E7%92%B0%E5%A2%83/</link><pubDate>Sun, 25 Apr 2021 22:24:36 +0000</pubDate><guid>https://ncchen99.github.io/p/windows%E5%AE%89%E8%A3%9D%E5%AF%ABpython%E3%84%89%E7%92%B0%E5%A2%83/</guid><description>&lt;img src="https://cdn.jsdelivr.net/gh/ncchen99/web-app-assets@2.3/blog/wallpaper/img15.jpg" alt="Featured image of post 🐍Windows安裝寫Pythonㄉ環境" /&gt;&lt;h2 id="-安裝python-interpreter"&gt;🔮 安裝&lt;code&gt;Python interpreter&lt;/code&gt;
+&lt;/h2&gt;&lt;h3 id="1-到官方網頁下載"&gt;1️⃣ 到&lt;a class="link" href="https://www.python.org/" target="_blank" rel="noopener"
+&gt;官方網頁&lt;/a&gt;下載
+&lt;/h3&gt;&lt;p&gt;&lt;img src="https://i.imgur.com/Dn2R8lu.png"
+loading="lazy"
+&gt;&lt;/p&gt;
+&lt;h3 id="2-打開下載的檔案"&gt;2️⃣ 打開下載的檔案
+&lt;/h3&gt;&lt;p&gt;&lt;img src="https://i.imgur.com/YyTkcLJ.png"
+loading="lazy"
+&gt;&lt;/p&gt;
+&lt;h3 id="3-把add-python-3x-to-path的方格打勾"&gt;3️⃣ 把&lt;code&gt;Add Python 3.x to PATH&lt;/code&gt;的方格打勾
+&lt;/h3&gt;&lt;p&gt;&lt;img src="https://i.imgur.com/YVuNEDl.png"
+loading="lazy"
+&gt;&lt;/p&gt;
+&lt;h3 id="4-按install-now那裡"&gt;4️⃣ 按&lt;code&gt;Install Now&lt;/code&gt;那裡
+&lt;/h3&gt;&lt;p&gt;&lt;img src="https://i.imgur.com/bPOMnkm.png"
+loading="lazy"
+&gt;&lt;/p&gt;
+&lt;h3 id="5-允許此app更變我的裝置"&gt;5️⃣ 允許此APP更變我的裝置
+&lt;/h3&gt;&lt;hr&gt;
+&lt;h2 id="-安裝visual-studio-code"&gt;🧸 安裝&lt;code&gt;Visual Studio Code&lt;/code&gt;
+&lt;/h2&gt;&lt;h3 id="1-到官方網頁下載-1"&gt;1️⃣ 到&lt;a class="link" href="https://code.visualstudio.com/" target="_blank" rel="noopener"
+&gt;官方網頁&lt;/a&gt;下載
+&lt;/h3&gt;&lt;p&gt;&lt;img src="https://i.imgur.com/HanGANv.png"
+loading="lazy"
+&gt;&lt;/p&gt;
+&lt;h3 id="2-打開下載的檔案-1"&gt;2️⃣ 打開下載的檔案
+&lt;/h3&gt;&lt;p&gt;&lt;img src="https://i.imgur.com/SsEgXgC.png"
+loading="lazy"
+&gt;&lt;/p&gt;
+&lt;h3 id="3-同意授權合約"&gt;3️⃣ 同意授權合約
+&lt;/h3&gt;&lt;p&gt;&lt;img src="https://i.imgur.com/chv5nPv.png"
+loading="lazy"
+&gt;&lt;/p&gt;
+&lt;h3 id="4-按下一步"&gt;4️⃣ 按下一步
+&lt;/h3&gt;&lt;p&gt;&lt;img src="https://i.imgur.com/PuCBusn.png"
+loading="lazy"
+&gt;&lt;/p&gt;
+&lt;h3 id="5-按下一步"&gt;5️⃣ 按下一步
+&lt;/h3&gt;&lt;p&gt;&lt;img src="https://i.imgur.com/d0NmoY2.png"
+loading="lazy"
+&gt;&lt;/p&gt;
+&lt;h3 id="6-按下一步"&gt;6️⃣ 按下一步
+&lt;/h3&gt;&lt;p&gt;&lt;img src="https://i.imgur.com/gPnyCS6.png"
+loading="lazy"
+&gt;&lt;/p&gt;
+&lt;h3 id="7-按下一步"&gt;7️⃣ 按下一步
+&lt;/h3&gt;&lt;p&gt;&lt;img src="https://i.imgur.com/6xTOZej.png"
+loading="lazy"
+&gt;&lt;/p&gt;
+&lt;h3 id="8-按安裝"&gt;8️⃣ 按安裝
+&lt;/h3&gt;&lt;p&gt;&lt;img src="https://i.imgur.com/xBh0LR5.png"
+loading="lazy"
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="-設定visual-studio-code"&gt;🚀 設定&lt;code&gt;Visual Studio Code&lt;/code&gt;
+&lt;/h2&gt;&lt;h3 id="1-按左下方齒輪之後再按extensions"&gt;1️⃣ 按左下方齒輪之後，再按&lt;code&gt;Extensions&lt;/code&gt;
+&lt;/h3&gt;&lt;p&gt;&lt;img src="https://i.imgur.com/36zDItu.png"
+loading="lazy"
+&gt;&lt;/p&gt;
+&lt;h3 id="2-搜尋python之後安裝第一個"&gt;2️⃣ 搜尋&lt;code&gt;python&lt;/code&gt;之後安裝第一個
+&lt;/h3&gt;&lt;p&gt;&lt;img src="https://i.imgur.com/GMVfkFe.png"
+loading="lazy"
+&gt;&lt;/p&gt;
+&lt;h3 id="3-按左上角file再按new-file"&gt;3️⃣ 按左上角&lt;code&gt;File&lt;/code&gt;，再按&lt;code&gt;New File&lt;/code&gt;
+&lt;/h3&gt;&lt;p&gt;&lt;img src="https://i.imgur.com/1zuTrUE.png"
+loading="lazy"
+&gt;&lt;/p&gt;
+&lt;h3 id="4-按左上角file再按save"&gt;4️⃣ 按左上角&lt;code&gt;File&lt;/code&gt;，再按&lt;code&gt;Save&lt;/code&gt;
+&lt;/h3&gt;&lt;p&gt;&lt;img src="https://i.imgur.com/uAneEnp.png"
+loading="lazy"
+&gt;&lt;/p&gt;
+&lt;h3 id="5-輸入檔名以py結尾存檔類型不用更改"&gt;5️⃣ 輸入檔名，以&lt;code&gt;.py&lt;/code&gt;結尾，存檔類型不用更改
+&lt;/h3&gt;&lt;p&gt;&lt;img src="https://i.imgur.com/o1cVk7p.png"
+loading="lazy"
+&gt;&lt;/p&gt;
+&lt;h3 id="6-開始寫程式"&gt;6️⃣ 開始寫程式
+&lt;/h3&gt;&lt;p&gt;&lt;img src="https://i.imgur.com/tKUBpjt.png"
+loading="lazy"
+&gt;&lt;/p&gt;
+&lt;h3 id="7-按左下-select-python-interpreter"&gt;7️⃣ 按左下&lt;code&gt;⚠️ Select Python Interpreter&lt;/code&gt;
+&lt;/h3&gt;&lt;p&gt;&lt;img src="https://i.imgur.com/6Gz76k9.png"
+loading="lazy"
+&gt;&lt;/p&gt;
+&lt;h3 id="8-選擇python-3xx-64-bit"&gt;8️⃣ 選擇&lt;code&gt;Python 3.x.x 64-bit&lt;/code&gt;
+&lt;/h3&gt;&lt;p&gt;&lt;img src="https://i.imgur.com/L6utNuT.png"
+loading="lazy"
+&gt;&lt;/p&gt;
+&lt;h3 id="9-按run再按start-dbugging或按f5"&gt;9️⃣ 按&lt;code&gt;Run&lt;/code&gt;，再按&lt;code&gt;Start Dbugging&lt;/code&gt;，或按&lt;code&gt;F5&lt;/code&gt;
+&lt;/h3&gt;&lt;p&gt;&lt;img src="https://i.imgur.com/MxtHA7U.png"
+loading="lazy"
+&gt;&lt;/p&gt;
+&lt;h3 id="10-選擇python-檔案"&gt;1️⃣0️⃣ 選擇&lt;code&gt;Python 檔案&lt;/code&gt;
+&lt;/h3&gt;&lt;p&gt;&lt;img src="https://i.imgur.com/xHBpLiY.png"
+loading="lazy"
+&gt;&lt;/p&gt;
+&lt;h3 id="-大功告成"&gt;🛐 大功告成！！！
+&lt;/h3&gt;&lt;p&gt;&lt;img src="https://i.imgur.com/YwGUv2t.png"
+loading="lazy"
+&gt;&lt;/p&gt;</description></item></channel></rss>
