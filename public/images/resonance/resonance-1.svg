@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+  <rect width="1600" height="900" fill="#EDE9DF"/>
+  <rect x="0.5" y="0.5" width="1599" height="899" fill="none" stroke="#DCD6C9"/>
+  <g fill="#B4551E" opacity="0.16">
+    <circle cx="800" cy="450" r="90" fill="none" stroke="#B4551E" stroke-width="2"/>
+    <circle cx="800" cy="450" r="170" fill="none" stroke="#B4551E" stroke-width="2"/>
+    <circle cx="800" cy="450" r="260" fill="none" stroke="#B4551E" stroke-width="2"/>
+    <circle cx="800" cy="450" r="360" fill="none" stroke="#B4551E" stroke-width="2"/>
+  </g>
+  <text x="800" y="430" font-family="'Noto Serif TC', serif" font-size="52" fill="#1A1917" text-anchor="middle">共振 · Resonance</text>
+  <text x="800" y="490" font-family="'Space Mono', monospace" font-size="22" letter-spacing="6" fill="#6E685E" text-anchor="middle">REPLACE / 橫向截圖一</text>
+</svg>

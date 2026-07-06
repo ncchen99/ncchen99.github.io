@@ -1,0 +1,41 @@
+:root {
+  /* Typography — original site fonts (the Playfair/DM Sans pair was dropped) */
+  --font-heading: 'Fraunces', 'Noto Serif TC', Georgia, serif;
+  --font-body: 'Noto Serif TC', serif;
+  --font-mono: 'Space Mono', ui-monospace, monospace;
+
+  /* Color System — OKLCH Warm Pastel Palette */
+  --color-cream: oklch(96.5% 0.015 75);
+  --color-cream-dark: oklch(93% 0.018 75);
+  --color-card-bg: oklch(97.5% 0.01 80);
+
+  --color-terracotta: oklch(62% 0.14 45); /* primary accent */
+  --color-terracotta-light: oklch(88% 0.08 55);
+
+  --color-lavender: oklch(80% 0.07 290);
+  --color-sage: oklch(78% 0.07 140);
+  --color-yellow: oklch(88% 0.1 90);
+  --color-sky: oklch(82% 0.07 220);
+
+  --color-text: oklch(26% 0.03 60); /* near-black warm */
+  --color-text-muted: oklch(52% 0.04 70);
+
+  /* deep coffee — kept for accents */
+  --color-espresso: oklch(23% 0.022 50);
+
+  /* hairline */
+  --color-line: oklch(89% 0.014 75);
+
+  /* Scene backgrounds — each act sits on its own barely-there tint. Very light
+     (~96% L) so the palette whispers rather than shouts; consecutive scenes
+     differ just enough to register as you scroll through the blur. */
+  --bg-cream: oklch(96.5% 0.015 75); /* 米色 — Hero */
+  --bg-lavender: oklch(96% 0.02 292); /* 淡紫 */
+  --bg-terracotta: oklch(96.2% 0.026 55); /* 淡橘 */
+  --bg-sky: oklch(96.5% 0.02 220); /* 淡藍 */
+  --bg-yellow: oklch(96.8% 0.03 92); /* 淡黃 */
+  --bg-sage: oklch(96.4% 0.022 150); /* 淡綠 */
+  --bg-contact: oklch(95% 0.02 300); /* 淡灰紫 — Contact */
+
+  --grain-opacity: 0.1;
+}

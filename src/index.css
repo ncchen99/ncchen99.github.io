@@ -1,0 +1,165 @@
+@import './styles/tokens.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-cream);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-weight: 400;
+}
+
+::selection {
+  background: var(--color-text);
+  color: var(--color-cream);
+}
+
+/* =========================================================
+   Stage — every scene stacked in one pinned viewport. On
+   scroll the current act blurs out of focus while the next
+   act surfaces into focus in its place. Each scene carries
+   its own barely-there background tint (--scene-bg).
+   ========================================================= */
+
+/* mobile / reduced-motion default: scenes flow normally */
+.scene {
+  position: relative;
+}
+.scene-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  min-height: 100svh;
+  align-items: center;
+  background: var(--scene-bg, var(--color-cream));
+}
+.scene-inner {
+  width: 100%;
+}
+
+/* mobile flow: don't force every project to a full screen — let the shorter
+   acts breathe with padding, keep only the bookends (Hero / Contact) full. */
+@media (max-width: 767.98px) {
+  .scene-content {
+    min-height: auto;
+    padding-top: 18vh;
+    padding-bottom: 18vh;
+  }
+  #hero .scene-content,
+  #contact .scene-content {
+    min-height: 100svh;
+  }
+}
+
+/* desktop slideshow — activated by JS once GSAP is wired up */
+@media (min-width: 768px) {
+  #stageViewport.stage--active {
+    position: relative;
+    height: 100vh;
+  }
+  .stage--active .scene {
+    position: absolute;
+    inset: 0;
+    height: 100vh;
+    isolation: isolate; /* each scene its own stacking context */
+    will-change: filter, opacity;
+  }
+  .stage--active .scene-content {
+    min-height: 100vh;
+  }
+  /* only the visible scene should receive clicks */
+  .stage--active .scene {
+    pointer-events: none;
+  }
+  .stage--active .scene-content {
+    pointer-events: auto;
+  }
+}
+
+/* ---- hairline ---- */
+.rule {
+  height: 1px;
+  background: var(--color-line);
+  border: 0;
+}
+
+/* ---- eyebrow / meta label ---- */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+/* ---- link with slow underline reveal (no traditional hover) ---- */
+.link-underline {
+  position: relative;
+  display: inline-block;
+  color: inherit;
+  text-decoration: none;
+}
+.link-underline::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -0.14em;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.55s cubic-bezier(0.19, 1, 0.22, 1);
+}
+.link-underline:hover::after,
+.link-underline:focus-visible::after {
+  transform: scaleX(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+img,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+/* ---- nav label swap ---- */
+.nav-label {
+  animation: navLabelIn 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+@keyframes navLabelIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ---- fluid display type ---- */
+.display {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  line-height: 1.06;
+  letter-spacing: -0.005em;
+}

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+  <rect width="1600" height="900" fill="#E7E2D6"/>
+  <rect x="0.5" y="0.5" width="1599" height="899" fill="none" stroke="#DCD6C9"/>
+  <g stroke="#B4551E" stroke-width="2" opacity="0.16" fill="none">
+    <path d="M120 620 Q 400 300 700 480 T 1480 360"/>
+    <path d="M120 680 Q 420 380 720 540 T 1480 440"/>
+  </g>
+  <text x="800" y="430" font-family="'Noto Serif TC', serif" font-size="52" fill="#1A1917" text-anchor="middle">Let lives influence lives.</text>
+  <text x="800" y="490" font-family="'Space Mono', monospace" font-size="22" letter-spacing="6" fill="#6E685E" text-anchor="middle">REPLACE / 橫向截圖二</text>
+</svg>
