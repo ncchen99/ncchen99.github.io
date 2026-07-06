@@ -22,7 +22,7 @@ export default function Contact() {
     setStatus('sending')
     const formData = new FormData(event.target)
     formData.append('access_key', ACCESS_KEY)
-    formData.append('subject', '有人從個人網站傳了訊息給你')
+    formData.append('subject', '念誠的網站有新訊息！')
     try {
       const res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
@@ -42,7 +42,9 @@ export default function Contact() {
 
   return (
     <Scene id="contact" tint="contact">
-      <div className="grid items-center gap-x-16 gap-y-12 md:grid-cols-12">
+      <div className="flex h-full min-h-full flex-col">
+        {/* main — invitation + message box, centred in the remaining space */}
+        <div className="grid flex-1 content-center items-center gap-x-16 gap-y-12 pt-20 md:grid-cols-12">
         {/* left — the invitation */}
         <div className="md:col-span-6">
           <h2 className="display text-3xl leading-[1.3] text-ink md:text-[2.7rem] md:leading-[1.24]">
@@ -124,7 +126,10 @@ export default function Contact() {
           </form>
         </div>
 
-        <div className="md:col-span-12 flex flex-col gap-1 border-t border-line pt-8 font-mono text-[0.62rem] uppercase tracking-[0.2em] text-muted/70 sm:flex-row sm:items-center sm:justify-between">
+        </div>
+
+        {/* footer — pinned flush to the bottom of the act */}
+        <div className="flex flex-col gap-1 border-t border-line pb-8 pt-8 font-mono text-[0.62rem] uppercase tracking-[0.2em] text-muted/70 sm:flex-row sm:items-center sm:justify-between">
           <span>© {new Date().getFullYear()} 念誠 · Ning-Cheng Chen</span>
           <span>Let lives influence lives.</span>
         </div>

@@ -50,6 +50,12 @@ body {
   width: 100%;
 }
 
+/* Contact stretches its inner full-height so the footer can sit flush at the
+   bottom while the form stays centred above it (see Contact.jsx). */
+#contact .scene-content {
+  align-items: stretch;
+}
+
 /* mobile flow: don't force every project to a full screen — let the shorter
    acts breathe with padding, keep only the bookends (Hero / Contact) full. */
 @media (max-width: 767.98px) {
@@ -61,14 +67,19 @@ body {
   #hero .scene-content,
   #contact .scene-content {
     min-height: 100svh;
+    padding-top: 0;
+    padding-bottom: 0;
   }
 }
 
-/* desktop slideshow — activated by JS once GSAP is wired up */
+/* desktop deck — a fixed stack of full-screen acts, activated by JS. No native
+   scroll: GSAP Observer flips one card per gesture. */
 @media (min-width: 768px) {
   #stageViewport.stage--active {
-    position: relative;
+    position: fixed;
+    inset: 0;
     height: 100vh;
+    overflow: hidden;
   }
   .stage--active .scene {
     position: absolute;

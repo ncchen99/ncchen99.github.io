@@ -12,7 +12,7 @@ export const projects = [
     id: 'resonance',
     name: '共振',
     latin: 'Resonance',
-    tint: 'lavender',
+    tint: 'lime',
     lead: '讓每個同頻的靈魂，透過真實故事彼此相遇',
     body:
       '一個以「思維」與「故事」為核心的社群平台，相信每一個平凡的生命裡，都藏著值得被世界聽見的智慧；讓真實的故事，成為傳遞正向思維的光——使世界因連結而更有意識、更溫暖',
@@ -44,7 +44,7 @@ export const projects = [
     id: 'ncku-ca',
     name: '成大社聯會官網',
     latin: 'NCKU-CA',
-    tint: 'sky',
+    tint: 'red',
     lead: '全校 230 個社團每天在使用的數位平臺',
     body:
       '把社團的活動報名、現場點名與保證金作業全面數位化，讓繁瑣的紙本流程變成線上填表與即時查詢，成為社聯會與社團幹部日常的營運骨幹',

@@ -15,13 +15,13 @@ export default function App() {
   return (
     <div className="relative min-h-screen bg-paper text-ink antialiased">
       <Nav label={LABELS[kind]} />
-      {/* Hero + Work share the pinned blur-crossfade stage. Contact lives
-          outside it so its comment thread can grow and scroll normally. */}
+      {/* Desktop: one fixed deck of full-screen acts — each scroll gesture
+          flips exactly one card (see useScrollScene). Mobile: normal flow. */}
       <div id="stageViewport">
         <Hero />
         <Work />
+        <Contact />
       </div>
-      <Contact />
     </div>
   )
 }
