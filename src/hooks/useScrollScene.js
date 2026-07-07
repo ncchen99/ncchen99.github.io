@@ -143,12 +143,35 @@ export function useScrollScene({ onActive } = {}) {
         }
         window.addEventListener('keydown', handleKeyDown)
 
+        // Intercept header link clicks to transition slides
+        const handleAnchorClick = (e) => {
+          const anchor = e.target.closest('a[href^="#"]')
+          if (!anchor) return
+          const href = anchor.getAttribute('href')
+          let target = -1
+          if (href === '#hero') {
+            target = 0
+          } else if (href === '#work') {
+            target = 1
+          } else if (href === '#contact') {
+            target = N - 1
+          }
+
+          if (target !== -1) {
+            e.preventDefault()
+            targetIndex = target
+            drive()
+          }
+        }
+        document.addEventListener('click', handleAnchorClick)
+
         // gentle intro for the hero
         gsap.from(scenes[0], { autoAlpha: 0, duration: 0.9, ease: 'power2.out' })
 
         return () => {
           observer.kill()
           window.removeEventListener('keydown', handleKeyDown)
+          document.removeEventListener('click', handleAnchorClick)
           viewport.classList.remove('stage--active')
         }
       },

@@ -19,7 +19,9 @@ export default function App() {
           flips exactly one card (see useScrollScene). Mobile: normal flow. */}
       <div id="stageViewport">
         <Hero />
-        <Work />
+        <div id="work">
+          <Work />
+        </div>
         <Contact />
       </div>
     </div>
