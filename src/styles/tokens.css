@@ -35,9 +35,13 @@
   --bg-sky: oklch(96.5% 0.02 220); /* 淡藍 */
   --bg-yellow: oklch(96.8% 0.03 92); /* 淡黃 */
   --bg-sage: oklch(96.4% 0.022 150); /* 淡綠 */
-  --bg-lime: oklch(96.5% 0.038 128); /* 淡黃綠 — 共振 Resonance */
+  --bg-white: oklch(99% 0.004 80); /* 近白 — 共振 Resonance */
   --bg-red: oklch(95.6% 0.032 26); /* 淡紅 — 社聯會 NCKU-CA */
   --bg-contact: oklch(95% 0.02 300); /* 淡灰紫 — Contact */
+
+  /* frosted header bar (mobile) — translucent cream so scrolling content stays
+     legible beneath it while the tint of the act still shows through */
+  --nav-bg: oklch(96.5% 0.015 75 / 0.82);
 
   --grain-opacity: 0.1;
 }

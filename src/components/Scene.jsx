@@ -5,7 +5,7 @@ const BGS = {
   sky: 'var(--bg-sky)',
   yellow: 'var(--bg-yellow)',
   sage: 'var(--bg-sage)',
-  lime: 'var(--bg-lime)',
+  white: 'var(--bg-white)',
   red: 'var(--bg-red)',
   contact: 'var(--bg-contact)',
 }

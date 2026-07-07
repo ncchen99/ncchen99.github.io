@@ -12,7 +12,7 @@ export const projects = [
     id: 'resonance',
     name: '共振',
     latin: 'Resonance',
-    tint: 'lime',
+    tint: 'white',
     lead: '讓每個同頻的靈魂，透過真實故事彼此相遇',
     body:
       '一個以「思維」與「故事」為核心的社群平台，相信每一個平凡的生命裡，都藏著值得被世界聽見的智慧；讓真實的故事，成為傳遞正向思維的光——使世界因連結而更有意識、更溫暖',
