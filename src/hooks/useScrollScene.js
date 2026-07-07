@@ -41,6 +41,7 @@ export function useScrollScene({ onActive } = {}) {
         const N = scenes.length
         const BLUR = 18 // px of defocus between acts
         let index = 0
+        let targetIndex = 0
         let animating = false
 
         // Count gestures, not events. Fire on a decisive push, then lock until
@@ -78,6 +79,11 @@ export function useScrollScene({ onActive } = {}) {
             onComplete: () => {
               gsap.set(cur, { autoAlpha: 0 })
               animating = false
+              // Transition finished. If targetIndex has changed in the meantime, continue to the new targetIndex!
+              if (targetIndex !== index) {
+                const nextTarget = index + (targetIndex > index ? 1 : -1)
+                go(nextTarget)
+              }
             },
           })
           tl.fromTo(
@@ -96,8 +102,8 @@ export function useScrollScene({ onActive } = {}) {
         const step = (dir) => {
           const v = Math.abs(observer.velocityY)
           if (!armed) {
-            // locked: re-arm only once this flick has spent itself
-            if (!animating && v < ARM_BELOW) {
+            // locked: re-arm only once this flick has spent itself (even if animating is true)
+            if (v < ARM_BELOW) {
               armed = true
               hot = true // guard against this same flick's low-speed tail
             }
@@ -107,7 +113,8 @@ export function useScrollScene({ onActive } = {}) {
           if (hot && v < FIRE_ABOVE) return
           armed = false
           hot = false
-          go(index + dir)
+          targetIndex = Math.max(0, Math.min(N - 1, targetIndex + dir))
+          go(targetIndex)
         }
 
         const observer = Observer.create({
@@ -126,11 +133,27 @@ export function useScrollScene({ onActive } = {}) {
           onDown: () => step(-1), // scroll up -> previous act
         })
 
+        // Keyboard arrow controls
+        const handleKeyDown = (e) => {
+          if (['ArrowDown', 'ArrowRight', 'ArrowUp', 'ArrowLeft'].includes(e.key)) {
+            e.preventDefault()
+            if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
+              targetIndex = Math.max(0, Math.min(N - 1, targetIndex + 1))
+              go(targetIndex)
+            } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+              targetIndex = Math.max(0, Math.min(N - 1, targetIndex - 1))
+              go(targetIndex)
+            }
+          }
+        }
+        window.addEventListener('keydown', handleKeyDown)
+
         // gentle intro for the hero
         gsap.from(scenes[0], { autoAlpha: 0, duration: 0.9, ease: 'power2.out' })
 
         return () => {
           observer.kill()
+          window.removeEventListener('keydown', handleKeyDown)
           viewport.classList.remove('stage--active')
         }
       },

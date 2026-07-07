@@ -19,7 +19,7 @@ export default function Hero() {
               alt="念誠"
               className="w-full border border-line object-cover"
             />
-            <p className="eyebrow mt-4">念誠 · Ning-Cheng Chen</p>
+            <p className="eyebrow mt-4">念誠 · Nian-Cheng Chen</p>
           </div>
         </div>
       </div>

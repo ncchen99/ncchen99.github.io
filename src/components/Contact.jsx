@@ -130,7 +130,7 @@ export default function Contact() {
 
         {/* footer — pinned flush to the bottom of the act */}
         <div className="flex flex-col gap-1 border-t border-line pb-8 pt-8 font-mono text-[0.62rem] uppercase tracking-[0.2em] text-muted/70 sm:flex-row sm:items-center sm:justify-between">
-          <span>© {new Date().getFullYear()} 念誠 · Ning-Cheng Chen</span>
+          <span>© {new Date().getFullYear()} 念誠 · Nian-Cheng Chen</span>
           <span>Let lives influence lives.</span>
         </div>
       </div>
