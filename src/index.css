@@ -70,6 +70,13 @@ body {
     padding-top: 0;
     padding-bottom: 0;
   }
+
+  /* On low / short screens the portrait shrinks so the whole hero act —
+     manifesto, portrait, social links — fits in one page without scrolling.
+     The svh cap yields a smaller image the shorter the viewport gets. */
+  .hero-portrait {
+    width: min(13rem, 30svh);
+  }
 }
 
 /* desktop deck — a fixed stack of full-screen acts, activated by JS. No native
