@@ -44,7 +44,7 @@ export default function Contact() {
     <Scene id="contact" tint="contact">
       <div className="flex h-full min-h-full flex-col">
         {/* main — invitation + message box, centred in the remaining space */}
-        <div className="grid flex-1 content-center items-center gap-x-16 gap-y-12 pt-20 md:grid-cols-12">
+        <div className="grid flex-1 content-center items-center gap-x-16 gap-y-12 pb-14 pt-20 md:grid-cols-12">
         {/* left — the invitation */}
         <div className="md:col-span-6">
           <h2 className="display text-3xl leading-[1.3] text-ink md:text-[2.7rem] md:leading-[1.24]">
@@ -106,7 +106,7 @@ export default function Contact() {
               aria-label="留言"
               className={`${inputClass} resize-none leading-relaxed`}
             />
-            <div className="mt-1 flex items-center justify-between gap-4">
+            <div className="mt-1 flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
               <p
                 className="font-cjk text-sm text-muted"
                 role="status"
