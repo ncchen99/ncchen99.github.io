@@ -35,8 +35,8 @@ const socials = [
   {
     label: { zh: '共振 Resonance', en: 'Resonance' },
     href: {
-      zh: 'https://resonance-world.vercel.app/zh-TW/u/%E5%BF%B5%E8%AA%A0',
-      en: 'https://resonance-world.vercel.app/en/u/%E5%BF%B5%E8%AA%A0',
+      zh: 'https://resonance.channel/zh-TW/u/%E5%BF%B5%E8%AA%A0',
+      en: 'https://resonance.channel/en/u/%E5%BF%B5%E8%AA%A0',
     },
     Icon: ResonanceIcon,
   },

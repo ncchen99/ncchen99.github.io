@@ -1,4 +1,5 @@
 import { useLang } from '../i18n'
+import StoreBadges from './StoreBadges'
 
 function Media({ image, className = '' }) {
   const { t } = useLang()
@@ -45,13 +46,15 @@ export default function ProjectBlock({ project }) {
           <p className="mt-5 font-serif text-lg italic text-muted">{project.note}</p>
         )}
 
+        {project.stores && <StoreBadges stores={project.stores} className="mt-8" />}
+
         <a
           href={t(project.href)}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-8 flex flex-wrap items-baseline gap-x-3 gap-y-1 font-mono text-xs uppercase tracking-[0.2em] text-ink"
+          className={`${project.stores ? 'mt-6' : 'mt-8'} flex flex-wrap items-baseline gap-x-3 gap-y-1 font-mono text-xs uppercase tracking-[0.2em] text-ink`}
         >
-          <span className="link-underline whitespace-nowrap">{t({ zh: '前往平台', en: 'Visit' })}</span>
+          <span className="link-underline whitespace-nowrap">{t(project.hrefText ?? { zh: '前往平台', en: 'Visit' })}</span>
           <span aria-hidden="true" className="text-muted">
             ↗ {project.hrefLabel}
           </span>

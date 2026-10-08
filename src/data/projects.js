@@ -10,6 +10,8 @@
 // image.wide === true  -> landscape shot   (50/50 layout, stacked vertically)
 // image.wide falsy     -> portrait / GIF   (compact horizontal row)
 // hidden === true      -> kept in source but not rendered
+// stores               -> App Store / Google Play badges (mobile apps only)
+// hrefText             -> label for the text link (default 前往平台 / Visit)
 
 export const projects = [
   {
@@ -27,10 +29,10 @@ export const projects = [
     },
     note: 'Let lives influence lives.',
     href: {
-      zh: 'https://resonance-world.vercel.app/zh-TW',
-      en: 'https://resonance-world.vercel.app/en',
+      zh: 'https://resonance.channel/zh-TW',
+      en: 'https://resonance.channel/en',
     },
-    hrefLabel: 'resonance-world.vercel.app',
+    hrefLabel: 'resonance.channel',
     images: [
       {
         src: '/images/resonance/resonance-1.avif',
@@ -57,7 +59,18 @@ export const projects = [
       zh: '為成大學生打造的聚餐媒合平台：按一下預約，剩下的分組、投票、湊時間都交給系統，讓認識新朋友這件事幾乎沒有門檻，上線後累積 300 位使用者',
       en: 'A dinner-matching platform for NCKU students: tap once to book, and the system takes care of grouping, voting and finding a time — making meeting new people almost effortless. 300 users joined after launch',
     },
+    stores: {
+      ios: {
+        zh: 'https://apps.apple.com/tw/app/tuckin/id6751713165',
+        en: 'https://apps.apple.com/us/app/tuckin/id6751713165',
+      },
+      android: {
+        zh: 'https://play.google.com/store/apps/details?id=com.tuckin.app&hl=zh_TW',
+        en: 'https://play.google.com/store/apps/details?id=com.tuckin.app&hl=en',
+      },
+    },
     href: 'https://github.com/ncchen99/Tuckin',
+    hrefText: { zh: '原始碼', en: 'Source' },
     hrefLabel: 'github.com/ncchen99/Tuckin',
     images: [
       { src: '/images/tuckin/screenshot-1.png', alt: { zh: 'Tuckin 主畫面', en: 'Tuckin home screen' } },
