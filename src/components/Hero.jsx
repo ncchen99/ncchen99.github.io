@@ -1,4 +1,5 @@
 import Scene from './Scene'
+import { useLang } from '../i18n'
 
 // Resonance brand mark — the wave, stripped to a single stroke colour so it
 // sits as one set with the line-drawn Instagram / Facebook glyphs.
@@ -32,8 +33,11 @@ function FacebookIcon(props) {
 
 const socials = [
   {
-    label: '共振 Resonance',
-    href: 'https://resonance-world.vercel.app/zh-TW/u/%E5%BF%B5%E8%AA%A0',
+    label: { zh: '共振 Resonance', en: 'Resonance' },
+    href: {
+      zh: 'https://resonance-world.vercel.app/zh-TW/u/%E5%BF%B5%E8%AA%A0',
+      en: 'https://resonance-world.vercel.app/en/u/%E5%BF%B5%E8%AA%A0',
+    },
     Icon: ResonanceIcon,
   },
   {
@@ -49,14 +53,21 @@ const socials = [
 ]
 
 export default function Hero() {
+  const { lang, t } = useLang()
   return (
     <Scene id="hero" tint="cream">
       <div className="grid items-center gap-10 md:grid-cols-12 md:gap-14">
         {/* manifesto */}
         <h1 className="display order-2 text-[2.5rem] leading-[1.16] text-ink md:order-1 md:col-span-7 md:text-[3.4rem] md:leading-[1.18]">
-          結合資訊科技與商業，
-          <br className="hidden sm:block" />
-          打造讓世界更溫暖的產品
+          {lang === 'en' ? (
+            'Blending technology and business to build products that make the world a little warmer'
+          ) : (
+            <>
+              結合資訊科技與商業，
+              <br className="hidden sm:block" />
+              打造讓世界更溫暖的產品
+            </>
+          )}
         </h1>
 
         {/* portrait — in colour */}
@@ -64,7 +75,7 @@ export default function Hero() {
           <div className="hero-portrait mx-auto w-52 sm:w-60 md:ml-auto md:mr-0 md:w-full md:max-w-sm">
             <img
               src="/images/ncc.jpg"
-              alt="念誠"
+              alt={t({ zh: '念誠', en: 'Nian-Cheng Chen' })}
               className="w-full border border-line object-cover"
             />
 
@@ -72,12 +83,12 @@ export default function Hero() {
             <div className="mt-5 flex justify-center gap-7 text-muted">
               {socials.map(({ label, href, Icon }) => (
                 <a
-                  key={label}
-                  href={href}
+                  key={t(label)}
+                  href={t(href)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label={label}
-                  title={label}
+                  aria-label={t(label)}
+                  title={t(label)}
                   className="transition-colors duration-300 hover:text-ink focus-visible:text-ink focus-visible:outline-none"
                 >
                   <Icon className="h-6 w-6" aria-hidden="true" />

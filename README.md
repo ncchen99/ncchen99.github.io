@@ -18,6 +18,15 @@ npm run preview  # 預覽正式版
 - 聯絡方式：`src/components/Contact.jsx`
 - 配色與字體：`tailwind.config.js`、`src/index.css`
 
+## 中英雙語
+
+網站會依訪客的系統語言自動切換（`zh-*` 顯示中文，其他語言顯示英文），
+導覽列右上角的「中 / EN」可手動切換，選擇會記在瀏覽器裡；網址加上
+`?lang=en` 或 `?lang=zh` 可直接指定語言。
+
+- 語言偵測與切換邏輯：`src/i18n.jsx`
+- 文字以 `{ zh: '…', en: '…' }` 成對撰寫，分散在各元件與 `src/data/projects.js`
+
 ## 換上共振（Resonance）的正式截圖
 
 目前 `public/images/resonance/resonance-1.svg`、`resonance-2.svg` 是佔位圖。

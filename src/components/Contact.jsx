@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Scene from './Scene'
+import { useLang } from '../i18n'
 
 // Web3Forms — https://web3forms.com. Submissions are emailed straight to me;
 // nothing is stored publicly (unlike a comments thread).
@@ -11,10 +12,34 @@ const links = [
   { label: 'Blog', href: 'https://ncchen99.github.io/blog' },
 ]
 
+const copy = {
+  heading: {
+    zh: '這邊可以聯絡念誠',
+    en: (
+      <>
+        Get in touch with <span className="whitespace-nowrap">Nian-Cheng</span>
+      </>
+    ),
+  },
+  sub: { zh: '很期待收到你的訊息', en: 'I’d love to hear from you' },
+  // the notification lands in my own inbox, so it stays in Chinese — just
+  // flagged when the sender wrote from the English site
+  subject: { zh: '念誠的網站有新訊息！', en: '念誠的網站有新訊息！（英文版）' },
+  name: { zh: '你的名字', en: 'Your name' },
+  email: { zh: '回覆用的信箱', en: 'Email for my reply' },
+  message: { zh: '親愛的念誠⋯⋯', en: 'Dear Nian-Cheng…' },
+  messageLabel: { zh: '留言', en: 'Message' },
+  ok: { zh: '訊息已送出，我會盡快回覆你 ✓', en: 'Message sent — I’ll get back to you soon ✓' },
+  error: { zh: '送出失敗，要不要直接寄信給我？', en: 'Couldn’t send — why not email me directly?' },
+  sending: { zh: '寄送中⋯', en: 'Sending…' },
+  send: { zh: '寄出 ↗', en: 'Send ↗' },
+}
+
 const inputClass =
   'w-full border border-line bg-transparent px-4 py-3 font-cjk text-base text-ink placeholder:text-muted/50 focus:border-ink focus:outline-none'
 
 export default function Contact() {
+  const { lang, t } = useLang()
   const [status, setStatus] = useState('idle') // idle | sending | ok | error
 
   const onSubmit = async (event) => {
@@ -22,7 +47,7 @@ export default function Contact() {
     setStatus('sending')
     const formData = new FormData(event.target)
     formData.append('access_key', ACCESS_KEY)
-    formData.append('subject', '念誠的網站有新訊息！')
+    formData.append('subject', t(copy.subject))
     try {
       const res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
@@ -48,10 +73,10 @@ export default function Contact() {
         {/* left — the invitation */}
         <div className="md:col-span-6">
           <h2 className="display text-3xl leading-[1.3] text-ink md:text-[2.7rem] md:leading-[1.24]">
-            這邊可以聯絡念誠
+            {t(copy.heading)}
           </h2>
           <p className="mt-6 font-cjk text-base leading-loose text-muted md:text-lg">
-            很期待收到你的訊息
+            {t(copy.sub)}
           </p>
           <div className="mt-7 flex flex-wrap gap-x-8 gap-y-2 font-mono text-xs uppercase tracking-[0.22em] text-muted">
             {links.map((l) => (
@@ -85,16 +110,16 @@ export default function Contact() {
                 type="text"
                 name="name"
                 required
-                placeholder="你的名字"
-                aria-label="你的名字"
+                placeholder={t(copy.name)}
+                aria-label={t(copy.name)}
                 className={inputClass}
               />
               <input
                 type="email"
                 name="email"
                 required
-                placeholder="回覆用的信箱"
-                aria-label="回覆用的信箱"
+                placeholder={t(copy.email)}
+                aria-label={t(copy.email)}
                 className={inputClass}
               />
             </div>
@@ -102,8 +127,8 @@ export default function Contact() {
               name="message"
               required
               rows={5}
-              placeholder="親愛的念誠⋯⋯"
-              aria-label="留言"
+              placeholder={t(copy.message)}
+              aria-label={t(copy.messageLabel)}
               className={`${inputClass} resize-none leading-relaxed`}
             />
             <div className="mt-1 flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
@@ -112,15 +137,15 @@ export default function Contact() {
                 role="status"
                 aria-live="polite"
               >
-                {status === 'ok' && '訊息已送出，我會盡快回覆你 ✓'}
-                {status === 'error' && '送出失敗，要不要直接寄信給我？'}
+                {status === 'ok' && t(copy.ok)}
+                {status === 'error' && t(copy.error)}
               </p>
               <button
                 type="submit"
                 disabled={status === 'sending'}
                 className="link-underline shrink-0 font-mono text-xs uppercase tracking-[0.24em] text-ink disabled:opacity-40"
               >
-                {status === 'sending' ? '寄送中⋯' : '寄出 ↗'}
+                {status === 'sending' ? t(copy.sending) : t(copy.send)}
               </button>
             </div>
           </form>
@@ -130,7 +155,9 @@ export default function Contact() {
 
         {/* footer — pinned flush to the bottom of the act */}
         <div className="flex flex-col gap-1 border-t border-line pb-8 pt-8 font-mono text-[0.62rem] uppercase tracking-[0.2em] text-muted/70 sm:flex-row sm:items-center sm:justify-between">
-          <span>© {new Date().getFullYear()} 念誠 · Nian-Cheng Chen</span>
+          <span>
+            © {new Date().getFullYear()} {lang === 'en' ? 'Nian-Cheng Chen · 念誠' : '念誠 · Nian-Cheng Chen'}
+          </span>
           <span>Let lives influence lives.</span>
         </div>
       </div>
