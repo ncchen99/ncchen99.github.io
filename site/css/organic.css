@@ -1,0 +1,154 @@
+/* The Resonance site's hand-drawn controls (js/organic.js draws the shapes), as the team's
+   business card ports them (Resonance-Business-Card/css/organic.css, light theme only: this page
+   is always on cream paper). Buttons are filled wobbly shapes with no pen line; rules and
+   underlines are a pen's wavy line; the language control is the site's frameless globe. */
+:root {
+  /* OrganicButton's faces. solid = the verb (--button-fill, cream label); tonal = the rest
+     (--button-tonal, deep terracotta label). The light values are the site's own. */
+  --o-solid: var(--accent);
+  --o-on-solid: var(--accent-on);
+  --o-tonal: var(--accent-tint);
+  /* Deeper than the site's 48 % so the label holds 4.5:1 over the grain and under the hover
+     wash too (measured on the rendered faces: 5.6:1 at rest, 4.9:1 washed). */
+  --o-on-tonal: oklch(42% 0.105 45);
+  /* The hover brush: a filled face darkens, a tinted one takes a wash of its own hue. */
+  --o-solid-wash: oklch(0% 0 0 / 0.14);
+  --o-tonal-wash: color-mix(in oklch, oklch(62% 0.14 45) 14%, transparent);
+  /* Divider: the site's rule (--field-border-hover at 35 %). */
+  --o-rule: color-mix(in oklch, oklch(60% 0.04 60) 35%, transparent);
+  /* OrganicLink: terracotta words, deep enough for small type. */
+  --o-link: var(--accent-ink);
+}
+
+/* ── OrganicButton ─────────────────────────────────────────── */
+.o-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  outline: none;
+  background: none;
+  cursor: pointer;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+  /* Until measured, a plain pill of its own fill (the site's .res-shape-stand-in). */
+  border-radius: 16px;
+  transition: background-color 280ms ease-out;
+}
+.o-btn[data-variant='solid'] { --o-fill: var(--o-solid); --o-wash-color: var(--o-solid-wash); color: var(--o-on-solid); }
+.o-btn[data-variant='tonal'] { --o-fill: var(--o-tonal); --o-wash-color: var(--o-tonal-wash); color: var(--o-on-tonal); }
+.o-btn[data-shape-pending] { background-color: var(--o-fill); }
+.o-btn .o-face {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: visible;
+  pointer-events: none;
+  z-index: 0;
+  animation: o-fade-in 280ms ease-out both;
+}
+.o-btn .o-fill { fill: var(--o-fill); }
+/* ShapeGrain's grey noise, multiplied into the face rather than laid over it: the same speckle,
+   but it darkens the fill instead of greying it, so the deep terracotta keeps its cream label
+   above 4.5:1 and the dark theme's tint stays warm. */
+.o-btn .o-grain { mix-blend-mode: multiply; }
+.o-btn .o-label {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+/* No pen line tells a Tab-focused button apart, so the keyboard gets a ring round the pill. */
+.o-btn:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+  border-radius: 16px;
+}
+@keyframes o-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ── BrushWash ─────────────────────────────────────────────── */
+.o-wash {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+.o-wash-ink {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  transform-origin: 50% 50%;
+  transition-property: transform;
+  transition-timing-function: linear;
+  background: var(--o-wash-color);
+}
+
+/* ── the language control (LanguageSelect's bare trigger) ──── */
+.o-bare {
+  --o-wash-color: var(--o-tonal-wash);
+  position: relative;
+  -webkit-tap-highlight-color: transparent;
+}
+.o-bare > :not(.o-wash) { position: relative; z-index: 1; }
+.o-bare:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+  border-radius: 10px;
+}
+
+/* ── Divider ───────────────────────────────────────────────── */
+.o-divider {
+  display: block;
+  width: 100%;
+  line-height: 0;
+  color: var(--o-rule);
+}
+.o-divider svg { display: block; overflow: visible; }
+
+/* ── OrganicLink ───────────────────────────────────────────── */
+.o-link {
+  position: relative;
+  display: inline-block;
+  color: var(--o-link);
+  text-decoration: none;
+  white-space: nowrap;
+  max-width: 100%;
+}
+.o-link-text { position: relative; z-index: 1; }
+.o-link-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  /* The stroke's centre rides 0.2em under the baseline (DM Sans sets it 0.34em below the
+     middle of the line box), so it hugs the letters whatever the line-height. The site sets
+     its links at 16 px; under smaller type the pen keeps that 3.2 px, or its crests would
+     touch the letters. */
+  top: calc(50% + 0.34em + max(0.2em, 3.2px) - 3px);
+  width: 100%;
+  height: 6px;
+  overflow: visible;
+  pointer-events: none;
+  opacity: 0.7;
+  transition: opacity 160ms ease;
+}
+.o-link:hover .o-link-line,
+.o-link:focus-visible .o-link-line { opacity: 1; }
+.o-link:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .o-btn { transition: none; }
+  .o-btn .o-face { animation: none; }
+  .o-wash-ink { transition-duration: 0ms !important; }
+  .o-link-line { transition: none; }
+}
+

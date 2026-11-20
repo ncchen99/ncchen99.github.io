@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>陳念誠 — Nian-Cheng Chen</title>
+<meta name="description" content="結合資訊科技與商業，打造讓世界更溫暖的產品。">
+<meta name="theme-color" content="#f6efe6">
+<meta property="og:type" content="website">
+<meta property="og:title" content="陳念誠 — Nian-Cheng Chen">
+<meta property="og:description" content="結合資訊科技與商業，打造讓世界更溫暖的產品。">
+<meta property="og:image" content="https://ncchen99.github.io/og.jpg">
+<meta property="og:url" content="https://ncchen99.github.io/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://ncchen99.github.io/">
+<link rel="alternate" hreflang="zh-Hant" href="https://ncchen99.github.io/?lang=zh">
+<link rel="alternate" hreflang="en" href="https://ncchen99.github.io/?lang=en">
+<link rel="alternate" hreflang="x-default" href="https://ncchen99.github.io/">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<!-- The language is chosen before the first paint (no flash of the other one):
+     ?lang= wins, then the visitor's earlier choice, then their system's language. -->
+<script>
+  (function () {
+    var norm = function (v) {
+      v = String(v || '').toLowerCase();
+      return v.indexOf('zh') === 0 ? 'zh' : v.indexOf('en') === 0 ? 'en' : null;
+    };
+    var stored = null;
+    try { stored = localStorage.getItem('lang'); } catch (e) {}
+    var sys = (navigator.languages && navigator.languages[0]) || navigator.language;
+    var lang = norm(new URLSearchParams(location.search).get('lang')) || norm(stored) || (norm(sys) === 'zh' ? 'zh' : 'en');
+    document.documentElement.dataset.lang = lang;
+    document.documentElement.lang = lang === 'zh' ? 'zh-Hant' : 'en';
+  })();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- The faces load beside the page, never in front of it (the text shows in a fallback until they come). -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;600;700;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400;1,500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;600;700;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400;1,500&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;600;700;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400;1,500&display=swap"></noscript>
+<link rel="stylesheet" href="css/organic.css">
+<link rel="stylesheet" href="css/site.css">
+<link rel="modulepreload" href="js/main.js">
+<link rel="modulepreload" href="js/blobs.js">
+<link rel="modulepreload" href="js/organic.js">
+<link rel="modulepreload" href="js/puppet.js">
+<link rel="modulepreload" href="js/cast.js">
+</head>
+<body>
+<a class="skip" href="#mission"><span data-l="zh">跳到內容</span><span data-l="en">Skip to content</span></a>
+
+<header class="top">
+  <a class="wordmark" href="#mission" aria-label="陳念誠 Nian-Cheng Chen">
+    <span data-l="zh">陳念誠</span><span data-l="en">Nian-Cheng Chen</span>
+  </a>
+  <button class="lang" id="lang" type="button">
+    <span class="lang-globe" id="lang-globe" aria-hidden="true"></span>
+    <span data-l="zh" lang="en">English</span><span data-l="en" lang="zh-Hant">中文</span>
+  </button>
+</header>
+
+<main>
+  <!-- ── 1. The mission ──────────────────────────────────────────────── -->
+  <section class="band band--mission" id="mission" aria-labelledby="mission-title">
+    <div class="blobs" data-blobs="mission" aria-hidden="true"></div>
+    <div class="wrap mission">
+      <div class="mission-words">
+        <p class="kicker"><span data-l="zh">我的使命</span><span data-l="en">My mission</span></p>
+        <h1 class="mission-title" id="mission-title">
+          <span data-l="zh">結合資訊科技與商業，<br>打造讓世界<span class="pen-mark" data-pen="7">更溫暖</span>的產品</span>
+          <span data-l="en" lang="en">Blending technology and business to build products that make the world a little <span class="pen-mark" data-pen="7">warmer</span></span>
+        </h1>
+        <p class="motto" lang="en">Let lives influence lives.</p>
+        <ul class="socials" aria-label="社群連結">
+          <li>
+            <a data-l="zh" href="https://resonance.channel/zh-TW/u/%E5%BF%B5%E8%AA%A0" target="_blank" rel="noopener" aria-label="共振 Resonance" title="共振 Resonance"><span class="icon" data-icon="resonance"></span></a>
+            <a data-l="en" href="https://resonance.channel/en/u/%E5%BF%B5%E8%AA%A0" target="_blank" rel="noopener" aria-label="Resonance" title="Resonance"><span class="icon" data-icon="resonance"></span></a>
+          </li>
+          <li><a href="https://github.com/ncchen99" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub"><span class="icon" data-icon="github"></span></a></li>
+          <li><a href="https://www.instagram.com/ncchen.foss/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram"><span class="icon" data-icon="instagram"></span></a></li>
+          <li><a href="https://www.facebook.com/ncchen99" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook"><span class="icon" data-icon="facebook"></span></a></li>
+          <li><a href="mailto:ncchen99@gmail.com" aria-label="Email" title="ncchen99@gmail.com"><span class="icon" data-icon="mail"></span></a></li>
+        </ul>
+      </div>
+      <!-- 摺摺 Tuck, who wears 念誠's colours on the Resonance cards -->
+      <div class="stage stage--mission" aria-hidden="true">
+        <div class="pal" data-pal="tuck" data-pose="hello-left"></div>
+        <span class="ground" data-ground="11"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 2. Resonance ─────────────────────────────────────────────────── -->
+  <section class="band band--resonance" id="resonance" aria-labelledby="resonance-title">
+    <svg class="edge" data-edge="5" aria-hidden="true" focusable="false"></svg>
+    <div class="blobs" data-blobs="resonance" aria-hidden="true"></div>
+    <div class="wrap resonance">
+      <p class="brand">
+        <span class="brand-mark" data-icon="resonance-mark" aria-hidden="true"></span>
+        <span class="brand-name"><span data-l="zh">共振</span> Resonance</span>
+      </p>
+      <h2 class="resonance-title" id="resonance-title">
+        <span data-l="zh">用故事<span class="pen-mark" data-pen="13">回應</span>故事</span>
+        <span data-l="en" lang="en">Answer stories with <span class="pen-mark" data-pen="13">stories</span></span>
+      </h2>
+      <p class="lead">
+        <span data-l="zh">一個用故事卡片彼此交流的地方：回應不是按讚，而是另一段故事</span>
+        <span data-l="en" lang="en">A place to share life stories as cards, where a reply isn’t a like but a story of your own.</span>
+      </p>
+
+      <div class="resonance-body">
+        <p class="why">
+          <span data-l="zh">我們相信故事的力量：每個人生而立體而獨特，都帶著自己珍貴的人生經驗；而故事，是串聯人與人、發揮影響力最好的途徑，這是我們打造「共振」的原因。使用者把一段人生寫成一張故事卡片；讀到觸動自己的故事時，回應不是按讚，而是寫下自己的卡片去「共振」它，讓生命影響生命。</span>
+          <span data-l="en" lang="en">We believe in the power of stories. Every person is born whole, many-sided and unique, carrying life experience no one else has, and stories are the best way to connect people and make a difference. That is why we built Resonance. People write a stretch of their life as a story card. When a story moves them, they don’t answer with a like: they write a card of their own to resonate with it. Let lives influence lives.</span>
+        </p>
+
+        <ul class="beliefs">
+          <li>
+            <span class="rule" data-rule="21"></span>
+            <h3><span data-l="zh">共振，不是按讚</span><span data-l="en" lang="en">Resonance, not likes</span></h3>
+            <p><span data-l="zh">公開回應一張卡片的唯一方式，是寫另一張卡片。沒有讚數，也沒有公開留言區</span><span data-l="en" lang="en">The one public way to answer a card is to write another card. No like counts, no public comment threads.</span></p>
+          </li>
+          <li>
+            <span class="rule" data-rule="33"></span>
+            <h3><span data-l="zh">對話從故事開始</span><span data-l="en" lang="en">Conversations start from a story</span></h3>
+            <p><span data-l="zh">沒有開放的收件匣。每段對話都從一個故事開始，而不是「嗨，在嗎」</span><span data-l="en" lang="en">There is no open inbox. Every conversation starts from a story, never from “hi”.</span></p>
+          </li>
+          <li>
+            <span class="rule" data-rule="47"></span>
+            <h3><span data-l="zh">AI 是鏡子，不是裁判</span><span data-l="en" lang="en">AI as a mirror, not a judge</span></h3>
+            <p><span data-l="zh">發布前，共振會告訴你它在草稿裡讀到的核心體悟。沒有廣告，不追蹤你</span><span data-l="en" lang="en">Before you publish, Resonance shows you the core insight it read in your draft. No ads, no tracking.</span></p>
+          </li>
+        </ul>
+      </div>
+
+      <div class="cta">
+        <a class="visit" data-l="zh" href="https://resonance.channel/zh-TW" target="_blank" rel="noopener"><span class="o-label">前往 resonance.channel <span class="arrow" aria-hidden="true"></span></span></a>
+        <a class="visit" data-l="en" href="https://resonance.channel/en" target="_blank" rel="noopener"><span class="o-label">Visit resonance.channel <span class="arrow" aria-hidden="true"></span></span></a>
+        <p class="stores">
+          <span data-l="zh">也有 App：</span><span data-l="en">Also on</span>
+          <a class="pen-link" href="https://apps.apple.com/tw/app/resonance/id6817604797" target="_blank" rel="noopener">App Store</a>
+          <span aria-hidden="true">·</span>
+          <a class="pen-link" href="https://play.google.com/store/apps/details?id=com.resonance.stories" target="_blank" rel="noopener">Google Play</a>
+        </p>
+      </div>
+
+      <!-- 牽牽 Twine and 聆聆 Nod: two on one wavelength, meeting -->
+      <div class="stage stage--meet" aria-hidden="true">
+        <div class="pal" data-pal="tag" data-pose="hello-right"></div>
+        <span class="meet-waves" data-icon="resonance-mark"></span>
+        <div class="pal" data-pal="card" data-pose="hello-left"></div>
+        <span class="ground" data-ground="29"></span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="band band--foot">
+  <svg class="edge" data-edge="9" aria-hidden="true" focusable="false"></svg>
+  <div class="wrap foot">
+    <p class="foot-motto"><span data-l="zh">很期待收到你的訊息</span><span data-l="en" lang="en">I’d love to hear from you</span></p>
+    <nav class="foot-links" aria-label="Contact">
+      <a class="pen-link" href="mailto:ncchen99@gmail.com">ncchen99@gmail.com</a>
+      <a class="pen-link" href="https://github.com/ncchen99" target="_blank" rel="noopener">GitHub</a>
+      <a class="pen-link" href="https://ncchen99.github.io/blog/">Blog</a>
+    </nav>
+    <p class="copy">© <span id="year">2026</span> <span data-l="zh">陳念誠 · Nian-Cheng Chen</span><span data-l="en">Nian-Cheng Chen · 陳念誠</span></p>
+  </div>
+</footer>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
