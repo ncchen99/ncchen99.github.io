@@ -343,7 +343,8 @@ const STRAY = 0.26;
 const VISIT_AT = 1.2;
 const VISIT_FADE = 2.5;
 const VISIT_ARRIVE = 9;
-const VISIT_MELT = 3.5;
+/** Where a visitor comes to rest, as a fraction of its host's radius from the host's centre. */
+const ABSORB_AT = 0.55;
 
 /** The lobes' own clock: runs with t, slows from 70 % of SETTLE and stops with it. */
 function lobeClock(t) {
@@ -378,24 +379,39 @@ function frame(scene, w, h, t) {
   const v = scene.visitor;
   if (v && t > VISIT_AT) {
     const host = out[v.host];
+    const R0 = v.R * s;
+    const fx = v.from[0] * w;
+    const fy = v.from[1] * h;
+    // It comes to rest just inside the host's near side (never its centre, where a puppet may stand)...
+    const away = Math.hypot(fx - host.x, fy - host.y) || 1;
+    const inner = host.R * ABSORB_AT;
+    const tx = host.x + ((fx - host.x) / away) * inner;
+    const ty = host.y + ((fy - host.y) / away) * inner;
     const go = smoothstep((t - VISIT_AT) / (VISIT_ARRIVE - VISIT_AT));
-    const melt = smoothstep((t - VISIT_ARRIVE) / VISIT_MELT);
-    const fade = smoothstep((t - VISIT_AT) / VISIT_FADE) * (1 - melt);
-    if (fade > 0.001) {
-      // Its way bends a little, so it arrives rather than slides.
-      const bend = Math.sin(Math.PI * go) * 0.12 * s;
+    // Its way bends a little, so it arrives rather than slides.
+    const bend = Math.sin(Math.PI * go) * 0.12 * s;
+    const x = lerp(fx, tx, go) - bend * 0.4;
+    const y = lerp(fy, ty, go) + bend;
+    // ...and is taken in as it goes: from its centre crossing the host's rim to its resting place it shrinks
+    // to nothing. Its size is all its colour answers to (blobs.js paintAt weighs by R, not by w), so shrinking
+    // it takes its colour along with its shape: no tint left behind once its outline has gone into the host.
+    const d = Math.hypot(x - host.x, y - host.y);
+    const absorb = smoothstep((host.R - d) / (host.R - inner));
+    // Squared, so the last of its colour goes quickly instead of lingering as a speck; it is inside the host's
+    // outline by then, so its shape shrinking faster shows nowhere.
+    if (absorb < 0.97) {
       out.push({
-        x: lerp(v.from[0] * w, host.x, go) - bend * 0.4,
-        y: lerp(v.from[1] * h, host.y, go) + bend,
-        R: v.R * s * (1 - 0.5 * melt),
-        w: fade,
+        x,
+        y,
+        R: R0 * (1 - absorb) ** 2,
+        w: smoothstep((t - VISIT_AT) / VISIT_FADE),
         seed: v.seed,
         color: v.color,
         alpha: v.alpha,
       });
     }
     // The host takes in a little of the visitor's size.
-    host.R *= 1 + 0.06 * melt;
+    host.R *= 1 + 0.06 * absorb;
   }
   return out;
 }
@@ -415,7 +431,7 @@ function setupBlobs() {
     const draw = () => {
       const [w, h] = size;
       if (!layer || !w || !h) return;
-      const tt = still() ? SETTLE + VISIT_MELT : t;
+      const tt = still() ? SETTLE : t;
       layer.draw(frame(sceneOf(w), w, h, tt), lobeClock(tt));
     };
     const fit = () => {
@@ -434,7 +450,7 @@ function setupBlobs() {
       if (!start) start = now - t * 1000;
       t = (now - start) / 1000;
       draw();
-      if (t >= SETTLE + VISIT_MELT) {
+      if (t >= SETTLE) {
         running = false;
         done = true;
         return;
