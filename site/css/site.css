@@ -100,7 +100,7 @@ a { color: inherit; }
   font-family: var(--font-serif-zh);
   font-weight: 700;
   font-size: 20px;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.04em;
   line-height: 1;
   text-decoration: none;
   white-space: nowrap;
@@ -363,7 +363,7 @@ html[data-lang='en'] .beliefs h3 { font-family: var(--font-display); font-weight
 /* ── the foot ────────────────────────────────────────────────────────── */
 .band--foot { padding-block: clamp(48px, 6vw, 72px) max(32px, env(safe-area-inset-bottom, 0px)); }
 .foot { display: grid; justify-items: center; text-align: center; gap: 20px; }
-.foot-motto { font-family: var(--font-serif-zh); font-size: clamp(20px, 2vw, 26px); font-weight: 600; letter-spacing: 0.08em; }
+.foot-motto { font-family: var(--font-serif-zh); font-size: clamp(20px, 2vw, 26px); font-weight: 600; letter-spacing: 0.04em; }
 html[data-lang='en'] .foot-motto { font-family: var(--font-display); font-style: italic; font-weight: 500; letter-spacing: 0; }
 .foot-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 28px; font-size: 15px; }
 .band--foot .o-link { --o-link: var(--on-night); }
