@@ -372,8 +372,10 @@ html[data-lang='en'] .foot-motto { font-family: var(--font-display); font-style:
 @media (max-width: 720px) {
   .stage { --mm: clamp(0.4px, 0.135vw, 0.56px); }
   .mission-title { font-size: min(30px, calc((100vw - 2 * var(--pad-x)) / 11.5)); }
-  .band--mission { min-height: 0; align-items: start; padding-top: 76px; }
-  .mission { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+  /* With one paper and no edge between them, the space is what tells the two bands apart. */
+  .band--mission { min-height: 0; align-items: start; padding-top: 76px; padding-bottom: 104px; }
+  .band--resonance { padding-top: 96px; }
+  .mission { grid-template-columns: minmax(0, 1fr); gap: 20px; }
   .stage--mission { order: -1; justify-self: end; margin-right: 4px; min-height: calc(var(--mm) * 380); }
   .resonance {
     grid-template-columns: minmax(0, 1fr);

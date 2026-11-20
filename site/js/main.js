@@ -306,7 +306,8 @@ const SCENES = {
       blobs: [
         // Up and to the right of 摺摺, touching only its shoulder: behind it, not round it.
         { x: 0.93, y: 0.22, R: 0.15, color: INKS.peach, alpha: 0.78, seed: 11, drift: [-0.5, 0.4] },
-        { x: 0.04, y: 0.92, R: 0.15, color: INKS.lavender, alpha: 0.7, seed: 23, drift: [0.7, -0.3] },
+        // Down in the seam, under the socials rather than behind them.
+        { x: -0.03, y: 1.04, R: 0.14, color: INKS.lavender, alpha: 0.7, seed: 23, drift: [0.7, -0.3] },
         { x: 0.47, y: 0.06, R: 0.07, color: INKS.yellow, alpha: 0.75, seed: 5, drift: [-0.4, 0.6] },
       ],
       visitor: { from: [1.02, 0.08], host: 0, R: 0.075, color: INKS.sage, alpha: 0.8, seed: 41 },
@@ -314,7 +315,7 @@ const SCENES = {
     narrow: {
       blobs: [
         { x: 1.0, y: 0.03, R: 0.34, color: INKS.peach, alpha: 0.85, seed: 11, drift: [-0.5, 0.5] },
-        { x: 0.0, y: 0.94, R: 0.36, color: INKS.lavender, alpha: 0.7, seed: 23, drift: [0.6, -0.4] },
+        { x: -0.06, y: 1.04, R: 0.3, color: INKS.lavender, alpha: 0.7, seed: 23, drift: [0.6, -0.4] },
       ],
       visitor: { from: [0.15, 0.04], host: 0, R: 0.17, color: INKS.sage, alpha: 0.8, seed: 41 },
     },
@@ -322,15 +323,15 @@ const SCENES = {
   resonance: {
     wide: {
       blobs: [
-        // Above 聆聆's shoulder, like the peach by 摺摺: it reaches up over the seam, now that there is none.
-        { x: 0.95, y: 0.04, R: 0.15, color: INKS.yellow, alpha: 0.7, seed: 61, drift: [-0.5, 0.4] },
+        // Out at the right edge beside 聆聆, not round it, and low enough to stay out of the first screen.
+        { x: 1.03, y: 0.3, R: 0.13, color: INKS.yellow, alpha: 0.7, seed: 61, drift: [-0.5, 0.4] },
         { x: -0.02, y: 0.8, R: 0.13, color: INKS.sky, alpha: 0.55, seed: 83, drift: [0.6, 0.3] },
       ],
       visitor: { from: [1.05, 0.55], host: 0, R: 0.06, color: INKS.peach, alpha: 0.85, seed: 7 },
     },
     narrow: {
       blobs: [
-        { x: 0.95, y: 0.05, R: 0.4, color: INKS.yellow, alpha: 0.7, seed: 61, drift: [-0.5, 0.4] },
+        { x: 1.04, y: 0.14, R: 0.28, color: INKS.yellow, alpha: 0.7, seed: 61, drift: [-0.5, 0.4] },
         { x: 0.0, y: 0.6, R: 0.34, color: INKS.sky, alpha: 0.55, seed: 83, drift: [0.6, 0.3] },
       ],
       visitor: { from: [1.08, 0.3], host: 0, R: 0.16, color: INKS.peach, alpha: 0.85, seed: 7 },
