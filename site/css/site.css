@@ -154,9 +154,10 @@ main { position: relative; isolation: isolate; }
 .mission {
   width: 100%;
   display: grid;
-  grid-template-columns: minmax(0, 1.9fr) minmax(0, 1fr);
+  /* 摺摺 gets a column its own width, and a wide gap keeps its waving hand well clear of the title. */
+  grid-template-columns: minmax(0, 1fr) auto;
   align-items: end;
-  gap: clamp(24px, 4vw, 64px);
+  gap: clamp(48px, 7vw, 120px);
 }
 .kicker {
   font-size: 13px;
@@ -169,7 +170,7 @@ main { position: relative; isolation: isolate; }
 .mission-title {
   font-family: var(--font-serif-zh);
   font-weight: 700;
-  font-size: clamp(30px, 4.3vw, 60px);
+  font-size: clamp(30px, 3.6vw, 52px);
   line-height: 1.36;
   letter-spacing: 0.02em;
 }
@@ -264,7 +265,12 @@ main { position: relative; isolation: isolate; }
 .pal[data-hello] .pup__wave { animation: wave 0.62s ease-in-out 6 alternate both; }
 @keyframes wave { from { transform: rotate(var(--from)); } to { transform: rotate(var(--to)); } }
 
-.stage--mission { min-height: calc(var(--mm) * 470); margin-bottom: 6px; }
+.stage--mission {
+  /* A little smaller than the pals further down: here it shares the row with the title. */
+  --mm: clamp(0.56px, 0.04vw + 0.25px, 0.82px);
+  min-height: calc(var(--mm) * 470);
+  margin-bottom: 6px;
+}
 
 /* ── 2. Resonance ────────────────────────────────────────────────────── */
 .band--resonance { padding-block: clamp(72px, 9vw, 128px) clamp(64px, 8vw, 112px); }
@@ -366,7 +372,6 @@ html[data-lang='en'] .foot-motto { font-family: var(--font-display); font-style:
 
 /* ── narrower windows ────────────────────────────────────────────────── */
 @media (max-width: 900px) {
-  .mission { grid-template-columns: minmax(0, 1fr) auto; }
   .resonance-body { grid-template-columns: minmax(0, 1fr); }
 }
 @media (max-width: 720px) {
