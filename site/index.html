@@ -63,9 +63,11 @@
 </header>
 
 <main>
+  <!-- One sheet of paper under both bands: the blobs drift across where one band meets the next, never cut at it. -->
+  <div class="blobs" data-blobs aria-hidden="true"></div>
+
   <!-- ── 1. The mission ──────────────────────────────────────────────── -->
-  <section class="band band--mission" id="mission" aria-labelledby="mission-title">
-    <div class="blobs" data-blobs="mission" aria-hidden="true"></div>
+  <section class="band band--mission" id="mission" data-scene="mission" aria-labelledby="mission-title">
     <div class="wrap mission">
       <div class="mission-words">
         <p class="kicker"><span data-l="zh">我的使命</span><span data-l="en">My mission</span></p>
@@ -94,9 +96,7 @@
   </section>
 
   <!-- ── 2. Resonance ─────────────────────────────────────────────────── -->
-  <section class="band band--resonance" id="resonance" aria-labelledby="resonance-title">
-    <svg class="edge" data-edge="5" aria-hidden="true" focusable="false"></svg>
-    <div class="blobs" data-blobs="resonance" aria-hidden="true"></div>
+  <section class="band band--resonance" id="resonance" data-scene="resonance" aria-labelledby="resonance-title">
     <div class="wrap resonance">
       <p class="brand">
         <span class="brand-mark" data-icon="resonance-mark" aria-hidden="true"></span>
@@ -117,34 +117,16 @@
           <span data-l="en" lang="en">We believe in the power of stories. Every person is born whole, many-sided and unique, carrying life experience no one else has, and stories are the best way to connect people and make a difference. That is why we built Resonance. People write a stretch of their life as a story card. When a story moves them, they don’t answer with a like: they write a card of their own to resonate with it. Let lives influence lives.</span>
         </p>
 
-        <ul class="beliefs">
-          <li>
-            <span class="rule" data-rule="21"></span>
-            <h3><span data-l="zh">共振，不是按讚</span><span data-l="en" lang="en">Resonance, not likes</span></h3>
-            <p><span data-l="zh">公開回應一張卡片的唯一方式，是寫另一張卡片。沒有讚數，也沒有公開留言區</span><span data-l="en" lang="en">The one public way to answer a card is to write another card. No like counts, no public comment threads.</span></p>
-          </li>
-          <li>
-            <span class="rule" data-rule="33"></span>
-            <h3><span data-l="zh">對話從故事開始</span><span data-l="en" lang="en">Conversations start from a story</span></h3>
-            <p><span data-l="zh">沒有開放的收件匣。每段對話都從一個故事開始，而不是「嗨，在嗎」</span><span data-l="en" lang="en">There is no open inbox. Every conversation starts from a story, never from “hi”.</span></p>
-          </li>
-          <li>
-            <span class="rule" data-rule="47"></span>
-            <h3><span data-l="zh">AI 是鏡子，不是裁判</span><span data-l="en" lang="en">AI as a mirror, not a judge</span></h3>
-            <p><span data-l="zh">發布前，共振會告訴你它在草稿裡讀到的核心體悟。沒有廣告，不追蹤你</span><span data-l="en" lang="en">Before you publish, Resonance shows you the core insight it read in your draft. No ads, no tracking.</span></p>
-          </li>
-        </ul>
-      </div>
-
-      <div class="cta">
-        <a class="visit" data-l="zh" href="https://resonance.channel/zh-TW" target="_blank" rel="noopener"><span class="o-label">前往 resonance.channel <span class="arrow" aria-hidden="true"></span></span></a>
-        <a class="visit" data-l="en" href="https://resonance.channel/en" target="_blank" rel="noopener"><span class="o-label">Visit resonance.channel <span class="arrow" aria-hidden="true"></span></span></a>
-        <p class="stores">
-          <span data-l="zh">也有 App：</span><span data-l="en">Also on</span>
-          <a class="pen-link" href="https://apps.apple.com/tw/app/resonance/id6817604797" target="_blank" rel="noopener">App Store</a>
-          <span aria-hidden="true">·</span>
-          <a class="pen-link" href="https://play.google.com/store/apps/details?id=com.resonance.stories" target="_blank" rel="noopener">Google Play</a>
-        </p>
+        <div class="cta">
+          <a class="visit" data-l="zh" href="https://resonance.channel/zh-TW" target="_blank" rel="noopener"><span class="o-label">前往 resonance.channel <span class="arrow" aria-hidden="true"></span></span></a>
+          <a class="visit" data-l="en" href="https://resonance.channel/en" target="_blank" rel="noopener"><span class="o-label">Visit resonance.channel <span class="arrow" aria-hidden="true"></span></span></a>
+          <p class="stores">
+            <span data-l="zh">也有 App：</span><span data-l="en">Also on</span>
+            <a class="pen-link" href="https://apps.apple.com/tw/app/resonance/id6817604797" target="_blank" rel="noopener">App Store</a>
+            <span aria-hidden="true">·</span>
+            <a class="pen-link" href="https://play.google.com/store/apps/details?id=com.resonance.stories" target="_blank" rel="noopener">Google Play</a>
+          </p>
+        </div>
       </div>
 
       <!-- 牽牽 Twine and 聆聆 Nod: two on one wavelength, meeting -->

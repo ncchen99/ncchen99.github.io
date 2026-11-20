@@ -1,12 +1,13 @@
 /* 念誠's page, in the 共振 Resonance site's language: warm paper, one ink, soft drifting blobs, the
-   Paper Pals, hand-drawn edges and rules. Flat — no shadows anywhere; what separates one band from
-   the next is its paper and its wavy edge. The palette is the Resonance repo's src/styles/tokens.css. */
+   Paper Pals, hand-drawn edges and rules. Flat — no shadows anywhere. The mission and Resonance share one
+   sheet of paper (their blobs drift across where one meets the other); only the dark foot rises over it on
+   its wavy edge. The palette is the Resonance repo's src/styles/tokens.css. */
 :root {
   --cream: oklch(96.5% 0.015 75);
   --cream-dark: oklch(93% 0.018 75);
   --paper: oklch(97.5% 0.01 80);
   --ink: oklch(26% 0.03 60);
-  /* The site's muted ink is 52 %; a little deeper so small type holds 4.5:1 on the darker band too. */
+  /* The site's muted ink is 52 %; a little deeper so small type holds 4.5:1 over the blobs too. */
   --ink-soft: oklch(46% 0.04 70);
   --terracotta: oklch(62% 0.14 45);
   --terracotta-light: oklch(88% 0.08 55);
@@ -124,7 +125,9 @@ html[data-lang='en'] .wordmark { font-family: var(--font-display); letter-spacin
 .lang-globe, .lang-globe svg { display: block; width: 18px; height: 18px; }
 
 /* ── bands ───────────────────────────────────────────────────────────── */
+main { position: relative; isolation: isolate; }
 .band { position: relative; isolation: isolate; }
+/* One blob layer under both bands, so a blob near where they meet is never cut at the seam. */
 .blobs { position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
 .blobs canvas { opacity: 0; transition: opacity 900ms ease-out; }
 .blobs[data-ready] canvas { opacity: 1; }
@@ -138,8 +141,6 @@ html[data-lang='en'] .wordmark { font-family: var(--font-display); letter-spacin
   display: block;
   z-index: 2;
 }
-.band--resonance { background: var(--cream-dark); }
-.band--resonance .edge { fill: var(--cream-dark); }
 .band--foot { background: var(--night); color: var(--on-night); }
 .band--foot .edge { fill: var(--night); }
 
@@ -270,13 +271,12 @@ html[data-lang='en'] .wordmark { font-family: var(--font-display); letter-spacin
 .resonance {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
-  grid-template-rows: auto auto 1fr auto auto;
+  grid-template-rows: auto auto 1fr auto;
   grid-template-areas:
     'brand  stage'
     'title  stage'
     'lead   stage'
-    'body   body'
-    'cta    cta';
+    'body   body';
   column-gap: clamp(24px, 5vw, 80px);
 }
 .brand { grid-area: brand; display: flex; align-items: center; gap: 10px; margin-bottom: clamp(20px, 2.6vw, 32px); }
@@ -319,7 +319,8 @@ html[data-lang='en'] .wordmark { font-family: var(--font-display); letter-spacin
 .resonance-body {
   grid-area: body;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr);
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  align-items: start;
   gap: clamp(32px, 5vw, 80px);
   margin-top: clamp(48px, 6vw, 80px);
 }
@@ -331,20 +332,14 @@ html[data-lang='en'] .wordmark { font-family: var(--font-display); letter-spacin
   text-wrap: pretty;
 }
 html[data-lang='en'] .why { font-family: var(--font-display); font-size: 18px; letter-spacing: 0; line-height: 1.7; }
-.beliefs { list-style: none; margin: 0; padding: 0; display: grid; gap: clamp(22px, 2.4vw, 30px); align-content: start; }
-.beliefs li { display: grid; gap: 6px; }
-.rule { display: block; margin-bottom: 12px; color: color-mix(in oklch, oklch(60% 0.04 60) 45%, transparent); }
-.beliefs h3 { font-family: var(--font-serif-zh); font-weight: 600; font-size: 19px; line-height: 1.4; letter-spacing: 0.03em; }
-html[data-lang='en'] .beliefs h3 { font-family: var(--font-display); font-weight: 700; letter-spacing: 0; font-size: 20px; }
-.beliefs p { color: var(--ink-soft); font-size: 15.5px; line-height: 1.75; }
 
+/* The way in, where the three beliefs used to be: beside the paragraph, the button over the stores. */
 .cta {
-  grid-area: cta;
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 16px 28px;
-  margin-top: clamp(44px, 5vw, 72px);
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 18px;
+  padding-top: 6px;
 }
 .visit {
   min-height: 52px;
@@ -383,12 +378,12 @@ html[data-lang='en'] .foot-motto { font-family: var(--font-display); font-style:
   .resonance {
     grid-template-columns: minmax(0, 1fr);
     grid-template-rows: none;
-    grid-template-areas: 'brand' 'title' 'lead' 'stage' 'body' 'cta';
+    grid-template-areas: 'brand' 'title' 'lead' 'stage' 'body';
   }
   .stage--meet { margin-top: 28px; min-height: calc(var(--mm) * 470); }
   .resonance-body { margin-top: 40px; }
-  .visit { width: 100%; }
-  .stores { width: 100%; justify-content: center; }
+  .cta { align-items: stretch; }
+  .stores { justify-content: center; }
 }
 
 @media (prefers-reduced-motion: reduce) {

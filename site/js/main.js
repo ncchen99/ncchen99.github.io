@@ -1,5 +1,5 @@
 /**
- * 念誠's page: two bands of paper (the mission, then Resonance) and a foot.
+ * 念誠's page: two bands on one sheet of paper (the mission, then Resonance) and a foot.
  *
  * Everything here is the 共振 Resonance site's own language, by way of the team's business card
  * (Resonance-Business-Card): blobs.js is its port of the hero's metaball blobs, puppet.js + cast.js +
@@ -12,7 +12,6 @@ import { puppetEl, reach, mmPerUnit } from './puppet.js';
 import {
   organicButton,
   organicBare,
-  organicDivider,
   organicLink,
   globeIcon,
   arrowUpRightIcon,
@@ -192,7 +191,6 @@ function setupHandDrawn() {
     );
     el.append(s);
   }
-  for (const el of document.querySelectorAll('.rule')) organicDivider(el, { seed: Number(el.dataset.rule) });
   for (const el of document.querySelectorAll('.visit')) organicButton(el, { variant: 'solid' });
   for (const el of document.querySelectorAll('.pen-link')) organicLink(el);
 }
@@ -294,18 +292,20 @@ const INKS = {
   yellow: 'oklch(88% 0.10 90)',
   sky: 'oklch(82% 0.07 220)',
 };
-const PAPER = { mission: 'oklch(96.5% 0.015 75)', resonance: 'oklch(93% 0.018 75)' };
+/** The one paper both bands are on (--cream). */
+const PAPER = 'oklch(96.5% 0.015 75)';
 
 /**
  * Where each band's blobs rest, as fractions of the band (x, y) and of its scale (R), for a wide window and a
  * narrow one; `drift` is the way each strays before coming back. One small visitor comes in and melts into
- * its host, as on the landing hero.
+ * its host, as on the landing hero. A y past 1 (or below 0) reaches into the next band: they share one canvas.
  */
 const SCENES = {
   mission: {
     wide: {
       blobs: [
-        { x: 0.8, y: 0.52, R: 0.18, color: INKS.peach, alpha: 0.78, seed: 11, drift: [-0.6, 0.5] },
+        // Up and to the right of 摺摺, touching only its shoulder: behind it, not round it.
+        { x: 0.93, y: 0.22, R: 0.15, color: INKS.peach, alpha: 0.78, seed: 11, drift: [-0.5, 0.4] },
         { x: 0.04, y: 0.92, R: 0.15, color: INKS.lavender, alpha: 0.7, seed: 23, drift: [0.7, -0.3] },
         { x: 0.47, y: 0.06, R: 0.07, color: INKS.yellow, alpha: 0.75, seed: 5, drift: [-0.4, 0.6] },
       ],
@@ -313,7 +313,7 @@ const SCENES = {
     },
     narrow: {
       blobs: [
-        { x: 0.82, y: 0.2, R: 0.42, color: INKS.peach, alpha: 0.85, seed: 11, drift: [-0.5, 0.5] },
+        { x: 1.0, y: 0.03, R: 0.34, color: INKS.peach, alpha: 0.85, seed: 11, drift: [-0.5, 0.5] },
         { x: 0.0, y: 0.94, R: 0.36, color: INKS.lavender, alpha: 0.7, seed: 23, drift: [0.6, -0.4] },
       ],
       visitor: { from: [0.15, 0.04], host: 0, R: 0.17, color: INKS.sage, alpha: 0.8, seed: 41 },
@@ -322,7 +322,8 @@ const SCENES = {
   resonance: {
     wide: {
       blobs: [
-        { x: 0.86, y: 0.16, R: 0.17, color: INKS.yellow, alpha: 0.7, seed: 61, drift: [-0.5, 0.4] },
+        // Above 聆聆's shoulder, like the peach by 摺摺: it reaches up over the seam, now that there is none.
+        { x: 0.95, y: 0.04, R: 0.15, color: INKS.yellow, alpha: 0.7, seed: 61, drift: [-0.5, 0.4] },
         { x: -0.02, y: 0.8, R: 0.13, color: INKS.sky, alpha: 0.55, seed: 83, drift: [0.6, 0.3] },
       ],
       visitor: { from: [1.05, 0.55], host: 0, R: 0.06, color: INKS.peach, alpha: 0.85, seed: 7 },
@@ -417,66 +418,85 @@ function frame(scene, w, h, t) {
 }
 
 function setupBlobs() {
-  for (const host of document.querySelectorAll('[data-blobs]')) {
-    const name = host.dataset.blobs;
-    let layer = null;
-    let size = [0, 0];
-    let start = 0;
-    let t = 0;
-    let running = false;
-    let visible = false;
-    let done = false;
+  const host = document.querySelector('[data-blobs]');
+  const bands = [...document.querySelectorAll('[data-scene]')];
+  if (!host || !bands.length) return;
+  let layer = null;
+  let size = [0, 0];
+  // Each band's box within the sheet (its offsetParent is <main>, as the layer's host is).
+  let boxes = [];
+  let start = 0;
+  let t = 0;
+  let running = false;
+  let visible = false;
+  let done = false;
 
-    const sceneOf = (w) => SCENES[name][w < 720 ? 'narrow' : 'wide'];
-    const draw = () => {
-      const [w, h] = size;
-      if (!layer || !w || !h) return;
-      const tt = still() ? SETTLE : t;
-      layer.draw(frame(sceneOf(w), w, h, tt), lobeClock(tt));
-    };
-    const fit = () => {
-      const w = host.offsetWidth;
-      const h = host.offsetHeight;
-      if (Math.abs(w - size[0]) < 1 && Math.abs(h - size[1]) < 1) return;
+  const measure = () => {
+    boxes = bands.map((band) => ({
+      scene: SCENES[band.dataset.scene][band.offsetWidth < 720 ? 'narrow' : 'wide'],
+      top: band.offsetTop,
+      w: band.offsetWidth,
+      h: band.offsetHeight,
+    }));
+  };
+  const draw = () => {
+    if (!layer) return;
+    const tt = still() ? SETTLE : t;
+    const all = [];
+    for (const { scene, top, w, h } of boxes) {
+      if (!w || !h) continue;
+      for (const b of frame(scene, w, h, tt)) all.push({ ...b, y: b.y + top });
+    }
+    layer.draw(all, lobeClock(tt));
+  };
+  const fit = () => {
+    measure();
+    const w = host.offsetWidth;
+    const h = host.offsetHeight;
+    if (Math.abs(w - size[0]) >= 1 || Math.abs(h - size[1]) >= 1) {
       size = [w, h];
       layer?.destroy();
+      layer = null;
+      if (!w || !h) return;
       // The field is sampled every 6 px: fine enough for a soft outline, cheap enough to move at 60 fps.
-      layer = canvasLayer(host, { box: { x: 0, y: 0, w, h }, paper: PAPER[name], grain: 0.18, cell: 6, colourCell: 20 });
-      draw();
+      layer = canvasLayer(host, { box: { x: 0, y: 0, w, h }, paper: PAPER, grain: 0.18, cell: 6, colourCell: 20 });
       host.setAttribute('data-ready', '');
-    };
-    const tick = (now) => {
-      if (!running) return;
-      if (!start) start = now - t * 1000;
-      t = (now - start) / 1000;
-      draw();
-      if (t >= SETTLE) {
-        running = false;
-        done = true;
-        return;
-      }
-      requestAnimationFrame(tick);
-    };
-    const play = () => {
-      if (running || done || still() || !visible) return;
-      running = true;
-      start = 0;
-      requestAnimationFrame(tick);
-    };
+    }
+    draw();
+  };
+  const tick = (now) => {
+    if (!running) return;
+    if (!start) start = now - t * 1000;
+    t = (now - start) / 1000;
+    draw();
+    if (t >= SETTLE) {
+      running = false;
+      done = true;
+      return;
+    }
+    requestAnimationFrame(tick);
+  };
+  const play = () => {
+    if (running || done || still() || !visible) return;
+    running = true;
+    start = 0;
+    requestAnimationFrame(tick);
+  };
 
-    new ResizeObserver(fit).observe(host);
-    // Only while the band is on screen: the time runs on from where it was when it comes back.
-    new IntersectionObserver((entries) => {
-      visible = entries.some((e) => e.isIntersecting);
-      if (visible) play();
-      else running = false;
-    }).observe(host);
-    reducedMotion.addEventListener('change', () => {
-      if (still()) running = false;
-      draw();
-      play();
-    });
-  }
+  const resize = new ResizeObserver(fit);
+  resize.observe(host);
+  for (const band of bands) resize.observe(band);
+  // Only while the sheet is on screen: the time runs on from where it was when it comes back.
+  new IntersectionObserver((entries) => {
+    visible = entries.some((e) => e.isIntersecting);
+    if (visible) play();
+    else running = false;
+  }).observe(host);
+  reducedMotion.addEventListener('change', () => {
+    if (still()) running = false;
+    draw();
+    play();
+  });
 }
 
 // ── go ──────────────────────────────────────────────────────────────────
