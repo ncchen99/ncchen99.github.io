@@ -1,0 +1,13 @@
+{
+  "name": "陳念誠 Nian-Cheng Chen",
+  "short_name": "陳念誠",
+  "description": "結合資訊科技與商業，打造讓世界更溫暖的產品。",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#f6efe6",
+  "theme_color": "#f6efe6",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

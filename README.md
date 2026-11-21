@@ -20,6 +20,7 @@ ES modules 不能從 `file://` 載入，一定要透過伺服器打開。
 - 樣式與配色：`site/css/site.css`（色票取自共振的 `src/styles/tokens.css`）
 - 泡泡的位置、顏色與漂浮節奏：`site/js/main.js` 的 `SCENES`、`SETTLE`
 - 小紙團的姿勢與大小：`site/js/main.js` 的 `POSES`、`STAGE_HEIGHT`
+- 網頁 icon 與分享卡片：`site/favicon.ico`、`favicon-32.png`、`apple-touch-icon.png`、`icon-192.png`、`icon-512.png`（摺摺的臉）與 `site/og.jpg`，都是從共振 repo 的 `designs/mascots/cast/tuck/rig.svg` 渲染出來的；換圖後把 `index.html` 裡的 `?v=` 加一，瀏覽器和社群平台才會抓新的
 
 ## 從共振借來的部分
 
